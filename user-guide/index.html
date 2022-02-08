@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introduction - Polars - User Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="quickstart/intro.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li class="chapter-item expanded "><a href="dsl/intro.html"><strong aria-hidden="true">3.</strong> Polars expressions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="dsl/intro.html"><strong aria-hidden="true">3.1.</strong> Expressions</a></li><li class="chapter-item "><a href="dsl/contexts.html"><strong aria-hidden="true">3.2.</strong> Contexts</a></li><li class="chapter-item "><a href="dsl/groupby.html"><strong aria-hidden="true">3.3.</strong> GroupBy</a></li><li class="chapter-item "><a href="dsl/folds.html"><strong aria-hidden="true">3.4.</strong> Folds</a></li><li class="chapter-item "><a href="dsl/window_functions.html"><strong aria-hidden="true">3.5.</strong> Window functions</a></li><li class="chapter-item "><a href="dsl/numpy.html"><strong aria-hidden="true">3.6.</strong> Numpy universal functions</a></li><li class="chapter-item "><a href="notebooks/introduction_polars.html"><strong aria-hidden="true">3.7.</strong> Examples</a></li><li class="chapter-item "><a href="dsl/api.html"><strong aria-hidden="true">3.8.</strong> API</a></li><li class="chapter-item "><a href="dsl/video_intro.html"><strong aria-hidden="true">3.9.</strong> Video introduction</a></li></ol></li><li class="chapter-item expanded "><a href="indexing.html"><strong aria-hidden="true">4.</strong> Indexing</a></li><li class="chapter-item expanded "><a href="datatypes.html"><strong aria-hidden="true">5.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="coming_from_pandas.html"><strong aria-hidden="true">6.</strong> Coming from Pandas</a></li><li class="chapter-item expanded "><a href="coming_from_spark.html"><strong aria-hidden="true">7.</strong> Coming from Apache Spark</a></li><li class="chapter-item expanded "><a href="timeseries/intro.html"><strong aria-hidden="true">8.</strong> Time-series</a></li><li class="chapter-item expanded "><a href="howcani/intro.html"><strong aria-hidden="true">9.</strong> How can I?</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="howcani/io/intro.html"><strong aria-hidden="true">9.1.</strong> IO</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="howcani/io/csv.html"><strong aria-hidden="true">9.1.1.</strong> CSV files</a></li><li class="chapter-item "><a href="howcani/io/parquet.html"><strong aria-hidden="true">9.1.2.</strong> Parquet files</a></li><li class="chapter-item "><a href="multiple_files/intro.html"><strong aria-hidden="true">9.1.3.</strong> Multiple files</a></li><li class="chapter-item "><a href="howcani/io/read_db.html"><strong aria-hidden="true">9.1.4.</strong> Read from a database</a></li><li class="chapter-item "><a href="howcani/io/aws.html"><strong aria-hidden="true">9.1.5.</strong> Interact with AWS</a></li><li class="chapter-item "><a href="howcani/io/google-big-query.html"><strong aria-hidden="true">9.1.6.</strong> Interact with Google BigQuery</a></li><li class="chapter-item "><a href="howcani/io/postgres.html"><strong aria-hidden="true">9.1.7.</strong> Interact with Postgres</a></li><li class="chapter-item "><a href="howcani/interop/intro.html"><strong aria-hidden="true">9.1.8.</strong> Interoperability</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="howcani/interop/arrow.html"><strong aria-hidden="true">9.1.8.1.</strong> Arrow</a></li><li class="chapter-item "><a href="howcani/interop/numpy.html"><strong aria-hidden="true">9.1.8.2.</strong> NumPy</a></li></ol></li><li class="chapter-item "><a href="howcani/data/intro.html"><strong aria-hidden="true">9.1.9.</strong> Data handling</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="howcani/data/strings.html"><strong aria-hidden="true">9.1.9.1.</strong> Process strings</a></li><li class="chapter-item "><a href="howcani/data/timestamps.html"><strong aria-hidden="true">9.1.9.2.</strong> Process timestamps</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="performance/intro.html"><strong aria-hidden="true">10.</strong> Performance</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="performance/strings.html"><strong aria-hidden="true">10.1.</strong> Strings</a></li></ol></li><li class="chapter-item expanded "><a href="optimizations/intro.html"><strong aria-hidden="true">11.</strong> Optimizations</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="optimizations/lazy/intro.html"><strong aria-hidden="true">11.1.</strong> Lazy API</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="optimizations/lazy/predicate-pushdown.html"><strong aria-hidden="true">11.1.1.</strong> Predicate pushdown</a></li><li class="chapter-item "><a href="optimizations/lazy/projection-pushdown.html"><strong aria-hidden="true">11.1.2.</strong> Projection pushdown</a></li><li class="chapter-item "><a href="optimizations/lazy/other-optimizations.html"><strong aria-hidden="true">11.1.3.</strong> Other optimizations</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">12.</strong> Reference guides</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Polars - User Guide</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <div style="margin: 30px auto; background-color: white; border-radius: 50%; width: 200px; height: 200px;"><img src="https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars-logo-dark.svg" alt="Polars logo" style="width: 168px; height: 168px; padding: 10px 20px;"></div>
+<h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>This book is an introduction to the
+<a href="https://github.com/pola-rs/polars"><code>Polars</code> DataFrame library</a>. Its goal is to
+introduce you to <code>Polars</code> by going through examples and comparing it to other
+solutions. Some design choices are introduced here, and the optimal use of <code>Polars</code>
+described.</p>
+<p>Even though <code>Polars</code> is completely written in <a href="https://www.rust-lang.org/"><code>Rust</code></a> (no
+runtime overhead!) and uses <a href="https://arrow.apache.org/"><code>Arrow</code></a> -the
+<a href="https://github.com/jorgecarleitao/arrow2">native arrow2 <code>Rust</code> implementation</a>- as its foundation, the
+examples presented in this guide will be mostly using its higher-level language
+bindings. The latter are merely a thin wrapper that will not offer more
+functionalities than the core library does.</p>
+<p>For people used to <a href="https://pandas.pydata.org/"><code>Pandas</code></a>, the
+<a href="https://www.python.org/"><code>Python</code></a> bindings are the easiest to get started with
+<code>Polars</code>, allowing easier experimentation.</p>
+<h2 id="goals-and-non-goals"><a class="header" href="#goals-and-non-goals">Goals and non-goals</a></h2>
+<p>The goal of <code>Polars</code> is being a lightning fast DataFrame library that utilizes all
+available cores on your machine. Unlike tools like dask that tries to parallelize existing single-threaded libraries
+like <code>numpy</code> and <code>pandas</code>, <code>polars</code> is written from the ground up with parallelization of DataFrame queries in mind.
+It goes through great efforts to reduce redundant copies, traverse memory cache efficiently have minimal contention in
+parallelism.</p>
+<p><code>Polars</code> is lazy and semi-lazy. It allows you to do most of your work eagerly, similar to <code>pandas</code>, but
+it does provide you with a powerful expression syntax that will be optimized and executed on polars' query engine.</p>
+<p>In lazy <code>Polars</code> we are able to do query optimization on your whole queries, further improving performance and memory pressure.</p>
+<p><code>Polars</code> keeps track of your query in a <em>logical plan</em>. This
+plan is optimized and reordered before running it. When a result is requested <code>Polars</code>
+distributes the available work to different <em>executors</em> that use the algorithms available
+in the eager API to produce a result. Because the whole query context is known to
+the optimizer and executors of the logical plan, processes dependent on separate data
+sources can be parallelized on the fly.</p>
+<p><img src="https://raw.githubusercontent.com/pola-rs/polars-static/master/docs/api.svg" alt="" /></p>
+<h3 id="performance-"><a class="header" href="#performance-">Performance 🚀🚀</a></h3>
+<p>Polars is very fast, and in fact is one of the best performing solutions available.
+See the results in h2oai's db-benchmark. The image below shows the biggest datasets yielding a result.</p>
+<p><img src="https://www.ritchievink.com/img/post-35-polars-0.15/db-benchmark.png" alt="" /></p>
+<h3 id="current-status"><a class="header" href="#current-status">Current status</a></h3>
+<p>Below a concise list of the features allowing <code>Polars</code> to meet its goals:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Copy-on-write">Copy-on-write</a> (COW) semantics
+<ul>
+<li>&quot;Free&quot; clones</li>
+<li>Cheap appends</li>
+</ul>
+</li>
+<li>Appending without clones</li>
+<li>Column oriented data storage
+<ul>
+<li>No block manager (-i.e.- predictable performance)</li>
+</ul>
+</li>
+<li>Missing values indicated with bitmask
+<ul>
+<li>NaN are different from missing</li>
+<li>Bitmask optimizations</li>
+</ul>
+</li>
+<li>Efficient algorithms</li>
+<li>Very fast IO
+<ul>
+<li>Its csv and parquet readers are among the fastest in existence</li>
+</ul>
+</li>
+<li><a href="optimizations/lazy/intro.html">Query optimizations</a>
+<ul>
+<li>Predicate pushdown
+<ul>
+<li>Filtering at scan level</li>
+</ul>
+</li>
+<li>Projection pushdown
+<ul>
+<li>Projection at scan level</li>
+</ul>
+</li>
+<li>Aggregate pushdown
+<ul>
+<li>Aggregations at scan level</li>
+</ul>
+</li>
+<li>Simplify expressions</li>
+<li>Parallel execution of physical plan</li>
+<li>Cardinality based groupby dispatch
+<ul>
+<li>Different groupby strategies based on data cardinality</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SIMD vectorization</li>
+<li><a href="https://numpy.org/doc/stable/reference/ufuncs.html"><code>NumPy</code> universal functions</a></li>
+</ul>
+<h2 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h2>
+<p>Development of <code>Polars</code> is proudly powered by</p>
+<p><a href="https://www.xomnia.com"><img src="https://raw.githubusercontent.com/pola-rs/polars-static/master/sponsors/xomnia.png" alt="Xomnia" /></a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+                            <a rel="next" href="quickstart/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+                    <a rel="next" href="quickstart/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

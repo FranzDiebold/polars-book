@@ -1,0 +1,1664 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>DateTimeNameSpace - Polars - Python Reference Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../../favicon.png">
+        
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../../../theme/css/style.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../../polars.html">polars</a></li><li class="chapter-item "><a href="../../../polars/cfg.html">cfg</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/cfg/Config.html">Config</a></li></ol></li><li class="chapter-item "><a href="../../../polars/convert.html">convert</a></li><li class="chapter-item "><a href="../../../polars/datatypes.html">datatypes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/datatypes/DataType.html">DataType</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int8.html">Int8</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int16.html">Int16</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int32.html">Int32</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int64.html">Int64</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt8.html">UInt8</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt16.html">UInt16</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt32.html">UInt32</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt64.html">UInt64</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Float32.html">Float32</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Float64.html">Float64</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Boolean.html">Boolean</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Utf8.html">Utf8</a></li><li class="chapter-item "><a href="../../../polars/datatypes/List.html">List</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Date.html">Date</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Datetime.html">Datetime</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Duration.html">Duration</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Time.html">Time</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Object.html">Object</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Categorical.html">Categorical</a></li></ol></li><li class="chapter-item "><a href="../../../polars/datatypes_constructor.html">datatypes_constructor</a></li><li class="chapter-item expanded "><a href="../../../polars/internals.html">internals</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/construction.html">construction</a></li><li class="chapter-item "><a href="../../../polars/internals/expr.html">expr</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/expr/Expr.html">Expr</a></li><li class="chapter-item "><a href="../../../polars/internals/expr/ExprListNameSpace.html">ExprListNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/expr/ExprStringNameSpace.html">ExprStringNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/expr/ExprDateTimeNameSpace.html">ExprDateTimeNameSpace</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/frame.html">frame</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/frame/DataFrame.html">DataFrame</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/RollingGroupBy.html">RollingGroupBy</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/DynamicGroupBy.html">DynamicGroupBy</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/GroupBy.html">GroupBy</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/PivotOps.html">PivotOps</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/GBSelection.html">GBSelection</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/functions.html">functions</a></li><li class="chapter-item "><a href="../../../polars/internals/lazy_frame.html">lazy_frame</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/lazy_frame/LazyFrame.html">LazyFrame</a></li><li class="chapter-item "><a href="../../../polars/internals/lazy_frame/LazyGroupBy.html">LazyGroupBy</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/lazy_functions.html">lazy_functions</a></li><li class="chapter-item expanded "><a href="../../../polars/internals/series.html">series</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/series/Series.html">Series</a></li><li class="chapter-item "><a href="../../../polars/internals/series/StringNameSpace.html">StringNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/series/ListNameSpace.html">ListNameSpace</a></li><li class="chapter-item expanded "><a href="../../../polars/internals/series/DateTimeNameSpace.html" class="active">DateTimeNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/series/SeriesIter.html">SeriesIter</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/whenthen.html">whenthen</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/whenthen/WhenThenThen.html">WhenThenThen</a></li><li class="chapter-item "><a href="../../../polars/internals/whenthen/WhenThen.html">WhenThen</a></li><li class="chapter-item "><a href="../../../polars/internals/whenthen/When.html">When</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../polars/io.html">io</a></li><li class="chapter-item "><a href="../../../polars/string_cache.html">string_cache</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/string_cache/StringCache.html">StringCache</a></li></ol></li><li class="chapter-item "><a href="../../../polars/testing.html">testing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Polars - Python Reference Guide</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="polarsinternalsseriesdatetimenamespace"><a class="header" href="#polarsinternalsseriesdatetimenamespace"><code>polars.internals.series.DateTimeNameSpace</code></a></h1>
+<p>Series.dt namespace.</p>
+<p><strong>Methods</strong></p>
+<ul>
+<li><a href="#polarsinternalsseriesdatetimenamespacetruncate"><code>truncate()</code></a>: .. warning::</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacestrftime"><code>strftime()</code></a>: Format Date/datetime with a formatting rule: See <code>chrono strftime/strptime &lt;https:/docs.rs/chrono/0.4.19/chrono/format/strftime/index.html&gt;</code>_.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceyear"><code>year()</code></a>: Extract the year from the underlying date representation.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacemonth"><code>month()</code></a>: Extract the month from the underlying date representation.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceweek"><code>week()</code></a>: Extract the week from the underlying date representation.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceweekday"><code>weekday()</code></a>: Extract the week day from the underlying date representation.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceday"><code>day()</code></a>: Extract the day from the underlying date representation.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceordinal_day"><code>ordinal_day()</code></a>: Extract ordinal day from underlying date representation.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacehour"><code>hour()</code></a>: Extract the hour from the underlying DateTime representation.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceminute"><code>minute()</code></a>: Extract the minutes from the underlying DateTime representation.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacesecond"><code>second()</code></a>: Extract the seconds the from underlying DateTime representation.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacenanosecond"><code>nanosecond()</code></a>: Extract the nanoseconds from the underlying DateTime representation.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacetimestamp"><code>timestamp()</code></a>: Return timestamp in ms as Int64 type.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceto_python_datetime"><code>to_python_datetime()</code></a>: Go from Date/Datetime to python DateTime objects</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacemin"><code>min()</code></a>: Return minimum as python DateTime</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacemax"><code>max()</code></a>: Return maximum as python DateTime</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacemedian"><code>median()</code></a>: Return median as python DateTime</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacemean"><code>mean()</code></a>: Return mean as python DateTime</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceepoch_days"><code>epoch_days()</code></a>: Get the number of days since the unix EPOCH.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceepoch_milliseconds"><code>epoch_milliseconds()</code></a>: Get the number of milliseconds since the unix EPOCH</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceepoch_seconds"><code>epoch_seconds()</code></a>: Get the number of seconds since the unix EPOCH</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceand_time_unit"><code>and_time_unit()</code></a>: Set time unit a Series of type Datetime</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceand_time_zone"><code>and_time_zone()</code></a>: Set time zone a Series of type Datetime</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacedays"><code>days()</code></a>: Extract the days from a Duration type.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacehours"><code>hours()</code></a>: Extract the hours from a Duration type.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespaceseconds"><code>seconds()</code></a>: Extract the seconds from a Duration type.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacemilliseconds"><code>milliseconds()</code></a>: Extract the milliseconds from a Duration type.</li>
+<li><a href="#polarsinternalsseriesdatetimenamespacenanoseconds"><code>nanoseconds()</code></a>: Extract the nanoseconds from a Duration type.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">class DateTimeNameSpace:
+    &quot;&quot;&quot;
+    Series.dt namespace.
+    &quot;&quot;&quot;
+
+    def __init__(self, series: Series):
+        self._s = series._s
+
+    def truncate(
+        self,
+        every: Union[str, timedelta],
+        offset: Optional[Union[str, timedelta]] = None,
+    ) -&gt; Series:
+        &quot;&quot;&quot;
+        .. warning::
+            This API is experimental and may change without it being considered a breaking change.
+
+        Divide the date/ datetime range into buckets.
+        Data must be sorted, if not the output does not make sense.
+
+        The `every` and `offset` argument are created with the
+        the following string language:
+
+        1ns # 1 nanosecond
+        1us # 1 microsecond
+        1ms # 1 millisecond
+        1s  # 1 second
+        1m  # 1 minute
+        1h  # 1 hour
+        1d  # 1 day
+        1w  # 1 week
+        1mo # 1 calendar month
+        1y  # 1 calendar year
+
+        3d12h4m25s # 3 days, 12 hours, 4 minutes, and 25 seconds
+
+        Parameters
+        ----------
+        every
+            Every interval start and period length
+        offset
+            Offset the window
+
+        Returns
+        -------
+        Date/Datetime series
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; from datetime import timedelta, datetime
+        &gt;&gt;&gt; start = datetime(2001, 1, 1)
+        &gt;&gt;&gt; stop = datetime(2001, 1, 2)
+        &gt;&gt;&gt; s = pl.date_range(start, stop, timedelta(minutes=30), name=&quot;dates&quot;)
+        &gt;&gt;&gt; s
+        shape: (49,)
+        Series: 'dates' [datetime[ns]]
+        [
+            2001-01-01 00:00:00
+            2001-01-01 00:30:00
+            2001-01-01 01:00:00
+            2001-01-01 01:30:00
+            2001-01-01 02:00:00
+            2001-01-01 02:30:00
+            2001-01-01 03:00:00
+            2001-01-01 03:30:00
+            2001-01-01 04:00:00
+            2001-01-01 04:30:00
+            2001-01-01 05:00:00
+            2001-01-01 05:30:00
+            ...
+            2001-01-01 18:30:00
+            2001-01-01 19:00:00
+            2001-01-01 19:30:00
+            2001-01-01 20:00:00
+            2001-01-01 20:30:00
+            2001-01-01 21:00:00
+            2001-01-01 21:30:00
+            2001-01-01 22:00:00
+            2001-01-01 22:30:00
+            2001-01-01 23:00:00
+            2001-01-01 23:30:00
+            2001-01-02 00:00:00
+        ]
+        &gt;&gt;&gt; s.dt.truncate(&quot;1h&quot;)
+        shape: (49,)
+        Series: 'dates' [datetime[ns]]
+        [
+            2001-01-01 00:00:00
+            2001-01-01 00:00:00
+            2001-01-01 01:00:00
+            2001-01-01 01:00:00
+            2001-01-01 02:00:00
+            2001-01-01 02:00:00
+            2001-01-01 03:00:00
+            2001-01-01 03:00:00
+            2001-01-01 04:00:00
+            2001-01-01 04:00:00
+            2001-01-01 05:00:00
+            2001-01-01 05:00:00
+            ...
+            2001-01-01 18:00:00
+            2001-01-01 19:00:00
+            2001-01-01 19:00:00
+            2001-01-01 20:00:00
+            2001-01-01 20:00:00
+            2001-01-01 21:00:00
+            2001-01-01 21:00:00
+            2001-01-01 22:00:00
+            2001-01-01 22:00:00
+            2001-01-01 23:00:00
+            2001-01-01 23:00:00
+            2001-01-02 00:00:00
+        ]
+        &gt;&gt;&gt; assert s.dt.truncate(&quot;1h&quot;) == s.dt.truncate(timedelta(hours=1))
+
+        &quot;&quot;&quot;
+        return pli.select(
+            pli.lit(wrap_s(self._s)).dt.truncate(every, offset)
+        ).to_series()
+
+    def __getitem__(self, item: int) -&gt; Union[date, datetime]:
+        s = wrap_s(self._s)
+        return s[item]
+
+    def strftime(self, fmt: str) -&gt; Series:
+        &quot;&quot;&quot;
+        Format Date/datetime with a formatting rule: See `chrono strftime/strptime &lt;https://docs.rs/chrono/0.4.19/chrono/format/strftime/index.html&gt;`_.
+
+        Returns
+        -------
+        Utf8 Series
+        &quot;&quot;&quot;
+        return wrap_s(self._s.strftime(fmt))
+
+    def year(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the year from the underlying date representation.
+        Can be performed on Date and Datetime.
+
+        Returns the year number in the calendar date.
+
+        Returns
+        -------
+        Year as Int32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.year())
+
+    def month(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the month from the underlying date representation.
+        Can be performed on Date and Datetime
+
+        Returns the month number starting from 1.
+        The return value ranges from 1 to 12.
+
+        Returns
+        -------
+        Month as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.month())
+
+    def week(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the week from the underlying date representation.
+        Can be performed on Date and Datetime
+
+        Returns the ISO week number starting from 1.
+        The return value ranges from 1 to 53. (The last week of year differs by years.)
+
+        Returns
+        -------
+        Week number as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.week())
+
+    def weekday(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the week day from the underlying date representation.
+        Can be performed on Date and Datetime.
+
+        Returns the weekday number where monday = 0 and sunday = 6
+
+        Returns
+        -------
+        Week day as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.weekday())
+
+    def day(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the day from the underlying date representation.
+        Can be performed on Date and Datetime.
+
+        Returns the day of month starting from 1.
+        The return value ranges from 1 to 31. (The last day of month differs by months.)
+
+        Returns
+        -------
+        Day as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.day())
+
+    def ordinal_day(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract ordinal day from underlying date representation.
+        Can be performed on Date and Datetime.
+
+        Returns the day of year starting from 1.
+        The return value ranges from 1 to 366. (The last day of year differs by years.)
+
+        Returns
+        -------
+        Day as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.ordinal_day())
+
+    def hour(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the hour from the underlying DateTime representation.
+        Can be performed on Datetime.
+
+        Returns the hour number from 0 to 23.
+
+        Returns
+        -------
+        Hour as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.hour())
+
+    def minute(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the minutes from the underlying DateTime representation.
+        Can be performed on Datetime.
+
+        Returns the minute number from 0 to 59.
+
+        Returns
+        -------
+        Minute as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.minute())
+
+    def second(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the seconds the from underlying DateTime representation.
+        Can be performed on Datetime.
+
+        Returns the second number from 0 to 59.
+
+        Returns
+        -------
+        Second as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.second())
+
+    def nanosecond(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the nanoseconds from the underlying DateTime representation.
+        Can be performed on Datetime.
+
+        Returns the number of nanoseconds since the whole non-leap second.
+        The range from 1,000,000,000 to 1,999,999,999 represents the leap second.
+
+        Returns
+        -------
+        Nanosecond as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.nanosecond())
+
+    def timestamp(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Return timestamp in ms as Int64 type.
+        &quot;&quot;&quot;
+        return wrap_s(self._s.timestamp())
+
+    def to_python_datetime(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Go from Date/Datetime to python DateTime objects
+        &quot;&quot;&quot;
+        return (self.timestamp() / 1000).apply(
+            lambda ts: datetime.utcfromtimestamp(ts), Object
+        )
+
+    def min(self) -&gt; Union[date, datetime]:
+        &quot;&quot;&quot;
+        Return minimum as python DateTime
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        out = s.min()
+        return _to_python_datetime(out, s.dtype, s.time_unit)
+
+    def max(self) -&gt; Union[date, datetime]:
+        &quot;&quot;&quot;
+        Return maximum as python DateTime
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        out = s.max()
+        return _to_python_datetime(out, s.dtype, s.time_unit)
+
+    def median(self) -&gt; Union[date, datetime]:
+        &quot;&quot;&quot;
+        Return median as python DateTime
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        out = int(s.median())
+        return _to_python_datetime(out, s.dtype, s.time_unit)
+
+    def mean(self) -&gt; Union[date, datetime]:
+        &quot;&quot;&quot;
+        Return mean as python DateTime
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        out = int(s.mean())
+        return _to_python_datetime(out, s.dtype, s.time_unit)
+
+    def epoch_days(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Get the number of days since the unix EPOCH.
+        If the date is before the unix EPOCH, the number of days will be negative.
+
+        Returns
+        -------
+        Days as Int32
+        &quot;&quot;&quot;
+        return wrap_s(self._s).cast(Date).cast(Int32)
+
+    def epoch_milliseconds(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Get the number of milliseconds since the unix EPOCH
+        If the date is before the unix EPOCH, the number of milliseconds will be negative.
+
+        Returns
+        -------
+        Milliseconds as Int64
+        &quot;&quot;&quot;
+        return self.timestamp()
+
+    def epoch_seconds(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Get the number of seconds since the unix EPOCH
+        If the date is before the unix EPOCH, the number of seconds will be negative.
+
+        Returns
+        -------
+        Milliseconds as Int64
+        &quot;&quot;&quot;
+        return wrap_s(self._s.dt_epoch_seconds())
+
+    def and_time_unit(self, tu: str) -&gt; &quot;Series&quot;:
+        &quot;&quot;&quot;
+        Set time unit a Series of type Datetime
+
+        Parameters
+        ----------
+        tu
+            Time unit for the `Datetime` Series: any of {&quot;ns&quot;, &quot;ms&quot;}
+
+        &quot;&quot;&quot;
+        return wrap_s(self._s.and_time_unit(tu))
+
+    def and_time_zone(self, tz: Optional[str]) -&gt; &quot;Series&quot;:
+        &quot;&quot;&quot;
+        Set time zone a Series of type Datetime
+
+        Parameters
+        ----------
+        tz
+            Time zone for the `Datetime` Series: any of {&quot;ns&quot;, &quot;ms&quot;}
+
+        &quot;&quot;&quot;
+        return wrap_s(self._s.and_time_zone(tz))
+
+    def days(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the days from a Duration type.
+
+        Returns
+        -------
+        A series of dtype Int64
+        &quot;&quot;&quot;
+        return pli.select(pli.lit(wrap_s(self._s)).dt.days()).to_series()
+
+    def hours(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the hours from a Duration type.
+
+        Returns
+        -------
+        A series of dtype Int64
+        &quot;&quot;&quot;
+        return pli.select(pli.lit(wrap_s(self._s)).dt.hours()).to_series()
+
+    def seconds(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the seconds from a Duration type.
+
+        Returns
+        -------
+        A series of dtype Int64
+        &quot;&quot;&quot;
+        return pli.select(pli.lit(wrap_s(self._s)).dt.seconds()).to_series()
+
+    def milliseconds(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the milliseconds from a Duration type.
+
+        Returns
+        -------
+        A series of dtype Int64
+        &quot;&quot;&quot;
+        return pli.select(pli.lit(wrap_s(self._s)).dt.milliseconds()).to_series()
+
+    def nanoseconds(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the nanoseconds from a Duration type.
+
+        Returns
+        -------
+        A series of dtype Int64
+        &quot;&quot;&quot;
+        return pli.select(pli.lit(wrap_s(self._s)).dt.nanoseconds()).to_series()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<h2 id="constructor"><a class="header" href="#constructor">Constructor</a></h2>
+<pre><code class="language-python">DateTimeNameSpace(series: Series)
+</code></pre>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def __init__(self, series: Series):
+        self._s = series._s
+</code></pre>
+<p>
+</details>
+</raw></p>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<p><div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacetruncate"><a class="header" href="#polarsinternalsseriesdatetimenamespacetruncate"><code>polars.internals.series.DateTimeNameSpace.truncate</code></a></h3>
+<pre><code class="language-python">truncate(every: Union[str, timedelta], 
+    offset: OptionalUnion[str, timedelta],) -&gt; Series:
+</code></pre>
+<p>.. warning::
+This API is experimental and may change without it being considered a breaking change.</p>
+<p>Divide the date/ datetime range into buckets.
+Data must be sorted, if not the output does not make sense.</p>
+<p>The <code>every</code> and <code>offset</code> argument are created with the
+the following string language:</p>
+<p>1ns # 1 nanosecond
+1us # 1 microsecond
+1ms # 1 millisecond
+1s  # 1 second
+1m  # 1 minute
+1h  # 1 hour
+1d  # 1 day
+1w  # 1 week
+1mo # 1 calendar month
+1y  # 1 calendar year</p>
+<p>3d12h4m25s # 3 days, 12 hours, 4 minutes, and 25 seconds</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>every</code>]: Every interval start and period length</li>
+<li>[<code>offset</code>]: Offset the window</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Date/Datetime series</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from datetime import timedelta, datetime
+start = datetime(2001, 1, 1)
+stop = datetime(2001, 1, 2)
+s = pl.date_range(start, stop, timedelta(minutes=30), name=&quot;dates&quot;)
+s
+shape: (49,)
+Series: 'dates' [datetime[ns]]
+[
+2001-01-01 00:00:00
+2001-01-01 00:30:00
+2001-01-01 01:00:00
+2001-01-01 01:30:00
+2001-01-01 02:00:00
+2001-01-01 02:30:00
+2001-01-01 03:00:00
+2001-01-01 03:30:00
+2001-01-01 04:00:00
+2001-01-01 04:30:00
+2001-01-01 05:00:00
+2001-01-01 05:30:00
+...
+2001-01-01 18:30:00
+2001-01-01 19:00:00
+2001-01-01 19:30:00
+2001-01-01 20:00:00
+2001-01-01 20:30:00
+2001-01-01 21:00:00
+2001-01-01 21:30:00
+2001-01-01 22:00:00
+2001-01-01 22:30:00
+2001-01-01 23:00:00
+2001-01-01 23:30:00
+2001-01-02 00:00:00
+]
+s.dt.truncate(&quot;1h&quot;)
+shape: (49,)
+Series: 'dates' [datetime[ns]]
+[
+2001-01-01 00:00:00
+2001-01-01 00:00:00
+2001-01-01 01:00:00
+2001-01-01 01:00:00
+2001-01-01 02:00:00
+2001-01-01 02:00:00
+2001-01-01 03:00:00
+2001-01-01 03:00:00
+2001-01-01 04:00:00
+2001-01-01 04:00:00
+2001-01-01 05:00:00
+2001-01-01 05:00:00
+...
+2001-01-01 18:00:00
+2001-01-01 19:00:00
+2001-01-01 19:00:00
+2001-01-01 20:00:00
+2001-01-01 20:00:00
+2001-01-01 21:00:00
+2001-01-01 21:00:00
+2001-01-01 22:00:00
+2001-01-01 22:00:00
+2001-01-01 23:00:00
+2001-01-01 23:00:00
+2001-01-02 00:00:00
+]
+assert s.dt.truncate(&quot;1h&quot;) == s.dt.truncate(timedelta(hours=1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def truncate(
+        self,
+        every: Union[str, timedelta],
+        offset: Optional[Union[str, timedelta]] = None,
+    ) -&gt; Series:
+        &quot;&quot;&quot;
+        .. warning::
+            This API is experimental and may change without it being considered a breaking change.
+
+        Divide the date/ datetime range into buckets.
+        Data must be sorted, if not the output does not make sense.
+
+        The `every` and `offset` argument are created with the
+        the following string language:
+
+        1ns # 1 nanosecond
+        1us # 1 microsecond
+        1ms # 1 millisecond
+        1s  # 1 second
+        1m  # 1 minute
+        1h  # 1 hour
+        1d  # 1 day
+        1w  # 1 week
+        1mo # 1 calendar month
+        1y  # 1 calendar year
+
+        3d12h4m25s # 3 days, 12 hours, 4 minutes, and 25 seconds
+
+        Parameters
+        ----------
+        every
+            Every interval start and period length
+        offset
+            Offset the window
+
+        Returns
+        -------
+        Date/Datetime series
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; from datetime import timedelta, datetime
+        &gt;&gt;&gt; start = datetime(2001, 1, 1)
+        &gt;&gt;&gt; stop = datetime(2001, 1, 2)
+        &gt;&gt;&gt; s = pl.date_range(start, stop, timedelta(minutes=30), name=&quot;dates&quot;)
+        &gt;&gt;&gt; s
+        shape: (49,)
+        Series: 'dates' [datetime[ns]]
+        [
+            2001-01-01 00:00:00
+            2001-01-01 00:30:00
+            2001-01-01 01:00:00
+            2001-01-01 01:30:00
+            2001-01-01 02:00:00
+            2001-01-01 02:30:00
+            2001-01-01 03:00:00
+            2001-01-01 03:30:00
+            2001-01-01 04:00:00
+            2001-01-01 04:30:00
+            2001-01-01 05:00:00
+            2001-01-01 05:30:00
+            ...
+            2001-01-01 18:30:00
+            2001-01-01 19:00:00
+            2001-01-01 19:30:00
+            2001-01-01 20:00:00
+            2001-01-01 20:30:00
+            2001-01-01 21:00:00
+            2001-01-01 21:30:00
+            2001-01-01 22:00:00
+            2001-01-01 22:30:00
+            2001-01-01 23:00:00
+            2001-01-01 23:30:00
+            2001-01-02 00:00:00
+        ]
+        &gt;&gt;&gt; s.dt.truncate(&quot;1h&quot;)
+        shape: (49,)
+        Series: 'dates' [datetime[ns]]
+        [
+            2001-01-01 00:00:00
+            2001-01-01 00:00:00
+            2001-01-01 01:00:00
+            2001-01-01 01:00:00
+            2001-01-01 02:00:00
+            2001-01-01 02:00:00
+            2001-01-01 03:00:00
+            2001-01-01 03:00:00
+            2001-01-01 04:00:00
+            2001-01-01 04:00:00
+            2001-01-01 05:00:00
+            2001-01-01 05:00:00
+            ...
+            2001-01-01 18:00:00
+            2001-01-01 19:00:00
+            2001-01-01 19:00:00
+            2001-01-01 20:00:00
+            2001-01-01 20:00:00
+            2001-01-01 21:00:00
+            2001-01-01 21:00:00
+            2001-01-01 22:00:00
+            2001-01-01 22:00:00
+            2001-01-01 23:00:00
+            2001-01-01 23:00:00
+            2001-01-02 00:00:00
+        ]
+        &gt;&gt;&gt; assert s.dt.truncate(&quot;1h&quot;) == s.dt.truncate(timedelta(hours=1))
+
+        &quot;&quot;&quot;
+        return pli.select(
+            pli.lit(wrap_s(self._s)).dt.truncate(every, offset)
+        ).to_series()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacestrftime"><a class="header" href="#polarsinternalsseriesdatetimenamespacestrftime"><code>polars.internals.series.DateTimeNameSpace.strftime</code></a></h3>
+<pre><code class="language-python">strftime(fmt: str) -&gt; Series:
+</code></pre>
+<p>Format Date/datetime with a formatting rule: See <code>chrono strftime/strptime &lt;https:/docs.rs/chrono/0.4.19/chrono/format/strftime/index.html&gt;</code>_.</p>
+<p><strong>Returns</strong></p>
+<p>Utf8 Series</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def strftime(self, fmt: str) -&gt; Series:
+        &quot;&quot;&quot;
+        Format Date/datetime with a formatting rule: See `chrono strftime/strptime &lt;https://docs.rs/chrono/0.4.19/chrono/format/strftime/index.html&gt;`_.
+
+        Returns
+        -------
+        Utf8 Series
+        &quot;&quot;&quot;
+        return wrap_s(self._s.strftime(fmt))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceyear"><a class="header" href="#polarsinternalsseriesdatetimenamespaceyear"><code>polars.internals.series.DateTimeNameSpace.year</code></a></h3>
+<pre><code class="language-python">year() -&gt; Series:
+</code></pre>
+<p>Extract the year from the underlying date representation.
+Can be performed on Date and Datetime.</p>
+<p>Returns the year number in the calendar date.</p>
+<p><strong>Returns</strong></p>
+<p>Year as Int32</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def year(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the year from the underlying date representation.
+        Can be performed on Date and Datetime.
+
+        Returns the year number in the calendar date.
+
+        Returns
+        -------
+        Year as Int32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.year())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacemonth"><a class="header" href="#polarsinternalsseriesdatetimenamespacemonth"><code>polars.internals.series.DateTimeNameSpace.month</code></a></h3>
+<pre><code class="language-python">month() -&gt; Series:
+</code></pre>
+<p>Extract the month from the underlying date representation.
+Can be performed on Date and Datetime</p>
+<p>Returns the month number starting from 1.
+The return value ranges from 1 to 12.</p>
+<p><strong>Returns</strong></p>
+<p>Month as UInt32</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def month(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the month from the underlying date representation.
+        Can be performed on Date and Datetime
+
+        Returns the month number starting from 1.
+        The return value ranges from 1 to 12.
+
+        Returns
+        -------
+        Month as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.month())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceweek"><a class="header" href="#polarsinternalsseriesdatetimenamespaceweek"><code>polars.internals.series.DateTimeNameSpace.week</code></a></h3>
+<pre><code class="language-python">week() -&gt; Series:
+</code></pre>
+<p>Extract the week from the underlying date representation.
+Can be performed on Date and Datetime</p>
+<p>Returns the ISO week number starting from 1.
+The return value ranges from 1 to 53. (The last week of year differs by years.)</p>
+<p><strong>Returns</strong></p>
+<p>Week number as UInt32</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def week(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the week from the underlying date representation.
+        Can be performed on Date and Datetime
+
+        Returns the ISO week number starting from 1.
+        The return value ranges from 1 to 53. (The last week of year differs by years.)
+
+        Returns
+        -------
+        Week number as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.week())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceweekday"><a class="header" href="#polarsinternalsseriesdatetimenamespaceweekday"><code>polars.internals.series.DateTimeNameSpace.weekday</code></a></h3>
+<pre><code class="language-python">weekday() -&gt; Series:
+</code></pre>
+<p>Extract the week day from the underlying date representation.
+Can be performed on Date and Datetime.</p>
+<p>Returns the weekday number where monday = 0 and sunday = 6</p>
+<p><strong>Returns</strong></p>
+<p>Week day as UInt32</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def weekday(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the week day from the underlying date representation.
+        Can be performed on Date and Datetime.
+
+        Returns the weekday number where monday = 0 and sunday = 6
+
+        Returns
+        -------
+        Week day as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.weekday())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceday"><a class="header" href="#polarsinternalsseriesdatetimenamespaceday"><code>polars.internals.series.DateTimeNameSpace.day</code></a></h3>
+<pre><code class="language-python">day() -&gt; Series:
+</code></pre>
+<p>Extract the day from the underlying date representation.
+Can be performed on Date and Datetime.</p>
+<p>Returns the day of month starting from 1.
+The return value ranges from 1 to 31. (The last day of month differs by months.)</p>
+<p><strong>Returns</strong></p>
+<p>Day as UInt32</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def day(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the day from the underlying date representation.
+        Can be performed on Date and Datetime.
+
+        Returns the day of month starting from 1.
+        The return value ranges from 1 to 31. (The last day of month differs by months.)
+
+        Returns
+        -------
+        Day as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.day())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceordinal_day"><a class="header" href="#polarsinternalsseriesdatetimenamespaceordinal_day"><code>polars.internals.series.DateTimeNameSpace.ordinal_day</code></a></h3>
+<pre><code class="language-python">ordinal_day() -&gt; Series:
+</code></pre>
+<p>Extract ordinal day from underlying date representation.
+Can be performed on Date and Datetime.</p>
+<p>Returns the day of year starting from 1.
+The return value ranges from 1 to 366. (The last day of year differs by years.)</p>
+<p><strong>Returns</strong></p>
+<p>Day as UInt32</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def ordinal_day(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract ordinal day from underlying date representation.
+        Can be performed on Date and Datetime.
+
+        Returns the day of year starting from 1.
+        The return value ranges from 1 to 366. (The last day of year differs by years.)
+
+        Returns
+        -------
+        Day as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.ordinal_day())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacehour"><a class="header" href="#polarsinternalsseriesdatetimenamespacehour"><code>polars.internals.series.DateTimeNameSpace.hour</code></a></h3>
+<pre><code class="language-python">hour() -&gt; Series:
+</code></pre>
+<p>Extract the hour from the underlying DateTime representation.
+Can be performed on Datetime.</p>
+<p>Returns the hour number from 0 to 23.</p>
+<p><strong>Returns</strong></p>
+<p>Hour as UInt32</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def hour(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the hour from the underlying DateTime representation.
+        Can be performed on Datetime.
+
+        Returns the hour number from 0 to 23.
+
+        Returns
+        -------
+        Hour as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.hour())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceminute"><a class="header" href="#polarsinternalsseriesdatetimenamespaceminute"><code>polars.internals.series.DateTimeNameSpace.minute</code></a></h3>
+<pre><code class="language-python">minute() -&gt; Series:
+</code></pre>
+<p>Extract the minutes from the underlying DateTime representation.
+Can be performed on Datetime.</p>
+<p>Returns the minute number from 0 to 59.</p>
+<p><strong>Returns</strong></p>
+<p>Minute as UInt32</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def minute(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the minutes from the underlying DateTime representation.
+        Can be performed on Datetime.
+
+        Returns the minute number from 0 to 59.
+
+        Returns
+        -------
+        Minute as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.minute())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacesecond"><a class="header" href="#polarsinternalsseriesdatetimenamespacesecond"><code>polars.internals.series.DateTimeNameSpace.second</code></a></h3>
+<pre><code class="language-python">second() -&gt; Series:
+</code></pre>
+<p>Extract the seconds the from underlying DateTime representation.
+Can be performed on Datetime.</p>
+<p>Returns the second number from 0 to 59.</p>
+<p><strong>Returns</strong></p>
+<p>Second as UInt32</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def second(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the seconds the from underlying DateTime representation.
+        Can be performed on Datetime.
+
+        Returns the second number from 0 to 59.
+
+        Returns
+        -------
+        Second as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.second())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacenanosecond"><a class="header" href="#polarsinternalsseriesdatetimenamespacenanosecond"><code>polars.internals.series.DateTimeNameSpace.nanosecond</code></a></h3>
+<pre><code class="language-python">nanosecond() -&gt; Series:
+</code></pre>
+<p>Extract the nanoseconds from the underlying DateTime representation.
+Can be performed on Datetime.</p>
+<p>Returns the number of nanoseconds since the whole non-leap second.
+The range from 1,000,000,000 to 1,999,999,999 represents the leap second.</p>
+<p><strong>Returns</strong></p>
+<p>Nanosecond as UInt32</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def nanosecond(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the nanoseconds from the underlying DateTime representation.
+        Can be performed on Datetime.
+
+        Returns the number of nanoseconds since the whole non-leap second.
+        The range from 1,000,000,000 to 1,999,999,999 represents the leap second.
+
+        Returns
+        -------
+        Nanosecond as UInt32
+        &quot;&quot;&quot;
+        return wrap_s(self._s.nanosecond())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacetimestamp"><a class="header" href="#polarsinternalsseriesdatetimenamespacetimestamp"><code>polars.internals.series.DateTimeNameSpace.timestamp</code></a></h3>
+<pre><code class="language-python">timestamp() -&gt; Series:
+</code></pre>
+<p>Return timestamp in ms as Int64 type.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def timestamp(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Return timestamp in ms as Int64 type.
+        &quot;&quot;&quot;
+        return wrap_s(self._s.timestamp())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceto_python_datetime"><a class="header" href="#polarsinternalsseriesdatetimenamespaceto_python_datetime"><code>polars.internals.series.DateTimeNameSpace.to_python_datetime</code></a></h3>
+<pre><code class="language-python">to_python_datetime() -&gt; Series:
+</code></pre>
+<p>Go from Date/Datetime to python DateTime objects</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def to_python_datetime(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Go from Date/Datetime to python DateTime objects
+        &quot;&quot;&quot;
+        return (self.timestamp() / 1000).apply(
+            lambda ts: datetime.utcfromtimestamp(ts), Object
+        )
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacemin"><a class="header" href="#polarsinternalsseriesdatetimenamespacemin"><code>polars.internals.series.DateTimeNameSpace.min</code></a></h3>
+<pre><code class="language-python">min() -&gt; Union[date, datetime]:
+</code></pre>
+<p>Return minimum as python DateTime</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def min(self) -&gt; Union[date, datetime]:
+        &quot;&quot;&quot;
+        Return minimum as python DateTime
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        out = s.min()
+        return _to_python_datetime(out, s.dtype, s.time_unit)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacemax"><a class="header" href="#polarsinternalsseriesdatetimenamespacemax"><code>polars.internals.series.DateTimeNameSpace.max</code></a></h3>
+<pre><code class="language-python">max() -&gt; Union[date, datetime]:
+</code></pre>
+<p>Return maximum as python DateTime</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def max(self) -&gt; Union[date, datetime]:
+        &quot;&quot;&quot;
+        Return maximum as python DateTime
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        out = s.max()
+        return _to_python_datetime(out, s.dtype, s.time_unit)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacemedian"><a class="header" href="#polarsinternalsseriesdatetimenamespacemedian"><code>polars.internals.series.DateTimeNameSpace.median</code></a></h3>
+<pre><code class="language-python">median() -&gt; Union[date, datetime]:
+</code></pre>
+<p>Return median as python DateTime</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def median(self) -&gt; Union[date, datetime]:
+        &quot;&quot;&quot;
+        Return median as python DateTime
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        out = int(s.median())
+        return _to_python_datetime(out, s.dtype, s.time_unit)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacemean"><a class="header" href="#polarsinternalsseriesdatetimenamespacemean"><code>polars.internals.series.DateTimeNameSpace.mean</code></a></h3>
+<pre><code class="language-python">mean() -&gt; Union[date, datetime]:
+</code></pre>
+<p>Return mean as python DateTime</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def mean(self) -&gt; Union[date, datetime]:
+        &quot;&quot;&quot;
+        Return mean as python DateTime
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        out = int(s.mean())
+        return _to_python_datetime(out, s.dtype, s.time_unit)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceepoch_days"><a class="header" href="#polarsinternalsseriesdatetimenamespaceepoch_days"><code>polars.internals.series.DateTimeNameSpace.epoch_days</code></a></h3>
+<pre><code class="language-python">epoch_days() -&gt; Series:
+</code></pre>
+<p>Get the number of days since the unix EPOCH.
+If the date is before the unix EPOCH, the number of days will be negative.</p>
+<p><strong>Returns</strong></p>
+<p>Days as Int32</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def epoch_days(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Get the number of days since the unix EPOCH.
+        If the date is before the unix EPOCH, the number of days will be negative.
+
+        Returns
+        -------
+        Days as Int32
+        &quot;&quot;&quot;
+        return wrap_s(self._s).cast(Date).cast(Int32)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceepoch_milliseconds"><a class="header" href="#polarsinternalsseriesdatetimenamespaceepoch_milliseconds"><code>polars.internals.series.DateTimeNameSpace.epoch_milliseconds</code></a></h3>
+<pre><code class="language-python">epoch_milliseconds() -&gt; Series:
+</code></pre>
+<p>Get the number of milliseconds since the unix EPOCH
+If the date is before the unix EPOCH, the number of milliseconds will be negative.</p>
+<p><strong>Returns</strong></p>
+<p>Milliseconds as Int64</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def epoch_milliseconds(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Get the number of milliseconds since the unix EPOCH
+        If the date is before the unix EPOCH, the number of milliseconds will be negative.
+
+        Returns
+        -------
+        Milliseconds as Int64
+        &quot;&quot;&quot;
+        return self.timestamp()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceepoch_seconds"><a class="header" href="#polarsinternalsseriesdatetimenamespaceepoch_seconds"><code>polars.internals.series.DateTimeNameSpace.epoch_seconds</code></a></h3>
+<pre><code class="language-python">epoch_seconds() -&gt; Series:
+</code></pre>
+<p>Get the number of seconds since the unix EPOCH
+If the date is before the unix EPOCH, the number of seconds will be negative.</p>
+<p><strong>Returns</strong></p>
+<p>Milliseconds as Int64</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def epoch_seconds(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Get the number of seconds since the unix EPOCH
+        If the date is before the unix EPOCH, the number of seconds will be negative.
+
+        Returns
+        -------
+        Milliseconds as Int64
+        &quot;&quot;&quot;
+        return wrap_s(self._s.dt_epoch_seconds())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceand_time_unit"><a class="header" href="#polarsinternalsseriesdatetimenamespaceand_time_unit"><code>polars.internals.series.DateTimeNameSpace.and_time_unit</code></a></h3>
+<pre><code class="language-python">and_time_unit(tu: str) -&gt; Series:
+</code></pre>
+<p>Set time unit a Series of type Datetime</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>tu</code>]: Time unit for the <code>Datetime</code> Series: any of {&quot;ns&quot;, &quot;ms&quot;}</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def and_time_unit(self, tu: str) -&gt; &quot;Series&quot;:
+        &quot;&quot;&quot;
+        Set time unit a Series of type Datetime
+
+        Parameters
+        ----------
+        tu
+            Time unit for the `Datetime` Series: any of {&quot;ns&quot;, &quot;ms&quot;}
+
+        &quot;&quot;&quot;
+        return wrap_s(self._s.and_time_unit(tu))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceand_time_zone"><a class="header" href="#polarsinternalsseriesdatetimenamespaceand_time_zone"><code>polars.internals.series.DateTimeNameSpace.and_time_zone</code></a></h3>
+<pre><code class="language-python">and_time_zone(tz: Optionalstr) -&gt; Series:
+</code></pre>
+<p>Set time zone a Series of type Datetime</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>tz</code>]: Time zone for the <code>Datetime</code> Series: any of {&quot;ns&quot;, &quot;ms&quot;}</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def and_time_zone(self, tz: Optional[str]) -&gt; &quot;Series&quot;:
+        &quot;&quot;&quot;
+        Set time zone a Series of type Datetime
+
+        Parameters
+        ----------
+        tz
+            Time zone for the `Datetime` Series: any of {&quot;ns&quot;, &quot;ms&quot;}
+
+        &quot;&quot;&quot;
+        return wrap_s(self._s.and_time_zone(tz))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacedays"><a class="header" href="#polarsinternalsseriesdatetimenamespacedays"><code>polars.internals.series.DateTimeNameSpace.days</code></a></h3>
+<pre><code class="language-python">days() -&gt; Series:
+</code></pre>
+<p>Extract the days from a Duration type.</p>
+<p><strong>Returns</strong></p>
+<p>A series of dtype Int64</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def days(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the days from a Duration type.
+
+        Returns
+        -------
+        A series of dtype Int64
+        &quot;&quot;&quot;
+        return pli.select(pli.lit(wrap_s(self._s)).dt.days()).to_series()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacehours"><a class="header" href="#polarsinternalsseriesdatetimenamespacehours"><code>polars.internals.series.DateTimeNameSpace.hours</code></a></h3>
+<pre><code class="language-python">hours() -&gt; Series:
+</code></pre>
+<p>Extract the hours from a Duration type.</p>
+<p><strong>Returns</strong></p>
+<p>A series of dtype Int64</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def hours(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the hours from a Duration type.
+
+        Returns
+        -------
+        A series of dtype Int64
+        &quot;&quot;&quot;
+        return pli.select(pli.lit(wrap_s(self._s)).dt.hours()).to_series()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespaceseconds"><a class="header" href="#polarsinternalsseriesdatetimenamespaceseconds"><code>polars.internals.series.DateTimeNameSpace.seconds</code></a></h3>
+<pre><code class="language-python">seconds() -&gt; Series:
+</code></pre>
+<p>Extract the seconds from a Duration type.</p>
+<p><strong>Returns</strong></p>
+<p>A series of dtype Int64</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def seconds(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the seconds from a Duration type.
+
+        Returns
+        -------
+        A series of dtype Int64
+        &quot;&quot;&quot;
+        return pli.select(pli.lit(wrap_s(self._s)).dt.seconds()).to_series()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacemilliseconds"><a class="header" href="#polarsinternalsseriesdatetimenamespacemilliseconds"><code>polars.internals.series.DateTimeNameSpace.milliseconds</code></a></h3>
+<pre><code class="language-python">milliseconds() -&gt; Series:
+</code></pre>
+<p>Extract the milliseconds from a Duration type.</p>
+<p><strong>Returns</strong></p>
+<p>A series of dtype Int64</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def milliseconds(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the milliseconds from a Duration type.
+
+        Returns
+        -------
+        A series of dtype Int64
+        &quot;&quot;&quot;
+        return pli.select(pli.lit(wrap_s(self._s)).dt.milliseconds()).to_series()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesdatetimenamespacenanoseconds"><a class="header" href="#polarsinternalsseriesdatetimenamespacenanoseconds"><code>polars.internals.series.DateTimeNameSpace.nanoseconds</code></a></h3>
+<pre><code class="language-python">nanoseconds() -&gt; Series:
+</code></pre>
+<p>Extract the nanoseconds from a Duration type.</p>
+<p><strong>Returns</strong></p>
+<p>A series of dtype Int64</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def nanoseconds(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the nanoseconds from a Duration type.
+
+        Returns
+        -------
+        A series of dtype Int64
+        &quot;&quot;&quot;
+        return pli.select(pli.lit(wrap_s(self._s)).dt.nanoseconds()).to_series()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../../polars/internals/series/ListNameSpace.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../../polars/internals/series/SeriesIter.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../../polars/internals/series/ListNameSpace.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../../polars/internals/series/SeriesIter.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../../../theme/js/index.js"></script>
+        
+
+        
+
+    </body>
+</html>

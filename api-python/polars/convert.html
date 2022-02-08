@@ -1,0 +1,782 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>convert - Polars - Python Reference Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../theme/css/style.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../polars.html">polars</a></li><li class="chapter-item "><a href="../polars/cfg.html">cfg</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../polars/cfg/Config.html">Config</a></li></ol></li><li class="chapter-item expanded "><a href="../polars/convert.html" class="active">convert</a></li><li class="chapter-item "><a href="../polars/datatypes.html">datatypes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../polars/datatypes/DataType.html">DataType</a></li><li class="chapter-item "><a href="../polars/datatypes/Int8.html">Int8</a></li><li class="chapter-item "><a href="../polars/datatypes/Int16.html">Int16</a></li><li class="chapter-item "><a href="../polars/datatypes/Int32.html">Int32</a></li><li class="chapter-item "><a href="../polars/datatypes/Int64.html">Int64</a></li><li class="chapter-item "><a href="../polars/datatypes/UInt8.html">UInt8</a></li><li class="chapter-item "><a href="../polars/datatypes/UInt16.html">UInt16</a></li><li class="chapter-item "><a href="../polars/datatypes/UInt32.html">UInt32</a></li><li class="chapter-item "><a href="../polars/datatypes/UInt64.html">UInt64</a></li><li class="chapter-item "><a href="../polars/datatypes/Float32.html">Float32</a></li><li class="chapter-item "><a href="../polars/datatypes/Float64.html">Float64</a></li><li class="chapter-item "><a href="../polars/datatypes/Boolean.html">Boolean</a></li><li class="chapter-item "><a href="../polars/datatypes/Utf8.html">Utf8</a></li><li class="chapter-item "><a href="../polars/datatypes/List.html">List</a></li><li class="chapter-item "><a href="../polars/datatypes/Date.html">Date</a></li><li class="chapter-item "><a href="../polars/datatypes/Datetime.html">Datetime</a></li><li class="chapter-item "><a href="../polars/datatypes/Duration.html">Duration</a></li><li class="chapter-item "><a href="../polars/datatypes/Time.html">Time</a></li><li class="chapter-item "><a href="../polars/datatypes/Object.html">Object</a></li><li class="chapter-item "><a href="../polars/datatypes/Categorical.html">Categorical</a></li></ol></li><li class="chapter-item "><a href="../polars/datatypes_constructor.html">datatypes_constructor</a></li><li class="chapter-item "><a href="../polars/internals.html">internals</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../polars/internals/construction.html">construction</a></li><li class="chapter-item "><a href="../polars/internals/expr.html">expr</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../polars/internals/expr/Expr.html">Expr</a></li><li class="chapter-item "><a href="../polars/internals/expr/ExprListNameSpace.html">ExprListNameSpace</a></li><li class="chapter-item "><a href="../polars/internals/expr/ExprStringNameSpace.html">ExprStringNameSpace</a></li><li class="chapter-item "><a href="../polars/internals/expr/ExprDateTimeNameSpace.html">ExprDateTimeNameSpace</a></li></ol></li><li class="chapter-item "><a href="../polars/internals/frame.html">frame</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../polars/internals/frame/DataFrame.html">DataFrame</a></li><li class="chapter-item "><a href="../polars/internals/frame/RollingGroupBy.html">RollingGroupBy</a></li><li class="chapter-item "><a href="../polars/internals/frame/DynamicGroupBy.html">DynamicGroupBy</a></li><li class="chapter-item "><a href="../polars/internals/frame/GroupBy.html">GroupBy</a></li><li class="chapter-item "><a href="../polars/internals/frame/PivotOps.html">PivotOps</a></li><li class="chapter-item "><a href="../polars/internals/frame/GBSelection.html">GBSelection</a></li></ol></li><li class="chapter-item "><a href="../polars/internals/functions.html">functions</a></li><li class="chapter-item "><a href="../polars/internals/lazy_frame.html">lazy_frame</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../polars/internals/lazy_frame/LazyFrame.html">LazyFrame</a></li><li class="chapter-item "><a href="../polars/internals/lazy_frame/LazyGroupBy.html">LazyGroupBy</a></li></ol></li><li class="chapter-item "><a href="../polars/internals/lazy_functions.html">lazy_functions</a></li><li class="chapter-item "><a href="../polars/internals/series.html">series</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../polars/internals/series/Series.html">Series</a></li><li class="chapter-item "><a href="../polars/internals/series/StringNameSpace.html">StringNameSpace</a></li><li class="chapter-item "><a href="../polars/internals/series/ListNameSpace.html">ListNameSpace</a></li><li class="chapter-item "><a href="../polars/internals/series/DateTimeNameSpace.html">DateTimeNameSpace</a></li><li class="chapter-item "><a href="../polars/internals/series/SeriesIter.html">SeriesIter</a></li></ol></li><li class="chapter-item "><a href="../polars/internals/whenthen.html">whenthen</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../polars/internals/whenthen/WhenThenThen.html">WhenThenThen</a></li><li class="chapter-item "><a href="../polars/internals/whenthen/WhenThen.html">WhenThen</a></li><li class="chapter-item "><a href="../polars/internals/whenthen/When.html">When</a></li></ol></li></ol></li><li class="chapter-item "><a href="../polars/io.html">io</a></li><li class="chapter-item "><a href="../polars/string_cache.html">string_cache</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../polars/string_cache/StringCache.html">StringCache</a></li></ol></li><li class="chapter-item "><a href="../polars/testing.html">testing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Polars - Python Reference Guide</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="module-polarsconvert"><a class="header" href="#module-polarsconvert">Module <code>polars.convert</code></a></h1>
+<p><strong>Functions</strong></p>
+<ul>
+<li><a href="#polarsconvertfrom_dict"><code>from_dict()</code></a>: Construct a DataFrame from a dictionary of sequences.</li>
+<li><a href="#polarsconvertfrom_records"><code>from_records()</code></a>: Construct a DataFrame from a numpy ndarray or sequence of sequences.</li>
+<li><a href="#polarsconvertfrom_dicts"><code>from_dicts()</code></a>: Construct a DataFrame from a sequence of dictionaries.</li>
+<li><a href="#polarsconvertfrom_arrow"><code>from_arrow()</code></a>: Create a DataFrame or Series from an Arrow Table or Array.</li>
+<li><a href="#polarsconvertfrom_pandas"><code>from_pandas()</code></a>: Construct a Polars DataFrame or Series from a pandas DataFrame or Series.</li>
+</ul>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<p><div class='function-wrap'></raw></p>
+<h3 id="polarsconvertfrom_dict"><a class="header" href="#polarsconvertfrom_dict"><code>polars.convert.from_dict</code></a></h3>
+<pre><code class="language-python">from_dict(
+    data: Dict[str, SequenceAny], 
+    columns: OptionalSequencestr,
+) -&gt; DataFrame:
+</code></pre>
+<p>Construct a DataFrame from a dictionary of sequences.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>data</code> [<code>dict of sequences</code>]: Two-dimensional data represented as a dictionary. dict must contain
+Sequences.</li>
+<li><code>columns</code> [<code>Sequence of str, default None</code>]: Column labels to use for resulting DataFrame. If specified, overrides any
+labels already present in the data. Must match data dimensions.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>DataFrame</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>data = {&quot;a&quot;: [1, 2], &quot;b&quot;: [3, 4]}
+df = pl.from_dict(data)
+df
+shape: (2, 2)
+┌─────┬─────┐
+│ a   ┆ b   │
+│ --- ┆ --- │
+│ i64 ┆ i64 │
+╞═════╪═════╡
+│ 1   ┆ 3   │
+├╌╌╌╌╌┼╌╌╌╌╌┤
+│ 2   ┆ 4   │
+└─────┴─────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def from_dict(
+    data: Dict[str, Sequence[Any]],
+    columns: Optional[Sequence[str]] = None,
+) -&gt; DataFrame:
+    &quot;&quot;&quot;
+    Construct a DataFrame from a dictionary of sequences.
+
+    Parameters
+    ----------
+    data : dict of sequences
+        Two-dimensional data represented as a dictionary. dict must contain
+        Sequences.
+    columns : Sequence of str, default None
+        Column labels to use for resulting DataFrame. If specified, overrides any
+        labels already present in the data. Must match data dimensions.
+
+    Returns
+    -------
+    DataFrame
+
+    Examples
+    --------
+
+    &gt;&gt;&gt; data = {&quot;a&quot;: [1, 2], &quot;b&quot;: [3, 4]}
+    &gt;&gt;&gt; df = pl.from_dict(data)
+    &gt;&gt;&gt; df
+    shape: (2, 2)
+    ┌─────┬─────┐
+    │ a   ┆ b   │
+    │ --- ┆ --- │
+    │ i64 ┆ i64 │
+    ╞═════╪═════╡
+    │ 1   ┆ 3   │
+    ├╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 2   ┆ 4   │
+    └─────┴─────┘
+
+    &quot;&quot;&quot;
+    return DataFrame._from_dict(data=data, columns=columns)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsconvertfrom_records"><a class="header" href="#polarsconvertfrom_records"><code>polars.convert.from_records</code></a></h3>
+<pre><code class="language-python">from_records(
+    data: Union[np.ndarray, SequenceSequenceAny], 
+    columns: OptionalSequencestr, 
+    orient: Optionalstr,
+) -&gt; DataFrame:
+</code></pre>
+<p>Construct a DataFrame from a numpy ndarray or sequence of sequences.</p>
+<p>Note that this is slower than creating from columnar memory.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>data</code> [<code>numpy ndarray or Sequence of sequences</code>]: Two-dimensional data represented as numpy ndarray or sequence of sequences.</li>
+<li><code>columns</code> [<code>Sequence of str, default None</code>]: Column labels to use for resulting DataFrame. Must match data dimensions.
+If not specified, columns will be named <code>column_0</code>, <code>column_1</code>, etc.
+orient : {'col', 'row'}, default None
+Whether to interpret two-dimensional data as columns or as rows. If None,
+the orientation is inferred by matching the columns and data dimensions. If
+this does not yield conclusive results, column orientation is used.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>DataFrame</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>data = [[1, 2, 3], [4, 5, 6]]
+df = pl.from_records(data, columns=[&quot;a&quot;, &quot;b&quot;])
+df
+shape: (3, 2)
+┌─────┬─────┐
+│ a   ┆ b   │
+│ --- ┆ --- │
+│ i64 ┆ i64 │
+╞═════╪═════╡
+│ 1   ┆ 4   │
+├╌╌╌╌╌┼╌╌╌╌╌┤
+│ 2   ┆ 5   │
+├╌╌╌╌╌┼╌╌╌╌╌┤
+│ 3   ┆ 6   │
+└─────┴─────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def from_records(
+    data: Union[np.ndarray, Sequence[Sequence[Any]]],
+    columns: Optional[Sequence[str]] = None,
+    orient: Optional[str] = None,
+) -&gt; DataFrame:
+    &quot;&quot;&quot;
+    Construct a DataFrame from a numpy ndarray or sequence of sequences.
+
+    Note that this is slower than creating from columnar memory.
+
+    Parameters
+    ----------
+    data : numpy ndarray or Sequence of sequences
+        Two-dimensional data represented as numpy ndarray or sequence of sequences.
+    columns : Sequence of str, default None
+        Column labels to use for resulting DataFrame. Must match data dimensions.
+        If not specified, columns will be named `column_0`, `column_1`, etc.
+    orient : {'col', 'row'}, default None
+        Whether to interpret two-dimensional data as columns or as rows. If None,
+        the orientation is inferred by matching the columns and data dimensions. If
+        this does not yield conclusive results, column orientation is used.
+
+    Returns
+    -------
+    DataFrame
+
+    Examples
+    --------
+
+    &gt;&gt;&gt; data = [[1, 2, 3], [4, 5, 6]]
+    &gt;&gt;&gt; df = pl.from_records(data, columns=[&quot;a&quot;, &quot;b&quot;])
+    &gt;&gt;&gt; df
+        shape: (3, 2)
+    ┌─────┬─────┐
+    │ a   ┆ b   │
+    │ --- ┆ --- │
+    │ i64 ┆ i64 │
+    ╞═════╪═════╡
+    │ 1   ┆ 4   │
+    ├╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 2   ┆ 5   │
+    ├╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 3   ┆ 6   │
+    └─────┴─────┘
+
+    &quot;&quot;&quot;
+    return DataFrame._from_records(data, columns=columns, orient=orient)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsconvertfrom_dicts"><a class="header" href="#polarsconvertfrom_dicts"><code>polars.convert.from_dicts</code></a></h3>
+<pre><code class="language-python">from_dicts(dicts: SequenceDict[str, Any]) -&gt; DataFrame:
+</code></pre>
+<p>Construct a DataFrame from a sequence of dictionaries.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>dicts</code>]: Sequence with dictionaries mapping column name to value</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>DataFrame</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>data = [{&quot;a&quot;: 1, &quot;b&quot;: 4}, {&quot;a&quot;: 2, &quot;b&quot;: 5}, {&quot;a&quot;: 3, &quot;b&quot;: 6}]
+df = pl.from_dicts(data)
+df
+shape: (3, 2)
+┌─────┬─────┐
+│ a   ┆ b   │
+│ --- ┆ --- │
+│ i64 ┆ i64 │
+╞═════╪═════╡
+│ 1   ┆ 4   │
+├╌╌╌╌╌┼╌╌╌╌╌┤
+│ 2   ┆ 5   │
+├╌╌╌╌╌┼╌╌╌╌╌┤
+│ 3   ┆ 6   │
+└─────┴─────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def from_dicts(dicts: Sequence[Dict[str, Any]]) -&gt; DataFrame:
+    &quot;&quot;&quot;
+    Construct a DataFrame from a sequence of dictionaries.
+
+    Parameters
+    ----------
+    dicts
+        Sequence with dictionaries mapping column name to value
+
+    Returns
+    -------
+    DataFrame
+
+    Examples
+    --------
+
+    &gt;&gt;&gt; data = [{&quot;a&quot;: 1, &quot;b&quot;: 4}, {&quot;a&quot;: 2, &quot;b&quot;: 5}, {&quot;a&quot;: 3, &quot;b&quot;: 6}]
+    &gt;&gt;&gt; df = pl.from_dicts(data)
+    &gt;&gt;&gt; df
+    shape: (3, 2)
+    ┌─────┬─────┐
+    │ a   ┆ b   │
+    │ --- ┆ --- │
+    │ i64 ┆ i64 │
+    ╞═════╪═════╡
+    │ 1   ┆ 4   │
+    ├╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 2   ┆ 5   │
+    ├╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 3   ┆ 6   │
+    └─────┴─────┘
+
+    &quot;&quot;&quot;
+    return DataFrame._from_dicts(dicts)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsconvertfrom_arrow"><a class="header" href="#polarsconvertfrom_arrow"><code>polars.convert.from_arrow</code></a></h3>
+<pre><code class="language-python">from_arrow(
+    a: Union[pa.Table, pa.Array, pa.ChunkedArray], 
+    rechunk: bool,
+) -&gt; Union[DataFrame, Series]:
+</code></pre>
+<p>Create a DataFrame or Series from an Arrow Table or Array.</p>
+<p>This operation will be zero copy for the most part. Types that are not
+supported by Polars may be cast to the closest supported type.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>a</code> [<code>Arrow Table or Array</code>]: Data represented as Arrow Table or Array.</li>
+<li><code>rechunk</code> [<code>bool, default True</code>]: Make sure that all data is contiguous.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>DataFrame or Series</p>
+<p><strong>Examples</strong></p>
+<p>Constructing a DataFrame from an Arrow Table:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>import pyarrow as pa
+data = pa.table({&quot;a&quot;: [1, 2, 3], &quot;b&quot;: [4, 5, 6]})
+df = pl.from_arrow(data)
+df
+shape: (3, 2)
+┌─────┬─────┐
+│ a   ┆ b   │
+│ --- ┆ --- │
+│ i64 ┆ i64 │
+╞═════╪═════╡
+│ 1   ┆ 4   │
+├╌╌╌╌╌┼╌╌╌╌╌┤
+│ 2   ┆ 5   │
+├╌╌╌╌╌┼╌╌╌╌╌┤
+│ 3   ┆ 6   │
+└─────┴─────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Constructing a Series from an Arrow Array:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>import pyarrow as pa
+data = pa.array([1, 2, 3])
+series = pl.from_arrow(data)
+series
+shape: (3,)
+Series: '' [i64]
+[</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>3
+]</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def from_arrow(
+    a: Union[&quot;pa.Table&quot;, &quot;pa.Array&quot;, &quot;pa.ChunkedArray&quot;], rechunk: bool = True
+) -&gt; Union[DataFrame, Series]:
+    &quot;&quot;&quot;
+    Create a DataFrame or Series from an Arrow Table or Array.
+
+    This operation will be zero copy for the most part. Types that are not
+    supported by Polars may be cast to the closest supported type.
+
+    Parameters
+    ----------
+    a : Arrow Table or Array
+        Data represented as Arrow Table or Array.
+    rechunk : bool, default True
+        Make sure that all data is contiguous.
+
+    Returns
+    -------
+    DataFrame or Series
+
+    Examples
+    --------
+    Constructing a DataFrame from an Arrow Table:
+
+    &gt;&gt;&gt; import pyarrow as pa
+    &gt;&gt;&gt; data = pa.table({&quot;a&quot;: [1, 2, 3], &quot;b&quot;: [4, 5, 6]})
+    &gt;&gt;&gt; df = pl.from_arrow(data)
+    &gt;&gt;&gt; df
+    shape: (3, 2)
+    ┌─────┬─────┐
+    │ a   ┆ b   │
+    │ --- ┆ --- │
+    │ i64 ┆ i64 │
+    ╞═════╪═════╡
+    │ 1   ┆ 4   │
+    ├╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 2   ┆ 5   │
+    ├╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 3   ┆ 6   │
+    └─────┴─────┘
+
+    Constructing a Series from an Arrow Array:
+
+    &gt;&gt;&gt; import pyarrow as pa
+    &gt;&gt;&gt; data = pa.array([1, 2, 3])
+    &gt;&gt;&gt; series = pl.from_arrow(data)
+    &gt;&gt;&gt; series
+    shape: (3,)
+    Series: '' [i64]
+    [
+        1
+        2
+        3
+    ]
+
+    &quot;&quot;&quot;
+    if not _PYARROW_AVAILABLE:
+        raise ImportError(
+            &quot;'pyarrow' is required when using from_arrow().&quot;
+        )  # pragma: no cover
+    if isinstance(a, pa.Table):
+        return DataFrame._from_arrow(a, rechunk=rechunk)
+    elif isinstance(a, (pa.Array, pa.ChunkedArray)):
+        return Series._from_arrow(&quot;&quot;, a, rechunk)
+    else:
+        raise ValueError(f&quot;Expected Arrow Table or Array, got {type(a)}.&quot;)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsconvertfrom_pandas"><a class="header" href="#polarsconvertfrom_pandas"><code>polars.convert.from_pandas</code></a></h3>
+<pre><code class="language-python">from_pandas(
+    df: Union[pd.DataFrame, pd.Series, pd.DatetimeIndex], 
+    rechunk: bool, 
+    nan_to_none: bool,
+) -&gt; Union[DataFrame, Series]:
+</code></pre>
+<p>Construct a Polars DataFrame or Series from a pandas DataFrame or Series.</p>
+<p>Requires the pandas package to be installed.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>df</code> [<code>pandas DataFrame, Series, or DatetimeIndex</code>]: Data represented as a pandas DataFrame, Series, or DatetimeIndex.</li>
+<li><code>rechunk</code> [<code>bool, default True</code>]: Make sure that all data is contiguous.</li>
+<li><code>nan_to_none</code> [<code>bool, default True</code>]: If data contains NaN values PyArrow will convert the NaN to None</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>DataFrame</p>
+<p><strong>Examples</strong></p>
+<p>Constructing a DataFrame from a pandas DataFrame:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>import pandas as pd
+pd_df = pd.DataFrame([[1, 2, 3], [4, 5, 6]], columns=[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;])
+df = pl.from_pandas(pd_df)
+df
+shape: (2, 3)
+┌─────┬─────┬─────┐
+│ a   ┆ b   ┆ c   │
+│ --- ┆ --- ┆ --- │
+│ i64 ┆ i64 ┆ i64 │
+╞═════╪═════╪═════╡
+│ 1   ┆ 2   ┆ 3   │
+├╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌┤
+│ 4   ┆ 5   ┆ 6   │
+└─────┴─────┴─────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Constructing a Series from a pandas Series:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>import pandas as pd
+pd_series = pd.Series([1, 2, 3], name=&quot;pd&quot;)
+df = pl.from_pandas(pd_series)
+df
+shape: (3,)
+Series: 'pd' [i64]
+[</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>3
+]</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def from_pandas(
+    df: Union[&quot;pd.DataFrame&quot;, &quot;pd.Series&quot;, &quot;pd.DatetimeIndex&quot;],
+    rechunk: bool = True,
+    nan_to_none: bool = True,
+) -&gt; Union[DataFrame, Series]:
+    &quot;&quot;&quot;
+    Construct a Polars DataFrame or Series from a pandas DataFrame or Series.
+
+    Requires the pandas package to be installed.
+
+    Parameters
+    ----------
+    df : pandas DataFrame, Series, or DatetimeIndex
+        Data represented as a pandas DataFrame, Series, or DatetimeIndex.
+    rechunk : bool, default True
+        Make sure that all data is contiguous.
+    nan_to_none : bool, default True
+        If data contains NaN values PyArrow will convert the NaN to None
+
+    Returns
+    -------
+    DataFrame
+
+    Examples
+    --------
+    Constructing a DataFrame from a pandas DataFrame:
+
+    &gt;&gt;&gt; import pandas as pd
+    &gt;&gt;&gt; pd_df = pd.DataFrame([[1, 2, 3], [4, 5, 6]], columns=[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;])
+    &gt;&gt;&gt; df = pl.from_pandas(pd_df)
+    &gt;&gt;&gt; df
+        shape: (2, 3)
+    ┌─────┬─────┬─────┐
+    │ a   ┆ b   ┆ c   │
+    │ --- ┆ --- ┆ --- │
+    │ i64 ┆ i64 ┆ i64 │
+    ╞═════╪═════╪═════╡
+    │ 1   ┆ 2   ┆ 3   │
+    ├╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 4   ┆ 5   ┆ 6   │
+    └─────┴─────┴─────┘
+
+    Constructing a Series from a pandas Series:
+
+    &gt;&gt;&gt; import pandas as pd
+    &gt;&gt;&gt; pd_series = pd.Series([1, 2, 3], name=&quot;pd&quot;)
+    &gt;&gt;&gt; df = pl.from_pandas(pd_series)
+    &gt;&gt;&gt; df
+    shape: (3,)
+    Series: 'pd' [i64]
+    [
+        1
+        2
+        3
+    ]
+
+    &quot;&quot;&quot;
+    try:
+        import pandas as pd
+    except ImportError as e:  # pragma: no cover
+        raise ImportError(&quot;'pandas' is required when using from_pandas().&quot;) from e
+
+    if isinstance(df, (pd.Series, pd.DatetimeIndex)):
+        return Series._from_pandas(&quot;&quot;, df, nan_to_none=nan_to_none)
+    elif isinstance(df, pd.DataFrame):
+        return DataFrame._from_pandas(df, rechunk=rechunk, nan_to_none=nan_to_none)
+    else:
+        raise ValueError(f&quot;Expected pandas DataFrame or Series, got {type(df)}.&quot;)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../polars/cfg/Config.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../polars/datatypes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../polars/cfg/Config.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../polars/datatypes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../theme/js/index.js"></script>
+        
+
+        
+
+    </body>
+</html>

@@ -1,0 +1,2891 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Examples - Polars - User Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../quickstart/intro.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li class="chapter-item expanded "><a href="../dsl/intro.html"><strong aria-hidden="true">3.</strong> Polars expressions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../dsl/intro.html"><strong aria-hidden="true">3.1.</strong> Expressions</a></li><li class="chapter-item "><a href="../dsl/contexts.html"><strong aria-hidden="true">3.2.</strong> Contexts</a></li><li class="chapter-item "><a href="../dsl/groupby.html"><strong aria-hidden="true">3.3.</strong> GroupBy</a></li><li class="chapter-item "><a href="../dsl/folds.html"><strong aria-hidden="true">3.4.</strong> Folds</a></li><li class="chapter-item "><a href="../dsl/window_functions.html"><strong aria-hidden="true">3.5.</strong> Window functions</a></li><li class="chapter-item "><a href="../dsl/numpy.html"><strong aria-hidden="true">3.6.</strong> Numpy universal functions</a></li><li class="chapter-item expanded "><a href="../notebooks/introduction_polars.html" class="active"><strong aria-hidden="true">3.7.</strong> Examples</a></li><li class="chapter-item "><a href="../dsl/api.html"><strong aria-hidden="true">3.8.</strong> API</a></li><li class="chapter-item "><a href="../dsl/video_intro.html"><strong aria-hidden="true">3.9.</strong> Video introduction</a></li></ol></li><li class="chapter-item expanded "><a href="../indexing.html"><strong aria-hidden="true">4.</strong> Indexing</a></li><li class="chapter-item expanded "><a href="../datatypes.html"><strong aria-hidden="true">5.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="../coming_from_pandas.html"><strong aria-hidden="true">6.</strong> Coming from Pandas</a></li><li class="chapter-item expanded "><a href="../coming_from_spark.html"><strong aria-hidden="true">7.</strong> Coming from Apache Spark</a></li><li class="chapter-item expanded "><a href="../timeseries/intro.html"><strong aria-hidden="true">8.</strong> Time-series</a></li><li class="chapter-item expanded "><a href="../howcani/intro.html"><strong aria-hidden="true">9.</strong> How can I?</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../howcani/io/intro.html"><strong aria-hidden="true">9.1.</strong> IO</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../howcani/io/csv.html"><strong aria-hidden="true">9.1.1.</strong> CSV files</a></li><li class="chapter-item "><a href="../howcani/io/parquet.html"><strong aria-hidden="true">9.1.2.</strong> Parquet files</a></li><li class="chapter-item "><a href="../multiple_files/intro.html"><strong aria-hidden="true">9.1.3.</strong> Multiple files</a></li><li class="chapter-item "><a href="../howcani/io/read_db.html"><strong aria-hidden="true">9.1.4.</strong> Read from a database</a></li><li class="chapter-item "><a href="../howcani/io/aws.html"><strong aria-hidden="true">9.1.5.</strong> Interact with AWS</a></li><li class="chapter-item "><a href="../howcani/io/google-big-query.html"><strong aria-hidden="true">9.1.6.</strong> Interact with Google BigQuery</a></li><li class="chapter-item "><a href="../howcani/io/postgres.html"><strong aria-hidden="true">9.1.7.</strong> Interact with Postgres</a></li><li class="chapter-item "><a href="../howcani/interop/intro.html"><strong aria-hidden="true">9.1.8.</strong> Interoperability</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../howcani/interop/arrow.html"><strong aria-hidden="true">9.1.8.1.</strong> Arrow</a></li><li class="chapter-item "><a href="../howcani/interop/numpy.html"><strong aria-hidden="true">9.1.8.2.</strong> NumPy</a></li></ol></li><li class="chapter-item "><a href="../howcani/data/intro.html"><strong aria-hidden="true">9.1.9.</strong> Data handling</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../howcani/data/strings.html"><strong aria-hidden="true">9.1.9.1.</strong> Process strings</a></li><li class="chapter-item "><a href="../howcani/data/timestamps.html"><strong aria-hidden="true">9.1.9.2.</strong> Process timestamps</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../performance/intro.html"><strong aria-hidden="true">10.</strong> Performance</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../performance/strings.html"><strong aria-hidden="true">10.1.</strong> Strings</a></li></ol></li><li class="chapter-item expanded "><a href="../optimizations/intro.html"><strong aria-hidden="true">11.</strong> Optimizations</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../optimizations/lazy/intro.html"><strong aria-hidden="true">11.1.</strong> Lazy API</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../optimizations/lazy/predicate-pushdown.html"><strong aria-hidden="true">11.1.1.</strong> Predicate pushdown</a></li><li class="chapter-item "><a href="../optimizations/lazy/projection-pushdown.html"><strong aria-hidden="true">11.1.2.</strong> Projection pushdown</a></li><li class="chapter-item "><a href="../optimizations/lazy/other-optimizations.html"><strong aria-hidden="true">11.1.3.</strong> Other optimizations</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../references.html"><strong aria-hidden="true">12.</strong> Reference guides</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Polars - User Guide</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <pre><code class="language-python">import polars as pl
+
+</code></pre>
+<h1 id="expressions"><a class="header" href="#expressions">Expressions</a></h1>
+<p><code>fn(Series) -&gt; Series</code></p>
+<ul>
+<li>Lazily evaluated
+<ul>
+<li>Can be optimized</li>
+<li>Gives the library writer context and informed decision can be made</li>
+</ul>
+</li>
+<li>Embarassingly parallel</li>
+<li>Context dependent
+<ul>
+<li>selection / projection -&gt; <code>Series</code> = <strong>COLUMN, LITERAL or VALUE</strong></li>
+<li>aggregation -&gt; <code>Series</code> = <strong>GROUPS</strong></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">df = pl.DataFrame(
+    {
+        &quot;A&quot;: [1, 2, 3, 4, 5],
+        &quot;fruits&quot;: [&quot;banana&quot;, &quot;banana&quot;, &quot;apple&quot;, &quot;apple&quot;, &quot;banana&quot;],
+        &quot;B&quot;: [5, 4, 3, 2, 1],
+        &quot;cars&quot;: [&quot;beetle&quot;, &quot;audi&quot;, &quot;beetle&quot;, &quot;beetle&quot;, &quot;beetle&quot;],
+        &quot;optional&quot;: [28, 300, None, 2, -30],
+    }
+)
+df
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+A
+</th>
+<th>
+fruits
+</th>
+<th>
+B
+</th>
+<th>
+cars
+</th>
+<th>
+optional
+</th>
+</tr>
+<tr>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+"banana"
+</td>
+<td>
+5
+</td>
+<td>
+"beetle"
+</td>
+<td>
+28
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+"banana"
+</td>
+<td>
+4
+</td>
+<td>
+"audi"
+</td>
+<td>
+300
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+"apple"
+</td>
+<td>
+3
+</td>
+<td>
+"beetle"
+</td>
+<td>
+null
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+"apple"
+</td>
+<td>
+2
+</td>
+<td>
+"beetle"
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+"banana"
+</td>
+<td>
+1
+</td>
+<td>
+"beetle"
+</td>
+<td>
+-30
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="selection-context"><a class="header" href="#selection-context">Selection context</a></h1>
+<pre><code class="language-python"># We can select by name
+(df.select([
+    pl.col(&quot;A&quot;),
+    &quot;B&quot;,      # the col part is inferred
+    pl.lit(&quot;B&quot;),  # we must tell polars we mean the literal &quot;B&quot;
+    pl.col(&quot;fruits&quot;),
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+A
+</th>
+<th>
+B
+</th>
+<th>
+literal
+</th>
+<th>
+fruits
+</th>
+</tr>
+<tr>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+5
+</td>
+<td>
+"B"
+</td>
+<td>
+"banana"
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+4
+</td>
+<td>
+"B"
+</td>
+<td>
+"banana"
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+3
+</td>
+<td>
+"B"
+</td>
+<td>
+"apple"
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+2
+</td>
+<td>
+"B"
+</td>
+<td>
+"apple"
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+1
+</td>
+<td>
+"B"
+</td>
+<td>
+"banana"
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># you can select columns with a regex if it starts with '^' and ends with '$'
+
+(df.select([
+    pl.col(&quot;^A|B$&quot;).sum()
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+A
+</th>
+<th>
+B
+</th>
+</tr>
+<tr>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+15
+</td>
+<td>
+15
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># you can select multiple columns by name
+
+(df.select([
+    pl.col([&quot;A&quot;, &quot;B&quot;]).sum()
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+A
+</th>
+<th>
+B
+</th>
+</tr>
+<tr>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+15
+</td>
+<td>
+15
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># We select everything in normal order
+# Then we select everything in reversed order
+(df.select([
+    pl.all(),
+    pl.all().reverse().suffix(&quot;_reverse&quot;)
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+A
+</th>
+<th>
+fruits
+</th>
+<th>
+B
+</th>
+<th>
+cars
+</th>
+<th>
+optional
+</th>
+<th>
+A_reverse
+</th>
+<th>
+fruits_reverse
+</th>
+<th>
+B_reverse
+</th>
+<th>
+cars_reverse
+</th>
+<th>
+optional_reverse
+</th>
+</tr>
+<tr>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+"banana"
+</td>
+<td>
+5
+</td>
+<td>
+"beetle"
+</td>
+<td>
+28
+</td>
+<td>
+5
+</td>
+<td>
+"banana"
+</td>
+<td>
+1
+</td>
+<td>
+"beetle"
+</td>
+<td>
+-30
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+"banana"
+</td>
+<td>
+4
+</td>
+<td>
+"audi"
+</td>
+<td>
+300
+</td>
+<td>
+4
+</td>
+<td>
+"apple"
+</td>
+<td>
+2
+</td>
+<td>
+"beetle"
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+"apple"
+</td>
+<td>
+3
+</td>
+<td>
+"beetle"
+</td>
+<td>
+null
+</td>
+<td>
+3
+</td>
+<td>
+"apple"
+</td>
+<td>
+3
+</td>
+<td>
+"beetle"
+</td>
+<td>
+null
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+"apple"
+</td>
+<td>
+2
+</td>
+<td>
+"beetle"
+</td>
+<td>
+2
+</td>
+<td>
+2
+</td>
+<td>
+"banana"
+</td>
+<td>
+4
+</td>
+<td>
+"audi"
+</td>
+<td>
+300
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+"banana"
+</td>
+<td>
+1
+</td>
+<td>
+"beetle"
+</td>
+<td>
+-30
+</td>
+<td>
+1
+</td>
+<td>
+"banana"
+</td>
+<td>
+5
+</td>
+<td>
+"beetle"
+</td>
+<td>
+28
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># all expressions run in parallel
+# single valued `Series` are broadcasted to the shape of the `DataFrame`
+(df.select([
+    pl.all(),
+    pl.all().sum().suffix(&quot;_sum&quot;)
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+A
+</th>
+<th>
+fruits
+</th>
+<th>
+B
+</th>
+<th>
+cars
+</th>
+<th>
+optional
+</th>
+<th>
+A_sum
+</th>
+<th>
+fruits_sum
+</th>
+<th>
+B_sum
+</th>
+<th>
+cars_sum
+</th>
+<th>
+optional_sum
+</th>
+</tr>
+<tr>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+"banana"
+</td>
+<td>
+5
+</td>
+<td>
+"beetle"
+</td>
+<td>
+28
+</td>
+<td>
+15
+</td>
+<td>
+null
+</td>
+<td>
+15
+</td>
+<td>
+null
+</td>
+<td>
+300
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+"banana"
+</td>
+<td>
+4
+</td>
+<td>
+"audi"
+</td>
+<td>
+300
+</td>
+<td>
+15
+</td>
+<td>
+null
+</td>
+<td>
+15
+</td>
+<td>
+null
+</td>
+<td>
+300
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+"apple"
+</td>
+<td>
+3
+</td>
+<td>
+"beetle"
+</td>
+<td>
+null
+</td>
+<td>
+15
+</td>
+<td>
+null
+</td>
+<td>
+15
+</td>
+<td>
+null
+</td>
+<td>
+300
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+"apple"
+</td>
+<td>
+2
+</td>
+<td>
+"beetle"
+</td>
+<td>
+2
+</td>
+<td>
+15
+</td>
+<td>
+null
+</td>
+<td>
+15
+</td>
+<td>
+null
+</td>
+<td>
+300
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+"banana"
+</td>
+<td>
+1
+</td>
+<td>
+"beetle"
+</td>
+<td>
+-30
+</td>
+<td>
+15
+</td>
+<td>
+null
+</td>
+<td>
+15
+</td>
+<td>
+null
+</td>
+<td>
+300
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># there are `str` and `dt` namespaces for specialized functions
+
+predicate = pl.col(&quot;fruits&quot;).str.contains(&quot;^b.*&quot;)
+
+(df.select([
+    predicate
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+fruits
+</th>
+</tr>
+<tr>
+<td>
+bool
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+true
+</td>
+</tr>
+<tr>
+<td>
+true
+</td>
+</tr>
+<tr>
+<td>
+false
+</td>
+</tr>
+<tr>
+<td>
+false
+</td>
+</tr>
+<tr>
+<td>
+true
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># use the predicate to filter
+
+df.filter(predicate)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+A
+</th>
+<th>
+fruits
+</th>
+<th>
+B
+</th>
+<th>
+cars
+</th>
+<th>
+optional
+</th>
+</tr>
+<tr>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+"banana"
+</td>
+<td>
+5
+</td>
+<td>
+"beetle"
+</td>
+<td>
+28
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+"banana"
+</td>
+<td>
+4
+</td>
+<td>
+"audi"
+</td>
+<td>
+300
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+"banana"
+</td>
+<td>
+1
+</td>
+<td>
+"beetle"
+</td>
+<td>
+-30
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># predicate expressions can be used to filter
+
+(df.select([
+    pl.col(&quot;A&quot;).filter(pl.col(&quot;fruits&quot;).str.contains(&quot;^b.*&quot;)).sum(),
+    (pl.col(&quot;B&quot;).filter(pl.col(&quot;cars&quot;).str.contains(&quot;^b.*&quot;)).sum() * pl.col(&quot;B&quot;).sum()).alias(&quot;some_compute()&quot;),
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+A
+</th>
+<th>
+some_compute()
+</th>
+</tr>
+<tr>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+8
+</td>
+<td>
+165
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># We can do arithmetic on columns and (literal) values
+
+# can be evaluated to 1 without programmer knowing
+some_var = 1
+
+(df.select([
+    ((pl.col(&quot;A&quot;) / 124.0 * pl.col(&quot;B&quot;)) / pl.sum(&quot;B&quot;) * some_var).alias(&quot;computed&quot;)
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+computed
+</th>
+</tr>
+<tr>
+<td>
+f64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<td>
+0.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># We can combine columns by a predicate
+
+(df.select([
+    &quot;fruits&quot;,
+    &quot;B&quot;,
+    pl.when(pl.col(&quot;fruits&quot;) == &quot;banana&quot;).then(pl.col(&quot;B&quot;)).otherwise(-1).alias(&quot;b&quot;)
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+fruits
+</th>
+<th>
+B
+</th>
+<th>
+b
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+5
+</td>
+<td>
+5
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+4
+</td>
+<td>
+4
+</td>
+</tr>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+3
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+2
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+1
+</td>
+<td>
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># We can combine columns by a fold operation on column level
+
+(df.select([
+    &quot;A&quot;,
+    &quot;B&quot;,
+    pl.fold(0, lambda a, b: a + b, [pl.col(&quot;A&quot;), &quot;B&quot;, pl.col(&quot;B&quot;)**2, pl.col(&quot;A&quot;) / 2.0]).alias(&quot;fold&quot;)
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+A
+</th>
+<th>
+B
+</th>
+<th>
+fold
+</th>
+</tr>
+<tr>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+f64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+5
+</td>
+<td>
+31
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+4
+</td>
+<td>
+23
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+3
+</td>
+<td>
+16
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+2
+</td>
+<td>
+12
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+1
+</td>
+<td>
+9
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># even combine all
+
+(df.select([
+    pl.arange(0, df.height).alias(&quot;idx&quot;),
+    &quot;A&quot;,
+    pl.col(&quot;A&quot;).shift().alias(&quot;A_shifted&quot;),
+    pl.concat_str(pl.all(), &quot;-&quot;).alias(&quot;str_concat_1&quot;),  # prefer this
+    pl.fold(pl.col(&quot;A&quot;), lambda a, b: a + &quot;-&quot; + b, pl.all().exclude(&quot;A&quot;)).alias(&quot;str_concat_2&quot;),  # over this (accidentally O(n^2))
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+idx
+</th>
+<th>
+A
+</th>
+<th>
+A_shifted
+</th>
+<th>
+str_concat_1
+</th>
+<th>
+str_concat_2
+</th>
+</tr>
+<tr>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+null
+</td>
+<td>
+"1-banana-5-beetle-28"
+</td>
+<td>
+"1-banana-5-beetle-28"
+</td>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+1
+</td>
+<td>
+"2-banana-4-audi-300"
+</td>
+<td>
+"2-banana-4-audi-300"
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+3
+</td>
+<td>
+2
+</td>
+<td>
+null
+</td>
+<td>
+null
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+4
+</td>
+<td>
+3
+</td>
+<td>
+"4-apple-2-beetle-2"
+</td>
+<td>
+"4-apple-2-beetle-2"
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+5
+</td>
+<td>
+4
+</td>
+<td>
+"5-banana-1-beetle--30"
+</td>
+<td>
+"5-banana-1-beetle--30"
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="aggregation-context"><a class="header" href="#aggregation-context">Aggregation context</a></h1>
+<ul>
+<li>expression are applied over groups instead of columns</li>
+</ul>
+<pre><code class="language-python"># we can still combine many expressions
+
+(df.sort(&quot;cars&quot;).groupby(&quot;fruits&quot;)
+    .agg([
+        pl.col(&quot;B&quot;).sum(),
+        pl.sum(&quot;B&quot;).alias(&quot;B_sum2&quot;),  # syntactic sugar for the first
+        pl.first(&quot;fruits&quot;),
+        pl.count(&quot;A&quot;).alias(&quot;count&quot;),
+        pl.col(&quot;cars&quot;).reverse()
+    ]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+fruits
+</th>
+<th>
+B_sum
+</th>
+<th>
+B_sum2
+</th>
+<th>
+fruits_first
+</th>
+<th>
+count
+</th>
+<th>
+cars
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+u32
+</td>
+<td>
+list
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+10
+</td>
+<td>
+10
+</td>
+<td>
+"banana"
+</td>
+<td>
+3
+</td>
+<td>
+[beetle, beetle, audi]
+</td>
+</tr>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+5
+</td>
+<td>
+5
+</td>
+<td>
+"apple"
+</td>
+<td>
+2
+</td>
+<td>
+[beetle, beetle]
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># We can explode the list column &quot;cars&quot;
+
+(df.sort(&quot;cars&quot;).groupby(&quot;fruits&quot;)
+    .agg([
+        pl.col(&quot;B&quot;).sum(),
+        pl.sum(&quot;B&quot;).alias(&quot;B_sum2&quot;),  # syntactic sugar for the first
+        pl.first(&quot;fruits&quot;),
+        pl.count(&quot;A&quot;).alias(&quot;count&quot;),
+        pl.col(&quot;cars&quot;).reverse()
+    ])).explode(&quot;cars&quot;)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+fruits
+</th>
+<th>
+B_sum
+</th>
+<th>
+B_sum2
+</th>
+<th>
+fruits_first
+</th>
+<th>
+count
+</th>
+<th>
+cars
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+u32
+</td>
+<td>
+str
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+5
+</td>
+<td>
+5
+</td>
+<td>
+"apple"
+</td>
+<td>
+2
+</td>
+<td>
+"beetle"
+</td>
+</tr>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+5
+</td>
+<td>
+5
+</td>
+<td>
+"apple"
+</td>
+<td>
+2
+</td>
+<td>
+"beetle"
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+10
+</td>
+<td>
+10
+</td>
+<td>
+"banana"
+</td>
+<td>
+3
+</td>
+<td>
+"beetle"
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+10
+</td>
+<td>
+10
+</td>
+<td>
+"banana"
+</td>
+<td>
+3
+</td>
+<td>
+"beetle"
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+10
+</td>
+<td>
+10
+</td>
+<td>
+"banana"
+</td>
+<td>
+3
+</td>
+<td>
+"audi"
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python">(df.groupby(&quot;fruits&quot;)
+    .agg([
+        pl.col(&quot;B&quot;).sum(),
+        pl.sum(&quot;B&quot;).alias(&quot;B_sum2&quot;),  # syntactic sugar for the first
+        pl.first(&quot;fruits&quot;),
+        pl.count(&quot;A&quot;).alias(&quot;count&quot;),
+        pl.col(&quot;B&quot;).shift().alias(&quot;B_shifted&quot;)
+    ])
+ .explode(&quot;B_shifted&quot;)
+)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+fruits
+</th>
+<th>
+B_sum
+</th>
+<th>
+B_sum2
+</th>
+<th>
+fruits_first
+</th>
+<th>
+count
+</th>
+<th>
+B_shifted
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+u32
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+5
+</td>
+<td>
+5
+</td>
+<td>
+"apple"
+</td>
+<td>
+2
+</td>
+<td>
+null
+</td>
+</tr>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+5
+</td>
+<td>
+5
+</td>
+<td>
+"apple"
+</td>
+<td>
+2
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+10
+</td>
+<td>
+10
+</td>
+<td>
+"banana"
+</td>
+<td>
+3
+</td>
+<td>
+null
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+10
+</td>
+<td>
+10
+</td>
+<td>
+"banana"
+</td>
+<td>
+3
+</td>
+<td>
+5
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+10
+</td>
+<td>
+10
+</td>
+<td>
+"banana"
+</td>
+<td>
+3
+</td>
+<td>
+4
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># we can also get the list of the groups
+(df.groupby(&quot;fruits&quot;)
+    .agg([
+         pl.col(&quot;B&quot;).shift().alias(&quot;shift_B&quot;),
+         pl.col(&quot;B&quot;).reverse().alias(&quot;rev_B&quot;),
+    ]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+fruits
+</th>
+<th>
+shift_B
+</th>
+<th>
+rev_B
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+list
+</td>
+<td>
+list
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+[null, 3]
+</td>
+<td>
+[2, 3]
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+[null, 5, 4]
+</td>
+<td>
+[1, 4, 5]
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># we can do predicates in the groupby as well
+
+(df.groupby(&quot;fruits&quot;)
+    .agg([
+        pl.col(&quot;B&quot;).filter(pl.col(&quot;B&quot;) &gt; 1).list().keep_name(),
+    ]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+fruits
+</th>
+<th>
+B
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+list
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+[5, 4]
+</td>
+</tr>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+[3, 2]
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># and sum only by the values where the predicates are true
+
+(df.groupby(&quot;fruits&quot;)
+    .agg([
+        pl.col(&quot;B&quot;).filter(pl.col(&quot;B&quot;) &gt; 1).mean(),
+    ]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+fruits
+</th>
+<th>
+B_mean
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+f64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+4.5
+</td>
+</tr>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+2.5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># Another example
+(df.groupby(&quot;fruits&quot;)
+    .agg([
+        pl.col(&quot;B&quot;).shift_and_fill(1, fill_value=0).alias(&quot;shifted&quot;),
+        pl.col(&quot;B&quot;).shift_and_fill(1, fill_value=0).sum().alias(&quot;shifted_sum&quot;),
+    ]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+fruits
+</th>
+<th>
+shifted
+</th>
+<th>
+shifted_sum
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+list
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+[0, 3]
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+[0, 5, 4]
+</td>
+<td>
+9
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="window-functions"><a class="header" href="#window-functions">Window functions!</a></h1>
+<ul>
+<li>Expression with superpowers.</li>
+<li>Aggregation in selection context</li>
+</ul>
+<pre><code class="language-python">pl.col(&quot;foo&quot;).aggregation_expression(..).over(&quot;column_used_to_group&quot;)
+</code></pre>
+<pre><code class="language-python"># groupby 2 different columns
+
+(df.sort(&quot;fruits&quot;)
+.select([
+    &quot;fruits&quot;,
+    &quot;cars&quot;,
+    &quot;B&quot;,
+    pl.col(&quot;B&quot;).sum().over(&quot;fruits&quot;).alias(&quot;B_sum_by_fruits&quot;),
+    pl.col(&quot;B&quot;).sum().over(&quot;cars&quot;).alias(&quot;B_sum_by_cars&quot;),
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+fruits
+</th>
+<th>
+cars
+</th>
+<th>
+B
+</th>
+<th>
+B_sum_by_fruits
+</th>
+<th>
+B_sum_by_cars
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+"beetle"
+</td>
+<td>
+3
+</td>
+<td>
+5
+</td>
+<td>
+11
+</td>
+</tr>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+"beetle"
+</td>
+<td>
+2
+</td>
+<td>
+5
+</td>
+<td>
+11
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+"beetle"
+</td>
+<td>
+5
+</td>
+<td>
+10
+</td>
+<td>
+11
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+"audi"
+</td>
+<td>
+4
+</td>
+<td>
+10
+</td>
+<td>
+4
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+"beetle"
+</td>
+<td>
+1
+</td>
+<td>
+10
+</td>
+<td>
+11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># reverse B by groups and show the results in original DF
+
+(df.sort(&quot;fruits&quot;)
+.select([
+    &quot;fruits&quot;,
+    &quot;B&quot;,
+    pl.col(&quot;B&quot;).reverse().over(&quot;fruits&quot;).flatten().alias(&quot;B_reversed_by_fruits&quot;)
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+fruits
+</th>
+<th>
+B
+</th>
+<th>
+B_reversed_by_fruits
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+3
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+2
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+5
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+4
+</td>
+<td>
+4
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+1
+</td>
+<td>
+5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># Lag a column within &quot;fruits&quot;
+(df
+.sort(&quot;fruits&quot;)
+.select([
+    &quot;fruits&quot;,
+    &quot;B&quot;,
+    pl.col(&quot;B&quot;).shift().over(&quot;fruits&quot;).flatten().alias(&quot;lag_B_by_fruits&quot;)
+]))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1 "class="dataframe ">
+<thead>
+<tr>
+<th>
+fruits
+</th>
+<th>
+B
+</th>
+<th>
+lag_B_by_fruits
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+3
+</td>
+<td>
+null
+</td>
+</tr>
+<tr>
+<td>
+"apple"
+</td>
+<td>
+2
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+5
+</td>
+<td>
+null
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+4
+</td>
+<td>
+5
+</td>
+</tr>
+<tr>
+<td>
+"banana"
+</td>
+<td>
+1
+</td>
+<td>
+4
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../dsl/numpy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../dsl/api.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../dsl/numpy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../dsl/api.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

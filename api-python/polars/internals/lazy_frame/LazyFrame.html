@@ -1,0 +1,4372 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>LazyFrame - Polars - Python Reference Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../../favicon.png">
+        
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../../../theme/css/style.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../../polars.html">polars</a></li><li class="chapter-item "><a href="../../../polars/cfg.html">cfg</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/cfg/Config.html">Config</a></li></ol></li><li class="chapter-item "><a href="../../../polars/convert.html">convert</a></li><li class="chapter-item "><a href="../../../polars/datatypes.html">datatypes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/datatypes/DataType.html">DataType</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int8.html">Int8</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int16.html">Int16</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int32.html">Int32</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int64.html">Int64</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt8.html">UInt8</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt16.html">UInt16</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt32.html">UInt32</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt64.html">UInt64</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Float32.html">Float32</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Float64.html">Float64</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Boolean.html">Boolean</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Utf8.html">Utf8</a></li><li class="chapter-item "><a href="../../../polars/datatypes/List.html">List</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Date.html">Date</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Datetime.html">Datetime</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Duration.html">Duration</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Time.html">Time</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Object.html">Object</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Categorical.html">Categorical</a></li></ol></li><li class="chapter-item "><a href="../../../polars/datatypes_constructor.html">datatypes_constructor</a></li><li class="chapter-item expanded "><a href="../../../polars/internals.html">internals</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/construction.html">construction</a></li><li class="chapter-item "><a href="../../../polars/internals/expr.html">expr</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/expr/Expr.html">Expr</a></li><li class="chapter-item "><a href="../../../polars/internals/expr/ExprListNameSpace.html">ExprListNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/expr/ExprStringNameSpace.html">ExprStringNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/expr/ExprDateTimeNameSpace.html">ExprDateTimeNameSpace</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/frame.html">frame</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/frame/DataFrame.html">DataFrame</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/RollingGroupBy.html">RollingGroupBy</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/DynamicGroupBy.html">DynamicGroupBy</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/GroupBy.html">GroupBy</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/PivotOps.html">PivotOps</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/GBSelection.html">GBSelection</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/functions.html">functions</a></li><li class="chapter-item expanded "><a href="../../../polars/internals/lazy_frame.html">lazy_frame</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../polars/internals/lazy_frame/LazyFrame.html" class="active">LazyFrame</a></li><li class="chapter-item "><a href="../../../polars/internals/lazy_frame/LazyGroupBy.html">LazyGroupBy</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/lazy_functions.html">lazy_functions</a></li><li class="chapter-item "><a href="../../../polars/internals/series.html">series</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/series/Series.html">Series</a></li><li class="chapter-item "><a href="../../../polars/internals/series/StringNameSpace.html">StringNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/series/ListNameSpace.html">ListNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/series/DateTimeNameSpace.html">DateTimeNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/series/SeriesIter.html">SeriesIter</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/whenthen.html">whenthen</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/whenthen/WhenThenThen.html">WhenThenThen</a></li><li class="chapter-item "><a href="../../../polars/internals/whenthen/WhenThen.html">WhenThen</a></li><li class="chapter-item "><a href="../../../polars/internals/whenthen/When.html">When</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../polars/io.html">io</a></li><li class="chapter-item "><a href="../../../polars/string_cache.html">string_cache</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/string_cache/StringCache.html">StringCache</a></li></ol></li><li class="chapter-item "><a href="../../../polars/testing.html">testing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Polars - Python Reference Guide</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="polarsinternalslazy_framelazyframe"><a class="header" href="#polarsinternalslazy_framelazyframe"><code>polars.internals.lazy_frame.LazyFrame</code></a></h1>
+<p>Representation of a Lazy computation graph/ query.</p>
+<p><strong>Methods</strong></p>
+<ul>
+<li><a href="#polarsinternalslazy_framelazyframescan_csv"><code>scan_csv()</code></a>: See Also: <code>pl.scan_csv</code></li>
+<li><a href="#polarsinternalslazy_framelazyframescan_parquet"><code>scan_parquet()</code></a>: See Also: <code>pl.scan_parquet</code></li>
+<li><a href="#polarsinternalslazy_framelazyframescan_ipc"><code>scan_ipc()</code></a>: See Also: <code>pl.scan_ipc</code></li>
+<li><a href="#polarsinternalslazy_framelazyframepipe"><code>pipe()</code></a>: Apply a function on Self.</li>
+<li><a href="#polarsinternalslazy_framelazyframedescribe_plan"><code>describe_plan()</code></a>: A string representation of the unoptimized query plan.</li>
+<li><a href="#polarsinternalslazy_framelazyframedescribe_optimized_plan"><code>describe_optimized_plan()</code></a>: A string representation of the optimized query plan.</li>
+<li><a href="#polarsinternalslazy_framelazyframeshow_graph"><code>show_graph()</code></a>: Show a plot of the query plan. Note that you should have graphviz installed.</li>
+<li><a href="#polarsinternalslazy_framelazyframeinspect"><code>inspect()</code></a>: Prints the value that this node in the computation graph evaluates to and passes on the value.</li>
+<li><a href="#polarsinternalslazy_framelazyframeinspectinspect"><code>inspect()</code></a>: </li>
+<li><a href="#polarsinternalslazy_framelazyframesort"><code>sort()</code></a>: Sort the DataFrame by:</li>
+<li><a href="#polarsinternalslazy_framelazyframecollect"><code>collect()</code></a>: Collect into a DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframefetch"><code>fetch()</code></a>: Fetch is like a collect operation, but it overwrites the number of rows read by every scan</li>
+<li><a href="#polarsinternalslazy_framelazyframecolumns"><code>columns()</code></a>: Get or set column names.</li>
+<li><a href="#polarsinternalslazy_framelazyframecache"><code>cache()</code></a>: Cache the result once the execution of the physical plan hits this node.</li>
+<li><a href="#polarsinternalslazy_framelazyframefilter"><code>filter()</code></a>: Filter the rows in the DataFrame based on a predicate expression.</li>
+<li><a href="#polarsinternalslazy_framelazyframeselect"><code>select()</code></a>: Select columns from this DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframegroupby"><code>groupby()</code></a>: Start a groupby operation.</li>
+<li><a href="#polarsinternalslazy_framelazyframegroupby_rolling"><code>groupby_rolling()</code></a>: Create rolling groups based on a time column (or index value of type Int32, Int64).</li>
+<li><a href="#polarsinternalslazy_framelazyframegroupby_dynamic"><code>groupby_dynamic()</code></a>: Groups based on a time value (or index value of type Int32, Int64). Time windows are calculated and rows are assigned to windows.</li>
+<li><a href="#polarsinternalslazy_framelazyframejoin"><code>join()</code></a>: Add a join operation to the Logical Plan.</li>
+<li><a href="#polarsinternalslazy_framelazyframewith_columns"><code>with_columns()</code></a>: Add or overwrite multiple columns in a DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframewith_column"><code>with_column()</code></a>: Add or overwrite column in a DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframedrop"><code>drop()</code></a>: Remove one or multiple columns from a DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframewith_column_renamed"><code>with_column_renamed()</code></a>: .. deprecated:: 0.12.13</li>
+<li><a href="#polarsinternalslazy_framelazyframerename"><code>rename()</code></a>: Rename column names.</li>
+<li><a href="#polarsinternalslazy_framelazyframereverse"><code>reverse()</code></a>: Reverse the DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframeshift"><code>shift()</code></a>: Shift the values by a given period and fill the parts that will be empty due to this operation</li>
+<li><a href="#polarsinternalslazy_framelazyframeshift_and_fill"><code>shift_and_fill()</code></a>: Shift the values by a given period and fill the parts that will be empty due to this operation</li>
+<li><a href="#polarsinternalslazy_framelazyframeslice"><code>slice()</code></a>: Slice the DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframelimit"><code>limit()</code></a>: Limit the DataFrame to the first <code>n</code> rows. Note if you don't want the rows to be scanned,</li>
+<li><a href="#polarsinternalslazy_framelazyframehead"><code>head()</code></a>: Gets the first <code>n</code> rows of the DataFrame. You probably don't want to use this!</li>
+<li><a href="#polarsinternalslazy_framelazyframetail"><code>tail()</code></a>: Get the last <code>n</code> rows of the DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframelast"><code>last()</code></a>: Get the last row of the DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframefirst"><code>first()</code></a>: Get the first row of the DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframewith_row_count"><code>with_row_count()</code></a>: Add a column at index 0 that counts the rows.</li>
+<li><a href="#polarsinternalslazy_framelazyframefill_null"><code>fill_null()</code></a>: Fill missing values</li>
+<li><a href="#polarsinternalslazy_framelazyframefill_nan"><code>fill_nan()</code></a>: Fill floating point NaN values.</li>
+<li><a href="#polarsinternalslazy_framelazyframestd"><code>std()</code></a>: Aggregate the columns in the DataFrame to their standard deviation value.</li>
+<li><a href="#polarsinternalslazy_framelazyframevar"><code>var()</code></a>: Aggregate the columns in the DataFrame to their variance value.</li>
+<li><a href="#polarsinternalslazy_framelazyframemax"><code>max()</code></a>: Aggregate the columns in the DataFrame to their maximum value.</li>
+<li><a href="#polarsinternalslazy_framelazyframemin"><code>min()</code></a>: Aggregate the columns in the DataFrame to their minimum value.</li>
+<li><a href="#polarsinternalslazy_framelazyframesum"><code>sum()</code></a>: Aggregate the columns in the DataFrame to their sum value.</li>
+<li><a href="#polarsinternalslazy_framelazyframemean"><code>mean()</code></a>: Aggregate the columns in the DataFrame to their mean value.</li>
+<li><a href="#polarsinternalslazy_framelazyframemedian"><code>median()</code></a>: Aggregate the columns in the DataFrame to their median value.</li>
+<li><a href="#polarsinternalslazy_framelazyframequantile"><code>quantile()</code></a>: Aggregate the columns in the DataFrame to their quantile value.</li>
+<li><a href="#polarsinternalslazy_framelazyframeexplode"><code>explode()</code></a>: Explode lists to long format.</li>
+<li><a href="#polarsinternalslazy_framelazyframedrop_duplicates"><code>drop_duplicates()</code></a>: .. deprecated:: 0.12.18</li>
+<li><a href="#polarsinternalslazy_framelazyframedistinct"><code>distinct()</code></a>: Drop duplicate rows from this DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframedrop_nulls"><code>drop_nulls()</code></a>: Drop rows with null values from this DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframemelt"><code>melt()</code></a>: Unpivot DataFrame to long format.</li>
+<li><a href="#polarsinternalslazy_framelazyframemap"><code>map()</code></a>: Apply a custom function. It is important that the function returns a Polars DataFrame.</li>
+<li><a href="#polarsinternalslazy_framelazyframeinterpolate"><code>interpolate()</code></a>: Interpolate intermediate values. The interpolation method is linear.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">class LazyFrame:
+    &quot;&quot;&quot;
+    Representation of a Lazy computation graph/ query.
+    &quot;&quot;&quot;
+
+    def __init__(self) -&gt; None:
+        self._ldf: PyLazyFrame
+
+    @staticmethod
+    def _from_pyldf(ldf: &quot;PyLazyFrame&quot;) -&gt; &quot;LazyFrame&quot;:
+        self = LazyFrame.__new__(LazyFrame)
+        self._ldf = ldf
+        return self
+
+    @staticmethod
+    def scan_csv(
+        file: str,
+        has_header: bool = True,
+        sep: str = &quot;,&quot;,
+        comment_char: Optional[str] = None,
+        quote_char: Optional[str] = r'&quot;',
+        skip_rows: int = 0,
+        dtypes: Optional[Dict[str, Type[DataType]]] = None,
+        null_values: Optional[Union[str, List[str], Dict[str, str]]] = None,
+        ignore_errors: bool = False,
+        cache: bool = True,
+        with_column_names: Optional[Callable[[List[str]], List[str]]] = None,
+        infer_schema_length: Optional[int] = 100,
+        n_rows: Optional[int] = None,
+        low_memory: bool = False,
+        rechunk: bool = True,
+        skip_rows_after_header: int = 0,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        See Also: `pl.scan_csv`
+        &quot;&quot;&quot;
+        dtype_list: Optional[List[Tuple[str, Type[DataType]]]] = None
+        if dtypes is not None:
+            dtype_list = []
+            for k, v in dtypes.items():
+                dtype_list.append((k, py_type_to_dtype(v)))
+        processed_null_values = _process_null_values(null_values)
+
+        self = LazyFrame.__new__(LazyFrame)
+        self._ldf = PyLazyFrame.new_from_csv(
+            file,
+            sep,
+            has_header,
+            ignore_errors,
+            skip_rows,
+            n_rows,
+            cache,
+            dtype_list,
+            low_memory,
+            comment_char,
+            quote_char,
+            processed_null_values,
+            infer_schema_length,
+            with_column_names,
+            rechunk,
+            skip_rows_after_header,
+        )
+        return self
+
+    @staticmethod
+    def scan_parquet(
+        file: str,
+        n_rows: Optional[int] = None,
+        cache: bool = True,
+        parallel: bool = True,
+        rechunk: bool = True,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        See Also: `pl.scan_parquet`
+        &quot;&quot;&quot;
+
+        self = LazyFrame.__new__(LazyFrame)
+        self._ldf = PyLazyFrame.new_from_parquet(file, n_rows, cache, parallel, rechunk)
+        return self
+
+    @staticmethod
+    def scan_ipc(
+        file: str,
+        n_rows: Optional[int] = None,
+        cache: bool = True,
+        rechunk: bool = True,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        See Also: `pl.scan_ipc`
+        &quot;&quot;&quot;
+
+        self = LazyFrame.__new__(LazyFrame)
+        self._ldf = PyLazyFrame.new_from_ipc(file, n_rows, cache, rechunk)
+        return self
+
+    def pipe(self, func: Callable[..., Any], *args: Any, **kwargs: Any) -&gt; Any:
+        &quot;&quot;&quot;
+        Apply a function on Self.
+
+        Parameters
+        ----------
+        func
+            Callable.
+        args
+            Arguments.
+        kwargs
+            Keyword arguments.
+        &quot;&quot;&quot;
+        return func(self, *args, **kwargs)
+
+    def _repr_html_(self) -&gt; str:
+        try:
+            dot = self._ldf.to_dot(optimized=False)
+            svg = subprocess.check_output(
+                [&quot;dot&quot;, &quot;-Nshape=box&quot;, &quot;-Tsvg&quot;], input=f&quot;{dot}&quot;.encode()
+            )
+            return f&quot;&lt;h4&gt;NAIVE QUERY PLAN&lt;/h4&gt;&lt;p&gt;run &lt;b&gt;LazyFrame.show_graph()&lt;/b&gt; to see the optimized version&lt;/p&gt;{svg.decode()}&quot;
+        except Exception:
+            insert = self.describe_plan().replace(&quot;\n&quot;, &quot;&lt;p&gt;&lt;/p&gt;&quot;)
+
+            return f&quot;&quot;&quot;&lt;i&gt;naive plan: (run &lt;b&gt;LazyFrame.describe_optimized_plan()&lt;/b&gt; to see the optimized plan)&lt;/i&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;div&gt;{insert}&lt;/div&gt;&quot;&quot;&quot;
+
+    def __str__(self) -&gt; str:
+        return f&quot;&quot;&quot;naive plan: (run LazyFrame.describe_optimized_plan() to see the optimized plan)
+
+{self.describe_plan()}&quot;&quot;&quot;
+
+    def describe_plan(self) -&gt; str:
+        &quot;&quot;&quot;
+        A string representation of the unoptimized query plan.
+        &quot;&quot;&quot;
+        return self._ldf.describe_plan()
+
+    def describe_optimized_plan(
+        self,
+        type_coercion: bool = True,
+        predicate_pushdown: bool = True,
+        projection_pushdown: bool = True,
+        simplify_expression: bool = True,
+        slice_pushdown: bool = True,
+    ) -&gt; str:
+        &quot;&quot;&quot;
+        A string representation of the optimized query plan.
+        &quot;&quot;&quot;
+
+        ldf = self._ldf.optimization_toggle(
+            type_coercion,
+            predicate_pushdown,
+            projection_pushdown,
+            simplify_expression,
+            string_cache=False,
+            slice_pushdown=slice_pushdown,
+        )
+
+        return ldf.describe_optimized_plan()
+
+    def show_graph(
+        self,
+        optimized: bool = True,
+        show: bool = True,
+        output_path: Optional[str] = None,
+        raw_output: bool = False,
+        figsize: Tuple[float, float] = (16.0, 12.0),
+    ) -&gt; Optional[str]:
+        &quot;&quot;&quot;
+        Show a plot of the query plan. Note that you should have graphviz installed.
+
+        Parameters
+        ----------
+        optimized
+            Optimize the query plan.
+        show
+            Show the figure.
+        output_path
+            Write the figure to disk.
+        raw_output
+            Return dot syntax. This cannot be combined with `show`
+        figsize
+            Passed to matlotlib if `show` == True.
+        &quot;&quot;&quot;
+        if raw_output:
+            show = False
+
+        if show and _in_notebook():
+            try:
+                from IPython.display import SVG, display
+
+                dot = self._ldf.to_dot(optimized)
+                svg = subprocess.check_output(
+                    [&quot;dot&quot;, &quot;-Nshape=box&quot;, &quot;-Tsvg&quot;], input=f&quot;{dot}&quot;.encode()
+                )
+                return display(SVG(svg))
+            except Exception:
+                raise ImportError(
+                    &quot;Graphviz dot binary should be on your PATH and matplotlib should be installed to show graph.&quot;
+                )
+        try:
+            import matplotlib.image as mpimg
+            import matplotlib.pyplot as plt
+        except ImportError:
+            raise ImportError(
+                &quot;Graphviz dot binary should be on your PATH and matplotlib should be installed to show graph.&quot;
+            )
+        dot = self._ldf.to_dot(optimized)
+        if raw_output:
+            return dot
+        with tempfile.TemporaryDirectory() as tmpdir_name:
+            dot_path = os.path.join(tmpdir_name, &quot;dot&quot;)
+            with open(dot_path, &quot;w&quot;) as f:
+                f.write(dot)
+
+            subprocess.run([&quot;dot&quot;, &quot;-Nshape=box&quot;, &quot;-Tpng&quot;, &quot;-O&quot;, dot_path])
+            out_path = os.path.join(tmpdir_name, &quot;dot.png&quot;)
+
+            if output_path is not None:
+                shutil.copy(out_path, output_path)
+
+            if show:
+                plt.figure(figsize=figsize)
+                img = mpimg.imread(out_path)
+                plt.imshow(img)
+                plt.show()
+        return None
+
+    def inspect(self, fmt: str = &quot;{}&quot;) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Prints the value that this node in the computation graph evaluates to and passes on the value.
+
+        &gt;&gt;&gt; df = pl.DataFrame({&quot;foo&quot;: [1, 1, -2, 3]}).lazy()
+        &gt;&gt;&gt; (
+        ...     df.select(
+        ...         [
+        ...             pl.col(&quot;foo&quot;).cumsum().alias(&quot;bar&quot;),
+        ...         ]
+        ...     )
+        ...     .inspect()  # print the node before the filter
+        ...     .filter(pl.col(&quot;bar&quot;) == pl.col(&quot;foo&quot;))
+        ... )  # doctest: +ELLIPSIS
+        &lt;polars.internals.lazy_frame.LazyFrame object at ...&gt;
+
+        &quot;&quot;&quot;
+
+        def inspect(s: pli.DataFrame) -&gt; pli.DataFrame:
+            print(fmt.format(s))
+            return s
+
+        return self.map(inspect, predicate_pushdown=True, projection_pushdown=True)
+
+    def sort(
+        self,
+        by: Union[str, &quot;pli.Expr&quot;, List[str], List[&quot;pli.Expr&quot;]],
+        reverse: Union[bool, List[bool]] = False,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Sort the DataFrame by:
+
+            - A single column name
+            - An expression
+            - Multiple expressions
+
+        Parameters
+        ----------
+        by
+            Column (expressions) to sort by.
+        reverse
+            Whether or not to sort in reverse order.
+        &quot;&quot;&quot;
+        if type(by) is str:
+            return wrap_ldf(self._ldf.sort(by, reverse))
+        if type(reverse) is bool:
+            reverse = [reverse]
+
+        by = pli.selection_to_pyexpr_list(by)
+        return wrap_ldf(self._ldf.sort_by_exprs(by, reverse))
+
+    def collect(
+        self,
+        type_coercion: bool = True,
+        predicate_pushdown: bool = True,
+        projection_pushdown: bool = True,
+        simplify_expression: bool = True,
+        string_cache: bool = False,
+        no_optimization: bool = False,
+        slice_pushdown: bool = True,
+    ) -&gt; pli.DataFrame:
+        &quot;&quot;&quot;
+        Collect into a DataFrame.
+
+        Note: use `fetch` if you want to run this query on the first `n` rows only.
+        This can be a huge time saver in debugging queries.
+
+        Parameters
+        ----------
+        type_coercion
+            Do type coercion optimization.
+        predicate_pushdown
+            Do predicate pushdown optimization.
+        projection_pushdown
+            Do projection pushdown optimization.
+        simplify_expression
+            Run simplify expressions optimization.
+        string_cache
+            Use a global string cache in this query.
+            This is needed if you want to join on categorical columns.
+
+            Caution!
+                If you already have set a global string cache, set this to `False` as this will reset the
+                global cache when the query is finished.
+        no_optimization
+            Turn off optimizations.
+        slice_pushdown
+            Slice pushdown optimization.
+
+        Returns
+        -------
+        DataFrame
+        &quot;&quot;&quot;
+        if no_optimization:
+            predicate_pushdown = False
+            projection_pushdown = False
+            slice_pushdown = False
+
+        ldf = self._ldf.optimization_toggle(
+            type_coercion,
+            predicate_pushdown,
+            projection_pushdown,
+            simplify_expression,
+            string_cache,
+            slice_pushdown,
+        )
+        return pli.wrap_df(ldf.collect())
+
+    def fetch(
+        self,
+        n_rows: int = 500,
+        type_coercion: bool = True,
+        predicate_pushdown: bool = True,
+        projection_pushdown: bool = True,
+        simplify_expression: bool = True,
+        string_cache: bool = True,
+        no_optimization: bool = False,
+        slice_pushdown: bool = True,
+    ) -&gt; pli.DataFrame:
+        &quot;&quot;&quot;
+        Fetch is like a collect operation, but it overwrites the number of rows read by every scan
+        operation. This is a utility that helps debug a query on a smaller number of rows.
+
+        Note that the fetch does not guarantee the final number of rows in the DataFrame.
+        Filter, join operations and a lower number of rows available in the scanned file influence
+        the final number of rows.
+
+        Parameters
+        ----------
+        n_rows
+            Collect n_rows from the data sources.
+        type_coercion
+            Run type coercion optimization.
+        predicate_pushdown
+            Run predicate pushdown optimization.
+        projection_pushdown
+            Run projection pushdown optimization.
+        simplify_expression
+            Run simplify expressions optimization.
+        string_cache
+            Use a global string cache in this query.
+            This is needed if you want to join on categorical columns.
+        no_optimization
+            Turn off optimizations.
+        slice_pushdown
+            Slice pushdown opitmizaiton
+
+        Returns
+        -------
+        DataFrame
+        &quot;&quot;&quot;
+        if no_optimization:
+            predicate_pushdown = False
+            projection_pushdown = False
+            slice_pushdown = False
+
+        ldf = self._ldf.optimization_toggle(
+            type_coercion,
+            predicate_pushdown,
+            projection_pushdown,
+            simplify_expression,
+            string_cache,
+            slice_pushdown,
+        )
+        return pli.wrap_df(ldf.fetch(n_rows))
+
+    @property
+    def columns(self) -&gt; List[str]:
+        &quot;&quot;&quot;
+        Get or set column names.
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; df = (
+        ...     pl.DataFrame(
+        ...         {
+        ...             &quot;foo&quot;: [1, 2, 3],
+        ...             &quot;bar&quot;: [6, 7, 8],
+        ...             &quot;ham&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;],
+        ...         }
+        ...     )
+        ...     .lazy()
+        ...     .select([&quot;foo&quot;, &quot;bar&quot;])
+        ... )
+
+        &gt;&gt;&gt; df.columns
+        ['foo', 'bar']
+
+        &quot;&quot;&quot;
+        return self._ldf.columns()
+
+    def cache(
+        self,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Cache the result once the execution of the physical plan hits this node.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.cache())
+
+    def filter(self, predicate: Union[&quot;pli.Expr&quot;, str]) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Filter the rows in the DataFrame based on a predicate expression.
+
+        Parameters
+        ----------
+        predicate
+            Expression that evaluates to a boolean Series.
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; lf = pl.DataFrame(
+        ...     {
+        ...         &quot;foo&quot;: [1, 2, 3],
+        ...         &quot;bar&quot;: [6, 7, 8],
+        ...         &quot;ham&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;],
+        ...     }
+        ... ).lazy()
+
+        Filter on one condition:
+
+        &gt;&gt;&gt; lf.filter(pl.col(&quot;foo&quot;) &lt; 3).collect()
+        shape: (2, 3)
+        ┌─────┬─────┬─────┐
+        │ foo ┆ bar ┆ ham │
+        │ --- ┆ --- ┆ --- │
+        │ i64 ┆ i64 ┆ str │
+        ╞═════╪═════╪═════╡
+        │ 1   ┆ 6   ┆ a   │
+        ├╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌┤
+        │ 2   ┆ 7   ┆ b   │
+        └─────┴─────┴─────┘
+
+        Filter on multiple conditions:
+
+        &gt;&gt;&gt; lf.filter((pl.col(&quot;foo&quot;) &lt; 3) &amp; (pl.col(&quot;ham&quot;) == &quot;a&quot;)).collect()
+        shape: (1, 3)
+        ┌─────┬─────┬─────┐
+        │ foo ┆ bar ┆ ham │
+        │ --- ┆ --- ┆ --- │
+        │ i64 ┆ i64 ┆ str │
+        ╞═════╪═════╪═════╡
+        │ 1   ┆ 6   ┆ a   │
+        └─────┴─────┴─────┘
+
+        &quot;&quot;&quot;
+        if isinstance(predicate, str):
+            predicate = pli.col(predicate)
+        return wrap_ldf(self._ldf.filter(predicate._pyexpr))
+
+    def select(
+        self,
+        exprs: Union[
+            str, &quot;pli.Expr&quot;, Sequence[str], Sequence[&quot;pli.Expr&quot;], &quot;pli.Series&quot;
+        ],
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Select columns from this DataFrame.
+
+        Parameters
+        ----------
+        exprs
+            Column or columns to select.
+        &quot;&quot;&quot;
+        exprs = pli.selection_to_pyexpr_list(exprs)
+        return wrap_ldf(self._ldf.select(exprs))
+
+    def groupby(
+        self,
+        by: Union[str, List[str], &quot;pli.Expr&quot;, List[&quot;pli.Expr&quot;]],
+        maintain_order: bool = False,
+    ) -&gt; &quot;LazyGroupBy&quot;:
+        &quot;&quot;&quot;
+        Start a groupby operation.
+
+        Parameters
+        ----------
+        by
+            Column(s) to group by.
+        maintain_order
+            Make sure that the order of the groups remain consistent. This is more expensive than a default groupby.
+        &quot;&quot;&quot;
+        new_by = _prepare_groupby_inputs(by)
+        lgb = self._ldf.groupby(new_by, maintain_order)
+        return LazyGroupBy(lgb)
+
+    def groupby_rolling(
+        self,
+        index_column: str,
+        period: str,
+        offset: Optional[str] = None,
+        closed: str = &quot;right&quot;,
+    ) -&gt; &quot;LazyGroupBy&quot;:
+        &quot;&quot;&quot;
+        Create rolling groups based on a time column (or index value of type Int32, Int64).
+
+        Different from a rolling groupby the windows are now determined by the individual values and are not of constant
+        intervals. For constant intervals use *groupby_dynamic*
+
+        .. seealso::
+
+            groupby_dynamic
+
+
+        The `period` and `offset` arguments are created with
+        the following string language:
+
+        - 1ns   (1 nanosecond)
+        - 1us   (1 microsecond)
+        - 1ms   (1 millisecond)
+        - 1s    (1 second)
+        - 1m    (1 minute)
+        - 1h    (1 hour)
+        - 1d    (1 day)
+        - 1w    (1 week)
+        - 1mo   (1 calendar month)
+        - 1y    (1 calendar year)
+        - 1i    (1 index count)
+
+        Or combine them:
+        &quot;3d12h4m25s&quot; # 3 days, 12 hours, 4 minutes, and 25 seconds
+
+        In case of a groupby_rolling on an integer column, the windows are defined by:
+
+        - &quot;1i&quot;      # length 1
+        - &quot;10i&quot;     # length 10
+
+        .. warning::
+            This API is experimental and may change without it being considered a breaking change.
+
+        Parameters
+        ----------
+        index_column
+            Column used to group based on the time window.
+            Often to type Date/Datetime
+            This column must be sorted in ascending order. If not the output will not make sense.
+
+            In case of a rolling groupby on indices, dtype needs to be one of {Int32, Int64}. Note that
+            Int32 gets temporarely cast to Int64, so if performance matters use an Int64 column.
+        period
+            length of the window
+        offset
+            offset of the window. Default is -period
+        closed
+            Defines if the window interval is closed or not.
+            Any of {&quot;left&quot;, &quot;right&quot;, &quot;both&quot; &quot;none&quot;}
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; dates = [
+        ...     &quot;2020-01-01 13:45:48&quot;,
+        ...     &quot;2020-01-01 16:42:13&quot;,
+        ...     &quot;2020-01-01 16:45:09&quot;,
+        ...     &quot;2020-01-02 18:12:48&quot;,
+        ...     &quot;2020-01-03 19:45:32&quot;,
+        ...     &quot;2020-01-08 23:16:43&quot;,
+        ... ]
+        &gt;&gt;&gt; df = pl.DataFrame({&quot;dt&quot;: dates, &quot;a&quot;: [3, 7, 5, 9, 2, 1]}).with_column(
+        ...     pl.col(&quot;dt&quot;).str.strptime(pl.Datetime)
+        ... )
+        &gt;&gt;&gt; out = df.groupby_rolling(index_column=&quot;dt&quot;, period=&quot;2d&quot;).agg(
+        ...     [
+        ...         pl.sum(&quot;a&quot;).alias(&quot;sum_a&quot;),
+        ...         pl.min(&quot;a&quot;).alias(&quot;min_a&quot;),
+        ...         pl.max(&quot;a&quot;).alias(&quot;max_a&quot;),
+        ...     ]
+        ... )
+        &gt;&gt;&gt; assert out[&quot;sum_a&quot;].to_list() == [3, 10, 15, 24, 11, 1]
+        &gt;&gt;&gt; assert out[&quot;max_a&quot;].to_list() == [3, 7, 7, 9, 9, 1]
+        &gt;&gt;&gt; assert out[&quot;min_a&quot;].to_list() == [3, 3, 3, 3, 2, 1]
+        &gt;&gt;&gt; out
+        shape: (6, 4)
+        ┌─────────────────────┬───────┬───────┬───────┐
+        │ dt                  ┆ a_sum ┆ a_max ┆ a_min │
+        │ ---                 ┆ ---   ┆ ---   ┆ ---   │
+        │ datetime[ms]        ┆ i64   ┆ i64   ┆ i64   │
+        ╞═════════════════════╪═══════╪═══════╪═══════╡
+        │ 2020-01-01 13:45:48 ┆ 3     ┆ 3     ┆ 3     │
+        ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+        │ 2020-01-01 16:42:13 ┆ 10    ┆ 7     ┆ 3     │
+        ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+        │ 2020-01-01 16:45:09 ┆ 15    ┆ 7     ┆ 3     │
+        ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+        │ 2020-01-02 18:12:48 ┆ 24    ┆ 9     ┆ 3     │
+        ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+        │ 2020-01-03 19:45:32 ┆ 11    ┆ 9     ┆ 2     │
+        ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+        │ 2020-01-08 23:16:43 ┆ 1     ┆ 1     ┆ 1     │
+        └─────────────────────┴───────┴───────┴───────┘
+
+
+        &quot;&quot;&quot;
+
+        if offset is None:
+            offset = f&quot;-{period}&quot;
+
+        lgb = self._ldf.groupby_rolling(
+            index_column,
+            period,
+            offset,
+            closed,
+        )
+        return LazyGroupBy(lgb)
+
+    def groupby_dynamic(
+        self,
+        index_column: str,
+        every: str,
+        period: Optional[str] = None,
+        offset: Optional[str] = None,
+        truncate: bool = True,
+        include_boundaries: bool = False,
+        closed: str = &quot;right&quot;,
+        by: Optional[Union[str, List[str], &quot;pli.Expr&quot;, List[&quot;pli.Expr&quot;]]] = None,
+    ) -&gt; &quot;LazyGroupBy&quot;:
+        &quot;&quot;&quot;
+        Groups based on a time value (or index value of type Int32, Int64). Time windows are calculated and rows are assigned to windows.
+        Different from a normal groupby is that a row can be member of multiple groups. The time/index window could
+        be seen as a rolling window, with a window size determined by dates/times/values instead of slots in the DataFrame.
+
+        .. seealso::
+
+            groupby_rolling
+
+        A window is defined by:
+
+        - every: interval of the window
+        - period: length of the window
+        - offset: offset of the window
+
+        The `every`, `period` and `offset` arguments are created with
+        the following string language:
+
+        - 1ns   (1 nanosecond)
+        - 1us   (1 microsecond)
+        - 1ms   (1 millisecond)
+        - 1s    (1 second)
+        - 1m    (1 minute)
+        - 1h    (1 hour)
+        - 1d    (1 day)
+        - 1w    (1 week)
+        - 1mo   (1 calendar month)
+        - 1y    (1 calendar year)
+        - 1i    (1 index count)
+
+        Or combine them:
+        &quot;3d12h4m25s&quot; # 3 days, 12 hours, 4 minutes, and 25 seconds
+
+        In case of a groupby_dynamic on an integer column, the windows are defined by:
+
+        - &quot;1i&quot;      # length 1
+        - &quot;10i&quot;     # length 10
+
+        .. warning::
+            This API is experimental and may change without it being considered a breaking change.
+
+        Parameters
+        ----------
+        index_column
+            Column used to group based on the time window.
+            Often to type Date/Datetime
+            This column must be sorted in ascending order. If not the output will not make sense.
+
+            In case of a dynamic groupby on indices, dtype needs to be one of {Int32, Int64}. Note that
+            Int32 gets temporarely cast to Int64, so if performance matters use an Int64 column.
+        every
+            interval of the window
+        period
+            length of the window, if None it is equal to 'every'
+        offset
+            offset of the window
+        truncate
+            truncate the time value to the window lower bound
+        include_boundaries
+            add the lower and upper bound of the window to the &quot;_lower_bound&quot; and &quot;_upper_bound&quot; columns
+            this will impact performance because it's harder to parallelize
+        closed
+            Defines if the window interval is closed or not.
+            Any of {&quot;left&quot;, &quot;right&quot;, &quot;both&quot; &quot;none&quot;}
+        by
+            Also group by this column/these columns
+
+        &quot;&quot;&quot;
+
+        if period is None:
+            period = every
+        if offset is None:
+            offset = &quot;0ns&quot;
+        by = _prepare_groupby_inputs(by)
+        lgb = self._ldf.groupby_dynamic(
+            index_column,
+            every,
+            period,
+            offset,
+            truncate,
+            include_boundaries,
+            closed,
+            by,
+        )
+        return LazyGroupBy(lgb)
+
+    def join(
+        self,
+        ldf: &quot;LazyFrame&quot;,
+        left_on: Optional[Union[str, &quot;pli.Expr&quot;, List[Union[str, &quot;pli.Expr&quot;]]]] = None,
+        right_on: Optional[Union[str, &quot;pli.Expr&quot;, List[Union[str, &quot;pli.Expr&quot;]]]] = None,
+        on: Optional[Union[str, &quot;pli.Expr&quot;, List[Union[str, &quot;pli.Expr&quot;]]]] = None,
+        how: str = &quot;inner&quot;,
+        suffix: str = &quot;_right&quot;,
+        allow_parallel: bool = True,
+        force_parallel: bool = False,
+        asof_by: Optional[Union[str, List[str]]] = None,
+        asof_by_left: Optional[Union[str, List[str]]] = None,
+        asof_by_right: Optional[Union[str, List[str]]] = None,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Add a join operation to the Logical Plan.
+
+        Parameters
+        ----------
+        ldf
+            Lazy DataFrame to join with.
+        left_on
+            Join column of the left DataFrame.
+        right_on
+            Join column of the right DataFrame.
+        on
+            Join column of both DataFrames. If set, `left_on` and `right_on` should be None.
+        how
+            one of:
+                &quot;inner&quot;
+                &quot;left&quot;
+                &quot;outer&quot;
+                &quot;asof&quot;,
+                &quot;cross&quot;
+        suffix
+            Suffix to append to columns with a duplicate name.
+        allow_parallel
+            Allow the physical plan to optionally evaluate the computation of both DataFrames up to the join in parallel.
+        force_parallel
+            Force the physical plan to evaluate the computation of both DataFrames up to the join in parallel.
+        asof_by
+            join on these columns before doing asof join
+        asof_by_left
+            join on these columns before doing asof join
+        asof_by_right
+            join on these columns before doing asof join
+
+        # Asof joins
+        This is similar to a left-join except that we match on nearest key rather than equal keys.
+        The keys must be sorted to perform an asof join
+
+        &quot;&quot;&quot;
+        if how == &quot;cross&quot;:
+            return wrap_ldf(
+                self._ldf.join(
+                    ldf._ldf,
+                    [],
+                    [],
+                    allow_parallel,
+                    force_parallel,
+                    how,
+                    suffix,
+                    [],
+                    [],
+                )
+            )
+
+        left_on_: Optional[List[Union[str, pli.Expr]]]
+        if isinstance(left_on, (str, pli.Expr)):
+            left_on_ = [left_on]
+        else:
+            left_on_ = left_on
+
+        right_on_: Optional[List[Union[str, pli.Expr]]]
+        if isinstance(right_on, (str, pli.Expr)):
+            right_on_ = [right_on]
+        else:
+            right_on_ = right_on
+
+        if isinstance(on, str):
+            left_on_ = [on]
+            right_on_ = [on]
+        elif isinstance(on, list):
+            left_on_ = on
+            right_on_ = on
+
+        if left_on_ is None or right_on_ is None:
+            raise ValueError(&quot;You should pass the column to join on as an argument.&quot;)
+
+        new_left_on = []
+        for column in left_on_:
+            if isinstance(column, str):
+                column = pli.col(column)
+            new_left_on.append(column._pyexpr)
+        new_right_on = []
+        for column in right_on_:
+            if isinstance(column, str):
+                column = pli.col(column)
+            new_right_on.append(column._pyexpr)
+
+        # set asof_by
+
+        left_asof_by_: Union[List[str], None]
+        if isinstance(asof_by_left, str):
+            left_asof_by_ = [asof_by_left]
+        else:
+            left_asof_by_ = asof_by_left
+
+        right_asof_by_: Union[List[str], None]
+        if isinstance(asof_by_right, (str, pli.Expr)):
+            right_asof_by_ = [asof_by_right]
+        else:
+            right_asof_by_ = asof_by_right
+
+        if isinstance(asof_by, str):
+            left_asof_by_ = [asof_by]
+            right_asof_by_ = [asof_by]
+        elif isinstance(asof_by, list):
+            left_asof_by_ = asof_by
+            right_asof_by_ = asof_by
+
+        if left_asof_by_ is None:
+            left_asof_by_ = []
+        if right_asof_by_ is None:
+            right_asof_by_ = []
+
+        return wrap_ldf(
+            self._ldf.join(
+                ldf._ldf,
+                new_left_on,
+                new_right_on,
+                allow_parallel,
+                force_parallel,
+                how,
+                suffix,
+                left_asof_by_,
+                right_asof_by_,
+            )
+        )
+
+    def with_columns(self, exprs: Union[List[&quot;pli.Expr&quot;], &quot;pli.Expr&quot;]) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Add or overwrite multiple columns in a DataFrame.
+
+        Parameters
+        ----------
+        exprs
+            List of Expressions that evaluate to columns.
+        &quot;&quot;&quot;
+        if isinstance(exprs, pli.Expr):
+            return self.with_column(exprs)
+
+        pyexprs = []
+
+        for e in exprs:
+            if isinstance(e, pli.Expr):
+                pyexprs.append(e._pyexpr)
+            elif isinstance(e, pli.Series):
+                pyexprs.append(pli.lit(e)._pyexpr)
+
+        return wrap_ldf(self._ldf.with_columns(pyexprs))
+
+    def with_column(self, expr: &quot;pli.Expr&quot;) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Add or overwrite column in a DataFrame.
+
+        Parameters
+        ----------
+        expr
+            Expression that evaluates to column.
+        &quot;&quot;&quot;
+        return self.with_columns([expr])
+
+    def drop(self, columns: Union[str, List[str]]) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Remove one or multiple columns from a DataFrame.
+
+        Parameters
+        ----------
+        columns
+            - Name of the column that should be removed.
+            - List of column names.
+
+        &quot;&quot;&quot;
+        if isinstance(columns, str):
+            columns = [columns]
+        return wrap_ldf(self._ldf.drop_columns(columns))
+
+    def with_column_renamed(self, existing_name: str, new_name: str) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        .. deprecated:: 0.12.13
+            Use :func:rename instead
+
+        Rename a column in the DataFrame
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.with_column_renamed(existing_name, new_name))
+
+    def rename(self, mapping: Dict[str, str]) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Rename column names.
+
+        Parameters
+        ----------
+        mapping
+            Key value pairs that map from old name to new name.
+        &quot;&quot;&quot;
+        existing = list(mapping.keys())
+        new = list(mapping.values())
+        return wrap_ldf(self._ldf.rename(existing, new))
+
+    def reverse(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Reverse the DataFrame.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.reverse())
+
+    def shift(self, periods: int) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Shift the values by a given period and fill the parts that will be empty due to this operation
+        with `Nones`.
+
+        Parameters
+        ----------
+        periods
+            Number of places to shift (may be negative).
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.shift(periods))
+
+    def shift_and_fill(
+        self, periods: int, fill_value: Union[&quot;pli.Expr&quot;, int, str, float]
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Shift the values by a given period and fill the parts that will be empty due to this operation
+        with the result of the `fill_value` expression.
+
+        Parameters
+        ----------
+        periods
+            Number of places to shift (may be negative).
+        fill_value
+            fill None values with the result of this expression.
+        &quot;&quot;&quot;
+        if not isinstance(fill_value, pli.Expr):
+            fill_value = pli.lit(fill_value)
+        return wrap_ldf(self._ldf.shift_and_fill(periods, fill_value._pyexpr))
+
+    def slice(self, offset: int, length: int) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Slice the DataFrame.
+
+        Parameters
+        ----------
+        offset
+            Start index.
+        length
+            Length of the slice.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.slice(offset, length))
+
+    def limit(self, n: int) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Limit the DataFrame to the first `n` rows. Note if you don't want the rows to be scanned,
+        use the `fetch` operation.
+
+        Parameters
+        ----------
+        n
+            Number of rows.
+        &quot;&quot;&quot;
+        return self.slice(0, n)
+
+    def head(self, n: int) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Gets the first `n` rows of the DataFrame. You probably don't want to use this!
+
+        Consider using the `fetch` operation. The `fetch` operation will truly load the first `n`
+        rows lazily.
+
+        This operation instead loads all the rows and only applies the `head` at the end.
+
+        Parameters
+        ----------
+        n
+            Number of rows.
+        &quot;&quot;&quot;
+        return self.limit(n)
+
+    def tail(self, n: int) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Get the last `n` rows of the DataFrame.
+
+        Parameters
+        ----------
+        n
+            Number of rows.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.tail(n))
+
+    def last(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Get the last row of the DataFrame.
+        &quot;&quot;&quot;
+        return self.tail(1)
+
+    def first(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Get the first row of the DataFrame.
+        &quot;&quot;&quot;
+        return self.slice(0, 1)
+
+    def with_row_count(self, name: str = &quot;row_nr&quot;) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Add a column at index 0 that counts the rows.
+
+        Parameters
+        ----------
+        name
+            Name of the column to add.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.with_row_count(name))
+
+    def fill_null(self, fill_value: Union[int, str, &quot;pli.Expr&quot;]) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Fill missing values
+
+        Parameters
+        ----------
+        fill_value
+            Value to fill the missing values with
+        &quot;&quot;&quot;
+        if not isinstance(fill_value, pli.Expr):
+            fill_value = pli.lit(fill_value)
+        return wrap_ldf(self._ldf.fill_null(fill_value._pyexpr))
+
+    def fill_nan(self, fill_value: Union[int, str, float, &quot;pli.Expr&quot;]) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Fill floating point NaN values.
+
+        ..warning::
+
+            NOTE that floating point NaN (No a Number) are not missing values!
+            to replace missing values, use `fill_null`.
+
+
+        Parameters
+        ----------
+        fill_value
+            Value to fill the NaN values with
+        &quot;&quot;&quot;
+        if not isinstance(fill_value, pli.Expr):
+            fill_value = pli.lit(fill_value)
+        return wrap_ldf(self._ldf.fill_nan(fill_value._pyexpr))
+
+    def std(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their standard deviation value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.std())
+
+    def var(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their variance value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.var())
+
+    def max(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their maximum value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.max())
+
+    def min(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their minimum value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.min())
+
+    def sum(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their sum value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.sum())
+
+    def mean(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their mean value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.mean())
+
+    def median(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their median value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.median())
+
+    def quantile(self, quantile: float, interpolation: str = &quot;nearest&quot;) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their quantile value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.quantile(quantile, interpolation))
+
+    def explode(
+        self, columns: Union[str, List[str], &quot;pli.Expr&quot;, List[&quot;pli.Expr&quot;]]
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Explode lists to long format.
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; df = pl.DataFrame(
+        ...     {
+        ...         &quot;letters&quot;: [&quot;c&quot;, &quot;c&quot;, &quot;a&quot;, &quot;c&quot;, &quot;a&quot;, &quot;b&quot;],
+        ...         &quot;nrs&quot;: [[1, 2], [1, 3], [4, 3], [5, 5, 5], [6], [2, 1, 2]],
+        ...     }
+        ... )
+        &gt;&gt;&gt; df
+        shape: (6, 2)
+        ┌─────────┬────────────┐
+        │ letters ┆ nrs        │
+        │ ---     ┆ ---        │
+        │ str     ┆ list [i64] │
+        ╞═════════╪════════════╡
+        │ c       ┆ [1, 2]     │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+        │ c       ┆ [1, 3]     │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+        │ a       ┆ [4, 3]     │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+        │ c       ┆ [5, 5, 5]  │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+        │ a       ┆ [6]        │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+        │ b       ┆ [2, 1, 2]  │
+        └─────────┴────────────┘
+        &gt;&gt;&gt; df.explode(&quot;nrs&quot;)
+        shape: (13, 2)
+        ┌─────────┬─────┐
+        │ letters ┆ nrs │
+        │ ---     ┆ --- │
+        │ str     ┆ i64 │
+        ╞═════════╪═════╡
+        │ c       ┆ 1   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ c       ┆ 2   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ c       ┆ 1   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ c       ┆ 3   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ ...     ┆ ... │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ a       ┆ 6   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ b       ┆ 2   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ b       ┆ 1   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ b       ┆ 2   │
+        └─────────┴─────┘
+
+        &quot;&quot;&quot;
+        columns = pli.selection_to_pyexpr_list(columns)
+        return wrap_ldf(self._ldf.explode(columns))
+
+    def drop_duplicates(
+        self,
+        maintain_order: bool = False,
+        subset: Optional[Union[List[str], str]] = None,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+
+        .. deprecated:: 0.12.18
+            Use :func:`DataFrame.distinct`
+
+        Drop duplicate rows from this DataFrame.
+        Note that this fails if there is a column of type `List` in the DataFrame.
+        &quot;&quot;&quot;
+        return self.distinct(maintain_order, subset, &quot;first&quot;)
+
+    def distinct(
+        self,
+        maintain_order: bool = True,
+        subset: Optional[Union[str, List[str]]] = None,
+        keep: str = &quot;first&quot;,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Drop duplicate rows from this DataFrame.
+        Note that this fails if there is a column of type `List` in the DataFrame or subset.
+
+        Parameters
+        ----------
+        maintain_order
+            Keep the same order as the original DataFrame. This requires more work to compute.
+        subset
+            Subset to use to compare rows
+        keep
+            any of {&quot;first&quot;, &quot;last&quot;}
+
+        Returns
+        -------
+        DataFrame with unique rows
+        &quot;&quot;&quot;
+        if subset is not None and not isinstance(subset, list):
+            subset = [subset]
+        return wrap_ldf(self._ldf.distinct(maintain_order, subset, keep))
+
+    def drop_nulls(self, subset: Optional[Union[List[str], str]] = None) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Drop rows with null values from this DataFrame.
+
+        Examples
+        --------
+        &gt;&gt;&gt; df = pl.DataFrame(
+        ...     {
+        ...         &quot;foo&quot;: [1, 2, 3],
+        ...         &quot;bar&quot;: [6, None, 8],
+        ...         &quot;ham&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;],
+        ...     }
+        ... )
+        &gt;&gt;&gt; df.lazy().drop_nulls().collect()
+        shape: (2, 3)
+        ┌─────┬─────┬─────┐
+        │ foo ┆ bar ┆ ham │
+        │ --- ┆ --- ┆ --- │
+        │ i64 ┆ i64 ┆ str │
+        ╞═════╪═════╪═════╡
+        │ 1   ┆ 6   ┆ a   │
+        ├╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌┤
+        │ 3   ┆ 8   ┆ c   │
+        └─────┴─────┴─────┘
+
+        This method only drops nulls row-wise if any single value of the row is null.
+
+        Below are some example snippets that show how you could drop null values based on other
+        conditions
+
+        &gt;&gt;&gt; df = pl.DataFrame(
+        ...     {
+        ...         &quot;a&quot;: [None, None, None, None],
+        ...         &quot;b&quot;: [1, 2, None, 1],
+        ...         &quot;c&quot;: [1, None, None, 1],
+        ...     }
+        ... )
+        &gt;&gt;&gt; df
+        shape: (4, 3)
+        ┌──────┬──────┬──────┐
+        │ a    ┆ b    ┆ c    │
+        │ ---  ┆ ---  ┆ ---  │
+        │ f64  ┆ i64  ┆ i64  │
+        ╞══════╪══════╪══════╡
+        │ null ┆ 1    ┆ 1    │
+        ├╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+        │ null ┆ 2    ┆ null │
+        ├╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+        │ null ┆ null ┆ null │
+        ├╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+        │ null ┆ 1    ┆ 1    │
+        └──────┴──────┴──────┘
+
+        Drop a row only if all values are null:
+
+        &gt;&gt;&gt; df.filter(
+        ...     ~pl.fold(
+        ...         acc=True,
+        ...         f=lambda acc, s: acc &amp; s.is_null(),
+        ...         exprs=pl.all(),
+        ...     )
+        ... )
+        shape: (3, 3)
+        ┌──────┬─────┬──────┐
+        │ a    ┆ b   ┆ c    │
+        │ ---  ┆ --- ┆ ---  │
+        │ f64  ┆ i64 ┆ i64  │
+        ╞══════╪═════╪══════╡
+        │ null ┆ 1   ┆ 1    │
+        ├╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌┤
+        │ null ┆ 2   ┆ null │
+        ├╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌┤
+        │ null ┆ 1   ┆ 1    │
+        └──────┴─────┴──────┘
+
+        &quot;&quot;&quot;
+        if subset is not None and not isinstance(subset, list):
+            subset = [subset]
+        return wrap_ldf(self._ldf.drop_nulls(subset))
+
+    def melt(
+        self, id_vars: Union[str, List[str]], value_vars: Union[str, List[str]]
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Unpivot DataFrame to long format.
+
+        Parameters
+        ----------
+        id_vars
+            Columns to use as identifier variables.
+        value_vars
+            Values to use as identifier variables.
+        &quot;&quot;&quot;
+        if isinstance(value_vars, str):
+            value_vars = [value_vars]
+        if isinstance(id_vars, str):
+            id_vars = [id_vars]
+        return wrap_ldf(self._ldf.melt(id_vars, value_vars))
+
+    def map(
+        self,
+        f: Callable[[pli.DataFrame], pli.DataFrame],
+        predicate_pushdown: bool = True,
+        projection_pushdown: bool = True,
+        no_optimizations: bool = False,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Apply a custom function. It is important that the function returns a Polars DataFrame.
+
+        Parameters
+        ----------
+        f
+            Lambda/ function to apply.
+        predicate_pushdown
+            Allow predicate pushdown optimization to pass this node.
+        projection_pushdown
+            Allow projection pushdown optimization to pass this node.
+        no_optimizations
+            Turn off all optimizations past this point.
+        &quot;&quot;&quot;
+        if no_optimizations:
+            predicate_pushdown = False
+            projection_pushdown = False
+        return wrap_ldf(self._ldf.map(f, predicate_pushdown, projection_pushdown))
+
+    def interpolate(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Interpolate intermediate values. The interpolation method is linear.
+        &quot;&quot;&quot;
+        return self.select(pli.col(&quot;*&quot;).interpolate())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<h2 id="constructor"><a class="header" href="#constructor">Constructor</a></h2>
+<pre><code class="language-python">LazyFrame()
+</code></pre>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def __init__(self) -&gt; None:
+        self._ldf: PyLazyFrame
+</code></pre>
+<p>
+</details>
+</raw></p>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<p><div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframescan_csv"><a class="header" href="#polarsinternalslazy_framelazyframescan_csv"><code>polars.internals.lazy_frame.LazyFrame.scan_csv</code></a></h3>
+<pre><code class="language-python">scan_csv(file: str, 
+    has_header: bool, 
+    sep: str, 
+    comment_char: Optionalstr, 
+    quote_char: Optionalstr, 
+    skip_rows: int, 
+    dtypes: OptionalDict[str, TypeDataType], 
+    null_values: OptionalUnion[str, List[str], Dict[str, str]], 
+    ignore_errors: bool, 
+    cache: bool, 
+    with_column_names: OptionalCallable[[List[str]], List[str]], 
+    infer_schema_length: Optionalint, 
+    n_rows: Optionalint, 
+    low_memory: bool, 
+    rechunk: bool, 
+    skip_rows_after_header: int,) -&gt; LazyFrame:
+</code></pre>
+<p>See Also: <code>pl.scan_csv</code></p>
+<p><strong>Decoration</strong> via <code>@staticmethod</code>.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def scan_csv(
+        file: str,
+        has_header: bool = True,
+        sep: str = &quot;,&quot;,
+        comment_char: Optional[str] = None,
+        quote_char: Optional[str] = r'&quot;',
+        skip_rows: int = 0,
+        dtypes: Optional[Dict[str, Type[DataType]]] = None,
+        null_values: Optional[Union[str, List[str], Dict[str, str]]] = None,
+        ignore_errors: bool = False,
+        cache: bool = True,
+        with_column_names: Optional[Callable[[List[str]], List[str]]] = None,
+        infer_schema_length: Optional[int] = 100,
+        n_rows: Optional[int] = None,
+        low_memory: bool = False,
+        rechunk: bool = True,
+        skip_rows_after_header: int = 0,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        See Also: `pl.scan_csv`
+        &quot;&quot;&quot;
+        dtype_list: Optional[List[Tuple[str, Type[DataType]]]] = None
+        if dtypes is not None:
+            dtype_list = []
+            for k, v in dtypes.items():
+                dtype_list.append((k, py_type_to_dtype(v)))
+        processed_null_values = _process_null_values(null_values)
+
+        self = LazyFrame.__new__(LazyFrame)
+        self._ldf = PyLazyFrame.new_from_csv(
+            file,
+            sep,
+            has_header,
+            ignore_errors,
+            skip_rows,
+            n_rows,
+            cache,
+            dtype_list,
+            low_memory,
+            comment_char,
+            quote_char,
+            processed_null_values,
+            infer_schema_length,
+            with_column_names,
+            rechunk,
+            skip_rows_after_header,
+        )
+        return self
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframescan_parquet"><a class="header" href="#polarsinternalslazy_framelazyframescan_parquet"><code>polars.internals.lazy_frame.LazyFrame.scan_parquet</code></a></h3>
+<pre><code class="language-python">scan_parquet(file: str, 
+    n_rows: Optionalint, 
+    cache: bool, 
+    parallel: bool, 
+    rechunk: bool,) -&gt; LazyFrame:
+</code></pre>
+<p>See Also: <code>pl.scan_parquet</code></p>
+<p><strong>Decoration</strong> via <code>@staticmethod</code>.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def scan_parquet(
+        file: str,
+        n_rows: Optional[int] = None,
+        cache: bool = True,
+        parallel: bool = True,
+        rechunk: bool = True,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        See Also: `pl.scan_parquet`
+        &quot;&quot;&quot;
+
+        self = LazyFrame.__new__(LazyFrame)
+        self._ldf = PyLazyFrame.new_from_parquet(file, n_rows, cache, parallel, rechunk)
+        return self
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframescan_ipc"><a class="header" href="#polarsinternalslazy_framelazyframescan_ipc"><code>polars.internals.lazy_frame.LazyFrame.scan_ipc</code></a></h3>
+<pre><code class="language-python">scan_ipc(file: str, 
+    n_rows: Optionalint, 
+    cache: bool, 
+    rechunk: bool,) -&gt; LazyFrame:
+</code></pre>
+<p>See Also: <code>pl.scan_ipc</code></p>
+<p><strong>Decoration</strong> via <code>@staticmethod</code>.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def scan_ipc(
+        file: str,
+        n_rows: Optional[int] = None,
+        cache: bool = True,
+        rechunk: bool = True,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        See Also: `pl.scan_ipc`
+        &quot;&quot;&quot;
+
+        self = LazyFrame.__new__(LazyFrame)
+        self._ldf = PyLazyFrame.new_from_ipc(file, n_rows, cache, rechunk)
+        return self
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframepipe"><a class="header" href="#polarsinternalslazy_framelazyframepipe"><code>polars.internals.lazy_frame.LazyFrame.pipe</code></a></h3>
+<pre><code class="language-python">pipe(func: Callable[, Any], *args, **kwargs) -&gt; Any:
+</code></pre>
+<p>Apply a function on Self.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li></li>
+<li></li>
+<li>[<code>kwargs</code>]: Keyword arguments.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def pipe(self, func: Callable[..., Any], *args: Any, **kwargs: Any) -&gt; Any:
+        &quot;&quot;&quot;
+        Apply a function on Self.
+
+        Parameters
+        ----------
+        func
+            Callable.
+        args
+            Arguments.
+        kwargs
+            Keyword arguments.
+        &quot;&quot;&quot;
+        return func(self, *args, **kwargs)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframedescribe_plan"><a class="header" href="#polarsinternalslazy_framelazyframedescribe_plan"><code>polars.internals.lazy_frame.LazyFrame.describe_plan</code></a></h3>
+<pre><code class="language-python">describe_plan() -&gt; str:
+</code></pre>
+<p>A string representation of the unoptimized query plan.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def describe_plan(self) -&gt; str:
+        &quot;&quot;&quot;
+        A string representation of the unoptimized query plan.
+        &quot;&quot;&quot;
+        return self._ldf.describe_plan()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframedescribe_optimized_plan"><a class="header" href="#polarsinternalslazy_framelazyframedescribe_optimized_plan"><code>polars.internals.lazy_frame.LazyFrame.describe_optimized_plan</code></a></h3>
+<pre><code class="language-python">describe_optimized_plan(type_coercion: bool, 
+    predicate_pushdown: bool, 
+    projection_pushdown: bool, 
+    simplify_expression: bool, 
+    slice_pushdown: bool,) -&gt; str:
+</code></pre>
+<p>A string representation of the optimized query plan.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def describe_optimized_plan(
+        self,
+        type_coercion: bool = True,
+        predicate_pushdown: bool = True,
+        projection_pushdown: bool = True,
+        simplify_expression: bool = True,
+        slice_pushdown: bool = True,
+    ) -&gt; str:
+        &quot;&quot;&quot;
+        A string representation of the optimized query plan.
+        &quot;&quot;&quot;
+
+        ldf = self._ldf.optimization_toggle(
+            type_coercion,
+            predicate_pushdown,
+            projection_pushdown,
+            simplify_expression,
+            string_cache=False,
+            slice_pushdown=slice_pushdown,
+        )
+
+        return ldf.describe_optimized_plan()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframeshow_graph"><a class="header" href="#polarsinternalslazy_framelazyframeshow_graph"><code>polars.internals.lazy_frame.LazyFrame.show_graph</code></a></h3>
+<pre><code class="language-python">show_graph(optimized: bool, 
+    show: bool, 
+    output_path: Optionalstr, 
+    raw_output: bool, 
+    figsize: Tuple[float, float],) -&gt; Optionalstr:
+</code></pre>
+<p>Show a plot of the query plan. Note that you should have graphviz installed.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>optimized</code>]: Optimize the query plan.</li>
+<li>[<code>show</code>]: Show the figure.</li>
+<li>[<code>output_path</code>]: Write the figure to disk.</li>
+<li>[<code>raw_output</code>]: Return dot syntax. This cannot be combined with <code>show</code></li>
+<li>[<code>figsize</code>]: Passed to matlotlib if <code>show</code> == True.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def show_graph(
+        self,
+        optimized: bool = True,
+        show: bool = True,
+        output_path: Optional[str] = None,
+        raw_output: bool = False,
+        figsize: Tuple[float, float] = (16.0, 12.0),
+    ) -&gt; Optional[str]:
+        &quot;&quot;&quot;
+        Show a plot of the query plan. Note that you should have graphviz installed.
+
+        Parameters
+        ----------
+        optimized
+            Optimize the query plan.
+        show
+            Show the figure.
+        output_path
+            Write the figure to disk.
+        raw_output
+            Return dot syntax. This cannot be combined with `show`
+        figsize
+            Passed to matlotlib if `show` == True.
+        &quot;&quot;&quot;
+        if raw_output:
+            show = False
+
+        if show and _in_notebook():
+            try:
+                from IPython.display import SVG, display
+
+                dot = self._ldf.to_dot(optimized)
+                svg = subprocess.check_output(
+                    [&quot;dot&quot;, &quot;-Nshape=box&quot;, &quot;-Tsvg&quot;], input=f&quot;{dot}&quot;.encode()
+                )
+                return display(SVG(svg))
+            except Exception:
+                raise ImportError(
+                    &quot;Graphviz dot binary should be on your PATH and matplotlib should be installed to show graph.&quot;
+                )
+        try:
+            import matplotlib.image as mpimg
+            import matplotlib.pyplot as plt
+        except ImportError:
+            raise ImportError(
+                &quot;Graphviz dot binary should be on your PATH and matplotlib should be installed to show graph.&quot;
+            )
+        dot = self._ldf.to_dot(optimized)
+        if raw_output:
+            return dot
+        with tempfile.TemporaryDirectory() as tmpdir_name:
+            dot_path = os.path.join(tmpdir_name, &quot;dot&quot;)
+            with open(dot_path, &quot;w&quot;) as f:
+                f.write(dot)
+
+            subprocess.run([&quot;dot&quot;, &quot;-Nshape=box&quot;, &quot;-Tpng&quot;, &quot;-O&quot;, dot_path])
+            out_path = os.path.join(tmpdir_name, &quot;dot.png&quot;)
+
+            if output_path is not None:
+                shutil.copy(out_path, output_path)
+
+            if show:
+                plt.figure(figsize=figsize)
+                img = mpimg.imread(out_path)
+                plt.imshow(img)
+                plt.show()
+        return None
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframeinspect"><a class="header" href="#polarsinternalslazy_framelazyframeinspect"><code>polars.internals.lazy_frame.LazyFrame.inspect</code></a></h3>
+<pre><code class="language-python">inspect(fmt: str) -&gt; LazyFrame:
+</code></pre>
+<p>Prints the value that this node in the computation graph evaluates to and passes on the value.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df = pl.DataFrame({&quot;foo&quot;: [1, 1, -2, 3]}).lazy()
+(
+...     df.select(
+...         [
+...             pl.col(&quot;foo&quot;).cumsum().alias(&quot;bar&quot;),
+...         ]
+...     )
+...     .inspect()  # print the node before the filter
+...     .filter(pl.col(&quot;bar&quot;) == pl.col(&quot;foo&quot;))
+... )  # doctest: +ELLIPSIS
+&lt;polars.internals.lazy_frame.LazyFrame object at ...&gt;</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def inspect(self, fmt: str = &quot;{}&quot;) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Prints the value that this node in the computation graph evaluates to and passes on the value.
+
+        &gt;&gt;&gt; df = pl.DataFrame({&quot;foo&quot;: [1, 1, -2, 3]}).lazy()
+        &gt;&gt;&gt; (
+        ...     df.select(
+        ...         [
+        ...             pl.col(&quot;foo&quot;).cumsum().alias(&quot;bar&quot;),
+        ...         ]
+        ...     )
+        ...     .inspect()  # print the node before the filter
+        ...     .filter(pl.col(&quot;bar&quot;) == pl.col(&quot;foo&quot;))
+        ... )  # doctest: +ELLIPSIS
+        &lt;polars.internals.lazy_frame.LazyFrame object at ...&gt;
+
+        &quot;&quot;&quot;
+
+        def inspect(s: pli.DataFrame) -&gt; pli.DataFrame:
+            print(fmt.format(s))
+            return s
+
+        return self.map(inspect, predicate_pushdown=True, projection_pushdown=True)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframeinspectinspect"><a class="header" href="#polarsinternalslazy_framelazyframeinspectinspect"><code>polars.internals.lazy_frame.LazyFrame.inspect.inspect</code></a></h3>
+<pre><code class="language-python">inspect(s: pli.DataFrame) -&gt; pli.DataFrame:
+</code></pre>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">        def inspect(s: pli.DataFrame) -&gt; pli.DataFrame:
+            print(fmt.format(s))
+            return s
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframesort"><a class="header" href="#polarsinternalslazy_framelazyframesort"><code>polars.internals.lazy_frame.LazyFrame.sort</code></a></h3>
+<pre><code class="language-python">sort(by: Union[str, pli.Expr, List[str], List[pli.Expr]], 
+    reverse: Union[bool, List[bool]],) -&gt; LazyFrame:
+</code></pre>
+<p>Sort the DataFrame by:</p>
+<pre><code>- A single column name
+- An expression
+- Multiple expressions
+</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>by</code>]: Column (expressions) to sort by.</li>
+<li>[<code>reverse</code>]: Whether or not to sort in reverse order.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def sort(
+        self,
+        by: Union[str, &quot;pli.Expr&quot;, List[str], List[&quot;pli.Expr&quot;]],
+        reverse: Union[bool, List[bool]] = False,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Sort the DataFrame by:
+
+            - A single column name
+            - An expression
+            - Multiple expressions
+
+        Parameters
+        ----------
+        by
+            Column (expressions) to sort by.
+        reverse
+            Whether or not to sort in reverse order.
+        &quot;&quot;&quot;
+        if type(by) is str:
+            return wrap_ldf(self._ldf.sort(by, reverse))
+        if type(reverse) is bool:
+            reverse = [reverse]
+
+        by = pli.selection_to_pyexpr_list(by)
+        return wrap_ldf(self._ldf.sort_by_exprs(by, reverse))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframecollect"><a class="header" href="#polarsinternalslazy_framelazyframecollect"><code>polars.internals.lazy_frame.LazyFrame.collect</code></a></h3>
+<pre><code class="language-python">collect(type_coercion: bool, 
+    predicate_pushdown: bool, 
+    projection_pushdown: bool, 
+    simplify_expression: bool, 
+    string_cache: bool, 
+    no_optimization: bool, 
+    slice_pushdown: bool,) -&gt; pli.DataFrame:
+</code></pre>
+<p>Collect into a DataFrame.</p>
+<p>Note: use <code>fetch</code> if you want to run this query on the first <code>n</code> rows only.
+This can be a huge time saver in debugging queries.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p>[<code>type_coercion</code>]: Do type coercion optimization.</p>
+</li>
+<li>
+<p>[<code>predicate_pushdown</code>]: Do predicate pushdown optimization.</p>
+</li>
+<li>
+<p>[<code>projection_pushdown</code>]: Do projection pushdown optimization.</p>
+</li>
+<li>
+<p>[<code>simplify_expression</code>]: Run simplify expressions optimization.</p>
+</li>
+<li>
+<p>[<code>string_cache</code>]: Use a global string cache in this query.
+This is needed if you want to join on categorical columns.</p>
+<p>Caution!
+If you already have set a global string cache, set this to <code>False</code> as this will reset the
+global cache when the query is finished.</p>
+</li>
+<li>
+<p>[<code>no_optimization</code>]: Turn off optimizations.</p>
+</li>
+<li>
+<p>[<code>slice_pushdown</code>]: Slice pushdown optimization.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>DataFrame</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def collect(
+        self,
+        type_coercion: bool = True,
+        predicate_pushdown: bool = True,
+        projection_pushdown: bool = True,
+        simplify_expression: bool = True,
+        string_cache: bool = False,
+        no_optimization: bool = False,
+        slice_pushdown: bool = True,
+    ) -&gt; pli.DataFrame:
+        &quot;&quot;&quot;
+        Collect into a DataFrame.
+
+        Note: use `fetch` if you want to run this query on the first `n` rows only.
+        This can be a huge time saver in debugging queries.
+
+        Parameters
+        ----------
+        type_coercion
+            Do type coercion optimization.
+        predicate_pushdown
+            Do predicate pushdown optimization.
+        projection_pushdown
+            Do projection pushdown optimization.
+        simplify_expression
+            Run simplify expressions optimization.
+        string_cache
+            Use a global string cache in this query.
+            This is needed if you want to join on categorical columns.
+
+            Caution!
+                If you already have set a global string cache, set this to `False` as this will reset the
+                global cache when the query is finished.
+        no_optimization
+            Turn off optimizations.
+        slice_pushdown
+            Slice pushdown optimization.
+
+        Returns
+        -------
+        DataFrame
+        &quot;&quot;&quot;
+        if no_optimization:
+            predicate_pushdown = False
+            projection_pushdown = False
+            slice_pushdown = False
+
+        ldf = self._ldf.optimization_toggle(
+            type_coercion,
+            predicate_pushdown,
+            projection_pushdown,
+            simplify_expression,
+            string_cache,
+            slice_pushdown,
+        )
+        return pli.wrap_df(ldf.collect())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframefetch"><a class="header" href="#polarsinternalslazy_framelazyframefetch"><code>polars.internals.lazy_frame.LazyFrame.fetch</code></a></h3>
+<pre><code class="language-python">fetch(n_rows: int, 
+    type_coercion: bool, 
+    predicate_pushdown: bool, 
+    projection_pushdown: bool, 
+    simplify_expression: bool, 
+    string_cache: bool, 
+    no_optimization: bool, 
+    slice_pushdown: bool,) -&gt; pli.DataFrame:
+</code></pre>
+<p>Fetch is like a collect operation, but it overwrites the number of rows read by every scan
+operation. This is a utility that helps debug a query on a smaller number of rows.</p>
+<p>Note that the fetch does not guarantee the final number of rows in the DataFrame.
+Filter, join operations and a lower number of rows available in the scanned file influence
+the final number of rows.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>n_rows</code>]: Collect n_rows from the data sources.</li>
+<li>[<code>type_coercion</code>]: Run type coercion optimization.</li>
+<li>[<code>predicate_pushdown</code>]: Run predicate pushdown optimization.</li>
+<li>[<code>projection_pushdown</code>]: Run projection pushdown optimization.</li>
+<li>[<code>simplify_expression</code>]: Run simplify expressions optimization.</li>
+<li>[<code>string_cache</code>]: Use a global string cache in this query.
+This is needed if you want to join on categorical columns.</li>
+<li>[<code>no_optimization</code>]: Turn off optimizations.</li>
+<li>[<code>slice_pushdown</code>]: Slice pushdown opitmizaiton</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>DataFrame</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def fetch(
+        self,
+        n_rows: int = 500,
+        type_coercion: bool = True,
+        predicate_pushdown: bool = True,
+        projection_pushdown: bool = True,
+        simplify_expression: bool = True,
+        string_cache: bool = True,
+        no_optimization: bool = False,
+        slice_pushdown: bool = True,
+    ) -&gt; pli.DataFrame:
+        &quot;&quot;&quot;
+        Fetch is like a collect operation, but it overwrites the number of rows read by every scan
+        operation. This is a utility that helps debug a query on a smaller number of rows.
+
+        Note that the fetch does not guarantee the final number of rows in the DataFrame.
+        Filter, join operations and a lower number of rows available in the scanned file influence
+        the final number of rows.
+
+        Parameters
+        ----------
+        n_rows
+            Collect n_rows from the data sources.
+        type_coercion
+            Run type coercion optimization.
+        predicate_pushdown
+            Run predicate pushdown optimization.
+        projection_pushdown
+            Run projection pushdown optimization.
+        simplify_expression
+            Run simplify expressions optimization.
+        string_cache
+            Use a global string cache in this query.
+            This is needed if you want to join on categorical columns.
+        no_optimization
+            Turn off optimizations.
+        slice_pushdown
+            Slice pushdown opitmizaiton
+
+        Returns
+        -------
+        DataFrame
+        &quot;&quot;&quot;
+        if no_optimization:
+            predicate_pushdown = False
+            projection_pushdown = False
+            slice_pushdown = False
+
+        ldf = self._ldf.optimization_toggle(
+            type_coercion,
+            predicate_pushdown,
+            projection_pushdown,
+            simplify_expression,
+            string_cache,
+            slice_pushdown,
+        )
+        return pli.wrap_df(ldf.fetch(n_rows))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframecolumns"><a class="header" href="#polarsinternalslazy_framelazyframecolumns"><code>polars.internals.lazy_frame.LazyFrame.columns</code></a></h3>
+<pre><code class="language-python">columns() -&gt; List[str]:
+</code></pre>
+<p>Get or set column names.</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df = (
+...     pl.DataFrame(
+...         {
+...             &quot;foo&quot;: [1, 2, 3],
+...             &quot;bar&quot;: [6, 7, 8],
+...             &quot;ham&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;],
+...         }
+...     )
+...     .lazy()
+...     .select([&quot;foo&quot;, &quot;bar&quot;])
+... )</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df.columns
+['foo', 'bar']</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><strong>Decoration</strong> via <code>@property</code>.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def columns(self) -&gt; List[str]:
+        &quot;&quot;&quot;
+        Get or set column names.
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; df = (
+        ...     pl.DataFrame(
+        ...         {
+        ...             &quot;foo&quot;: [1, 2, 3],
+        ...             &quot;bar&quot;: [6, 7, 8],
+        ...             &quot;ham&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;],
+        ...         }
+        ...     )
+        ...     .lazy()
+        ...     .select([&quot;foo&quot;, &quot;bar&quot;])
+        ... )
+
+        &gt;&gt;&gt; df.columns
+        ['foo', 'bar']
+
+        &quot;&quot;&quot;
+        return self._ldf.columns()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframecache"><a class="header" href="#polarsinternalslazy_framelazyframecache"><code>polars.internals.lazy_frame.LazyFrame.cache</code></a></h3>
+<pre><code class="language-python">cache() -&gt; LazyFrame:
+</code></pre>
+<p>Cache the result once the execution of the physical plan hits this node.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def cache(
+        self,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Cache the result once the execution of the physical plan hits this node.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.cache())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframefilter"><a class="header" href="#polarsinternalslazy_framelazyframefilter"><code>polars.internals.lazy_frame.LazyFrame.filter</code></a></h3>
+<pre><code class="language-python">filter(predicate: Union[pli.Expr, str]) -&gt; LazyFrame:
+</code></pre>
+<p>Filter the rows in the DataFrame based on a predicate expression.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>predicate</code>]: Expression that evaluates to a boolean Series.</li>
+</ul>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>lf = pl.DataFrame(
+...     {
+...         &quot;foo&quot;: [1, 2, 3],
+...         &quot;bar&quot;: [6, 7, 8],
+...         &quot;ham&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;],
+...     }
+... ).lazy()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Filter on one condition:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>lf.filter(pl.col(&quot;foo&quot;) &lt; 3).collect()
+shape: (2, 3)
+┌─────┬─────┬─────┐
+│ foo ┆ bar ┆ ham │
+│ --- ┆ --- ┆ --- │
+│ i64 ┆ i64 ┆ str │
+╞═════╪═════╪═════╡
+│ 1   ┆ 6   ┆ a   │
+├╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌┤
+│ 2   ┆ 7   ┆ b   │
+└─────┴─────┴─────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Filter on multiple conditions:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>lf.filter((pl.col(&quot;foo&quot;) &lt; 3) &amp; (pl.col(&quot;ham&quot;) == &quot;a&quot;)).collect()
+shape: (1, 3)
+┌─────┬─────┬─────┐
+│ foo ┆ bar ┆ ham │
+│ --- ┆ --- ┆ --- │
+│ i64 ┆ i64 ┆ str │
+╞═════╪═════╪═════╡
+│ 1   ┆ 6   ┆ a   │
+└─────┴─────┴─────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def filter(self, predicate: Union[&quot;pli.Expr&quot;, str]) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Filter the rows in the DataFrame based on a predicate expression.
+
+        Parameters
+        ----------
+        predicate
+            Expression that evaluates to a boolean Series.
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; lf = pl.DataFrame(
+        ...     {
+        ...         &quot;foo&quot;: [1, 2, 3],
+        ...         &quot;bar&quot;: [6, 7, 8],
+        ...         &quot;ham&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;],
+        ...     }
+        ... ).lazy()
+
+        Filter on one condition:
+
+        &gt;&gt;&gt; lf.filter(pl.col(&quot;foo&quot;) &lt; 3).collect()
+        shape: (2, 3)
+        ┌─────┬─────┬─────┐
+        │ foo ┆ bar ┆ ham │
+        │ --- ┆ --- ┆ --- │
+        │ i64 ┆ i64 ┆ str │
+        ╞═════╪═════╪═════╡
+        │ 1   ┆ 6   ┆ a   │
+        ├╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌┤
+        │ 2   ┆ 7   ┆ b   │
+        └─────┴─────┴─────┘
+
+        Filter on multiple conditions:
+
+        &gt;&gt;&gt; lf.filter((pl.col(&quot;foo&quot;) &lt; 3) &amp; (pl.col(&quot;ham&quot;) == &quot;a&quot;)).collect()
+        shape: (1, 3)
+        ┌─────┬─────┬─────┐
+        │ foo ┆ bar ┆ ham │
+        │ --- ┆ --- ┆ --- │
+        │ i64 ┆ i64 ┆ str │
+        ╞═════╪═════╪═════╡
+        │ 1   ┆ 6   ┆ a   │
+        └─────┴─────┴─────┘
+
+        &quot;&quot;&quot;
+        if isinstance(predicate, str):
+            predicate = pli.col(predicate)
+        return wrap_ldf(self._ldf.filter(predicate._pyexpr))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframeselect"><a class="header" href="#polarsinternalslazy_framelazyframeselect"><code>polars.internals.lazy_frame.LazyFrame.select</code></a></h3>
+<pre><code class="language-python">select(exprs: Union[str, pli.Expr, Sequencestr, Sequencepli.Expr, pli.Series],) -&gt; LazyFrame:
+</code></pre>
+<p>Select columns from this DataFrame.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>exprs</code>]: Column or columns to select.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def select(
+        self,
+        exprs: Union[
+            str, &quot;pli.Expr&quot;, Sequence[str], Sequence[&quot;pli.Expr&quot;], &quot;pli.Series&quot;
+        ],
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Select columns from this DataFrame.
+
+        Parameters
+        ----------
+        exprs
+            Column or columns to select.
+        &quot;&quot;&quot;
+        exprs = pli.selection_to_pyexpr_list(exprs)
+        return wrap_ldf(self._ldf.select(exprs))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframegroupby"><a class="header" href="#polarsinternalslazy_framelazyframegroupby"><code>polars.internals.lazy_frame.LazyFrame.groupby</code></a></h3>
+<pre><code class="language-python">groupby(by: Union[str, List[str], pli.Expr, List[pli.Expr]], 
+    maintain_order: bool,) -&gt; LazyGroupBy:
+</code></pre>
+<p>Start a groupby operation.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>by</code>]: Column(s) to group by.</li>
+<li>[<code>maintain_order</code>]: Make sure that the order of the groups remain consistent. This is more expensive than a default groupby.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def groupby(
+        self,
+        by: Union[str, List[str], &quot;pli.Expr&quot;, List[&quot;pli.Expr&quot;]],
+        maintain_order: bool = False,
+    ) -&gt; &quot;LazyGroupBy&quot;:
+        &quot;&quot;&quot;
+        Start a groupby operation.
+
+        Parameters
+        ----------
+        by
+            Column(s) to group by.
+        maintain_order
+            Make sure that the order of the groups remain consistent. This is more expensive than a default groupby.
+        &quot;&quot;&quot;
+        new_by = _prepare_groupby_inputs(by)
+        lgb = self._ldf.groupby(new_by, maintain_order)
+        return LazyGroupBy(lgb)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframegroupby_rolling"><a class="header" href="#polarsinternalslazy_framelazyframegroupby_rolling"><code>polars.internals.lazy_frame.LazyFrame.groupby_rolling</code></a></h3>
+<pre><code class="language-python">groupby_rolling(index_column: str, 
+    period: str, 
+    offset: Optionalstr, 
+    closed: str,) -&gt; LazyGroupBy:
+</code></pre>
+<p>Create rolling groups based on a time column (or index value of type Int32, Int64).</p>
+<p>Different from a rolling groupby the windows are now determined by the individual values and are not of constant
+intervals. For constant intervals use <em>groupby_dynamic</em></p>
+<p>.. seealso::</p>
+<pre><code>groupby_dynamic
+</code></pre>
+<p>The <code>period</code> and <code>offset</code> arguments are created with
+the following string language:</p>
+<ul>
+<li>1ns   (1 nanosecond)</li>
+<li>1us   (1 microsecond)</li>
+<li>1ms   (1 millisecond)</li>
+<li>1s    (1 second)</li>
+<li>1m    (1 minute)</li>
+<li>1h    (1 hour)</li>
+<li>1d    (1 day)</li>
+<li>1w    (1 week)</li>
+<li>1mo   (1 calendar month)</li>
+<li>1y    (1 calendar year)</li>
+<li>1i    (1 index count)</li>
+</ul>
+<p>Or combine them:
+&quot;3d12h4m25s&quot; # 3 days, 12 hours, 4 minutes, and 25 seconds</p>
+<p>In case of a groupby_rolling on an integer column, the windows are defined by:</p>
+<ul>
+<li>&quot;1i&quot;      # length 1</li>
+<li>&quot;10i&quot;     # length 10</li>
+</ul>
+<p>.. warning::
+This API is experimental and may change without it being considered a breaking change.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p>[<code>index_column</code>]: Column used to group based on the time window.
+Often to type Date/Datetime
+This column must be sorted in ascending order. If not the output will not make sense.</p>
+<p>In case of a rolling groupby on indices, dtype needs to be one of {Int32, Int64}. Note that
+Int32 gets temporarely cast to Int64, so if performance matters use an Int64 column.</p>
+</li>
+<li>
+<p>[<code>period</code>]: length of the window</p>
+</li>
+<li>
+<p>[<code>offset</code>]: offset of the window. Default is -period</p>
+</li>
+<li>
+<p>[<code>closed</code>]: Defines if the window interval is closed or not.
+Any of {&quot;left&quot;, &quot;right&quot;, &quot;both&quot; &quot;none&quot;}</p>
+</li>
+</ul>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>dates = [
+...     &quot;2020-01-01 13:45:48&quot;,
+...     &quot;2020-01-01 16:42:13&quot;,
+...     &quot;2020-01-01 16:45:09&quot;,
+...     &quot;2020-01-02 18:12:48&quot;,
+...     &quot;2020-01-03 19:45:32&quot;,
+...     &quot;2020-01-08 23:16:43&quot;,
+... ]
+df = pl.DataFrame({&quot;dt&quot;: dates, &quot;a&quot;: [3, 7, 5, 9, 2, 1]}).with_column(
+...     pl.col(&quot;dt&quot;).str.strptime(pl.Datetime)
+... )
+out = df.groupby_rolling(index_column=&quot;dt&quot;, period=&quot;2d&quot;).agg(
+...     [
+...         pl.sum(&quot;a&quot;).alias(&quot;sum_a&quot;),
+...         pl.min(&quot;a&quot;).alias(&quot;min_a&quot;),
+...         pl.max(&quot;a&quot;).alias(&quot;max_a&quot;),
+...     ]
+... )
+assert out[&quot;sum_a&quot;].to_list() == [3, 10, 15, 24, 11, 1]
+assert out[&quot;max_a&quot;].to_list() == [3, 7, 7, 9, 9, 1]
+assert out[&quot;min_a&quot;].to_list() == [3, 3, 3, 3, 2, 1]
+out
+shape: (6, 4)
+┌─────────────────────┬───────┬───────┬───────┐
+│ dt                  ┆ a_sum ┆ a_max ┆ a_min │
+│ ---                 ┆ ---   ┆ ---   ┆ ---   │
+│ datetime[ms]        ┆ i64   ┆ i64   ┆ i64   │
+╞═════════════════════╪═══════╪═══════╪═══════╡
+│ 2020-01-01 13:45:48 ┆ 3     ┆ 3     ┆ 3     │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ 2020-01-01 16:42:13 ┆ 10    ┆ 7     ┆ 3     │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ 2020-01-01 16:45:09 ┆ 15    ┆ 7     ┆ 3     │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ 2020-01-02 18:12:48 ┆ 24    ┆ 9     ┆ 3     │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ 2020-01-03 19:45:32 ┆ 11    ┆ 9     ┆ 2     │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ 2020-01-08 23:16:43 ┆ 1     ┆ 1     ┆ 1     │
+└─────────────────────┴───────┴───────┴───────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def groupby_rolling(
+        self,
+        index_column: str,
+        period: str,
+        offset: Optional[str] = None,
+        closed: str = &quot;right&quot;,
+    ) -&gt; &quot;LazyGroupBy&quot;:
+        &quot;&quot;&quot;
+        Create rolling groups based on a time column (or index value of type Int32, Int64).
+
+        Different from a rolling groupby the windows are now determined by the individual values and are not of constant
+        intervals. For constant intervals use *groupby_dynamic*
+
+        .. seealso::
+
+            groupby_dynamic
+
+
+        The `period` and `offset` arguments are created with
+        the following string language:
+
+        - 1ns   (1 nanosecond)
+        - 1us   (1 microsecond)
+        - 1ms   (1 millisecond)
+        - 1s    (1 second)
+        - 1m    (1 minute)
+        - 1h    (1 hour)
+        - 1d    (1 day)
+        - 1w    (1 week)
+        - 1mo   (1 calendar month)
+        - 1y    (1 calendar year)
+        - 1i    (1 index count)
+
+        Or combine them:
+        &quot;3d12h4m25s&quot; # 3 days, 12 hours, 4 minutes, and 25 seconds
+
+        In case of a groupby_rolling on an integer column, the windows are defined by:
+
+        - &quot;1i&quot;      # length 1
+        - &quot;10i&quot;     # length 10
+
+        .. warning::
+            This API is experimental and may change without it being considered a breaking change.
+
+        Parameters
+        ----------
+        index_column
+            Column used to group based on the time window.
+            Often to type Date/Datetime
+            This column must be sorted in ascending order. If not the output will not make sense.
+
+            In case of a rolling groupby on indices, dtype needs to be one of {Int32, Int64}. Note that
+            Int32 gets temporarely cast to Int64, so if performance matters use an Int64 column.
+        period
+            length of the window
+        offset
+            offset of the window. Default is -period
+        closed
+            Defines if the window interval is closed or not.
+            Any of {&quot;left&quot;, &quot;right&quot;, &quot;both&quot; &quot;none&quot;}
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; dates = [
+        ...     &quot;2020-01-01 13:45:48&quot;,
+        ...     &quot;2020-01-01 16:42:13&quot;,
+        ...     &quot;2020-01-01 16:45:09&quot;,
+        ...     &quot;2020-01-02 18:12:48&quot;,
+        ...     &quot;2020-01-03 19:45:32&quot;,
+        ...     &quot;2020-01-08 23:16:43&quot;,
+        ... ]
+        &gt;&gt;&gt; df = pl.DataFrame({&quot;dt&quot;: dates, &quot;a&quot;: [3, 7, 5, 9, 2, 1]}).with_column(
+        ...     pl.col(&quot;dt&quot;).str.strptime(pl.Datetime)
+        ... )
+        &gt;&gt;&gt; out = df.groupby_rolling(index_column=&quot;dt&quot;, period=&quot;2d&quot;).agg(
+        ...     [
+        ...         pl.sum(&quot;a&quot;).alias(&quot;sum_a&quot;),
+        ...         pl.min(&quot;a&quot;).alias(&quot;min_a&quot;),
+        ...         pl.max(&quot;a&quot;).alias(&quot;max_a&quot;),
+        ...     ]
+        ... )
+        &gt;&gt;&gt; assert out[&quot;sum_a&quot;].to_list() == [3, 10, 15, 24, 11, 1]
+        &gt;&gt;&gt; assert out[&quot;max_a&quot;].to_list() == [3, 7, 7, 9, 9, 1]
+        &gt;&gt;&gt; assert out[&quot;min_a&quot;].to_list() == [3, 3, 3, 3, 2, 1]
+        &gt;&gt;&gt; out
+        shape: (6, 4)
+        ┌─────────────────────┬───────┬───────┬───────┐
+        │ dt                  ┆ a_sum ┆ a_max ┆ a_min │
+        │ ---                 ┆ ---   ┆ ---   ┆ ---   │
+        │ datetime[ms]        ┆ i64   ┆ i64   ┆ i64   │
+        ╞═════════════════════╪═══════╪═══════╪═══════╡
+        │ 2020-01-01 13:45:48 ┆ 3     ┆ 3     ┆ 3     │
+        ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+        │ 2020-01-01 16:42:13 ┆ 10    ┆ 7     ┆ 3     │
+        ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+        │ 2020-01-01 16:45:09 ┆ 15    ┆ 7     ┆ 3     │
+        ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+        │ 2020-01-02 18:12:48 ┆ 24    ┆ 9     ┆ 3     │
+        ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+        │ 2020-01-03 19:45:32 ┆ 11    ┆ 9     ┆ 2     │
+        ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+        │ 2020-01-08 23:16:43 ┆ 1     ┆ 1     ┆ 1     │
+        └─────────────────────┴───────┴───────┴───────┘
+
+
+        &quot;&quot;&quot;
+
+        if offset is None:
+            offset = f&quot;-{period}&quot;
+
+        lgb = self._ldf.groupby_rolling(
+            index_column,
+            period,
+            offset,
+            closed,
+        )
+        return LazyGroupBy(lgb)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframegroupby_dynamic"><a class="header" href="#polarsinternalslazy_framelazyframegroupby_dynamic"><code>polars.internals.lazy_frame.LazyFrame.groupby_dynamic</code></a></h3>
+<pre><code class="language-python">groupby_dynamic(index_column: str, 
+    every: str, 
+    period: Optionalstr, 
+    offset: Optionalstr, 
+    truncate: bool, 
+    include_boundaries: bool, 
+    closed: str, 
+    by: OptionalUnion[str, List[str], pli.Expr, List[pli.Expr]],) -&gt; LazyGroupBy:
+</code></pre>
+<p>Groups based on a time value (or index value of type Int32, Int64). Time windows are calculated and rows are assigned to windows.
+Different from a normal groupby is that a row can be member of multiple groups. The time/index window could
+be seen as a rolling window, with a window size determined by dates/times/values instead of slots in the DataFrame.</p>
+<p>.. seealso::</p>
+<pre><code>groupby_rolling
+</code></pre>
+<p>A window is defined by:</p>
+<ul>
+<li>every: interval of the window</li>
+<li>period: length of the window</li>
+<li>offset: offset of the window</li>
+</ul>
+<p>The <code>every</code>, <code>period</code> and <code>offset</code> arguments are created with
+the following string language:</p>
+<ul>
+<li>1ns   (1 nanosecond)</li>
+<li>1us   (1 microsecond)</li>
+<li>1ms   (1 millisecond)</li>
+<li>1s    (1 second)</li>
+<li>1m    (1 minute)</li>
+<li>1h    (1 hour)</li>
+<li>1d    (1 day)</li>
+<li>1w    (1 week)</li>
+<li>1mo   (1 calendar month)</li>
+<li>1y    (1 calendar year)</li>
+<li>1i    (1 index count)</li>
+</ul>
+<p>Or combine them:
+&quot;3d12h4m25s&quot; # 3 days, 12 hours, 4 minutes, and 25 seconds</p>
+<p>In case of a groupby_dynamic on an integer column, the windows are defined by:</p>
+<ul>
+<li>&quot;1i&quot;      # length 1</li>
+<li>&quot;10i&quot;     # length 10</li>
+</ul>
+<p>.. warning::
+This API is experimental and may change without it being considered a breaking change.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p>[<code>index_column</code>]: Column used to group based on the time window.
+Often to type Date/Datetime
+This column must be sorted in ascending order. If not the output will not make sense.</p>
+<p>In case of a dynamic groupby on indices, dtype needs to be one of {Int32, Int64}. Note that
+Int32 gets temporarely cast to Int64, so if performance matters use an Int64 column.</p>
+</li>
+<li>
+<p>[<code>every</code>]: interval of the window</p>
+</li>
+<li>
+<p>[<code>period</code>]: length of the window, if None it is equal to 'every'</p>
+</li>
+<li>
+<p>[<code>offset</code>]: offset of the window</p>
+</li>
+<li>
+<p>[<code>truncate</code>]: truncate the time value to the window lower bound</p>
+</li>
+<li>
+<p>[<code>include_boundaries</code>]: add the lower and upper bound of the window to the &quot;_lower_bound&quot; and &quot;_upper_bound&quot; columns
+this will impact performance because it's harder to parallelize</p>
+</li>
+<li>
+<p>[<code>closed</code>]: Defines if the window interval is closed or not.
+Any of {&quot;left&quot;, &quot;right&quot;, &quot;both&quot; &quot;none&quot;}</p>
+</li>
+<li>
+<p>[<code>by</code>]: Also group by this column/these columns</p>
+</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def groupby_dynamic(
+        self,
+        index_column: str,
+        every: str,
+        period: Optional[str] = None,
+        offset: Optional[str] = None,
+        truncate: bool = True,
+        include_boundaries: bool = False,
+        closed: str = &quot;right&quot;,
+        by: Optional[Union[str, List[str], &quot;pli.Expr&quot;, List[&quot;pli.Expr&quot;]]] = None,
+    ) -&gt; &quot;LazyGroupBy&quot;:
+        &quot;&quot;&quot;
+        Groups based on a time value (or index value of type Int32, Int64). Time windows are calculated and rows are assigned to windows.
+        Different from a normal groupby is that a row can be member of multiple groups. The time/index window could
+        be seen as a rolling window, with a window size determined by dates/times/values instead of slots in the DataFrame.
+
+        .. seealso::
+
+            groupby_rolling
+
+        A window is defined by:
+
+        - every: interval of the window
+        - period: length of the window
+        - offset: offset of the window
+
+        The `every`, `period` and `offset` arguments are created with
+        the following string language:
+
+        - 1ns   (1 nanosecond)
+        - 1us   (1 microsecond)
+        - 1ms   (1 millisecond)
+        - 1s    (1 second)
+        - 1m    (1 minute)
+        - 1h    (1 hour)
+        - 1d    (1 day)
+        - 1w    (1 week)
+        - 1mo   (1 calendar month)
+        - 1y    (1 calendar year)
+        - 1i    (1 index count)
+
+        Or combine them:
+        &quot;3d12h4m25s&quot; # 3 days, 12 hours, 4 minutes, and 25 seconds
+
+        In case of a groupby_dynamic on an integer column, the windows are defined by:
+
+        - &quot;1i&quot;      # length 1
+        - &quot;10i&quot;     # length 10
+
+        .. warning::
+            This API is experimental and may change without it being considered a breaking change.
+
+        Parameters
+        ----------
+        index_column
+            Column used to group based on the time window.
+            Often to type Date/Datetime
+            This column must be sorted in ascending order. If not the output will not make sense.
+
+            In case of a dynamic groupby on indices, dtype needs to be one of {Int32, Int64}. Note that
+            Int32 gets temporarely cast to Int64, so if performance matters use an Int64 column.
+        every
+            interval of the window
+        period
+            length of the window, if None it is equal to 'every'
+        offset
+            offset of the window
+        truncate
+            truncate the time value to the window lower bound
+        include_boundaries
+            add the lower and upper bound of the window to the &quot;_lower_bound&quot; and &quot;_upper_bound&quot; columns
+            this will impact performance because it's harder to parallelize
+        closed
+            Defines if the window interval is closed or not.
+            Any of {&quot;left&quot;, &quot;right&quot;, &quot;both&quot; &quot;none&quot;}
+        by
+            Also group by this column/these columns
+
+        &quot;&quot;&quot;
+
+        if period is None:
+            period = every
+        if offset is None:
+            offset = &quot;0ns&quot;
+        by = _prepare_groupby_inputs(by)
+        lgb = self._ldf.groupby_dynamic(
+            index_column,
+            every,
+            period,
+            offset,
+            truncate,
+            include_boundaries,
+            closed,
+            by,
+        )
+        return LazyGroupBy(lgb)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframejoin"><a class="header" href="#polarsinternalslazy_framelazyframejoin"><code>polars.internals.lazy_frame.LazyFrame.join</code></a></h3>
+<pre><code class="language-python">join(ldf: LazyFrame, 
+    left_on: OptionalUnion[str, pli.Expr, List[Union[str, pli.Expr]]], 
+    right_on: OptionalUnion[str, pli.Expr, List[Union[str, pli.Expr]]], 
+    on: OptionalUnion[str, pli.Expr, List[Union[str, pli.Expr]]], 
+    how: str, 
+    suffix: str, 
+    allow_parallel: bool, 
+    force_parallel: bool, 
+    asof_by: OptionalUnion[str, List[str]], 
+    asof_by_left: OptionalUnion[str, List[str]], 
+    asof_by_right: OptionalUnion[str, List[str]],) -&gt; LazyFrame:
+</code></pre>
+<p>Add a join operation to the Logical Plan.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>ldf</code>]: Lazy DataFrame to join with.</li>
+<li>[<code>left_on</code>]: Join column of the left DataFrame.</li>
+<li>[<code>right_on</code>]: Join column of the right DataFrame.</li>
+<li>[<code>on</code>]: Join column of both DataFrames. If set, <code>left_on</code> and <code>right_on</code> should be None.</li>
+<li>[<code>how</code>]: one of:
+&quot;inner&quot;
+&quot;left&quot;
+&quot;outer&quot;
+&quot;asof&quot;,
+&quot;cross&quot;</li>
+<li>[<code>suffix</code>]: Suffix to append to columns with a duplicate name.</li>
+<li>[<code>allow_parallel</code>]: Allow the physical plan to optionally evaluate the computation of both DataFrames up to the join in parallel.</li>
+<li>[<code>force_parallel</code>]: Force the physical plan to evaluate the computation of both DataFrames up to the join in parallel.</li>
+<li>[<code>asof_by</code>]: join on these columns before doing asof join</li>
+<li>[<code>asof_by_left</code>]: join on these columns before doing asof join</li>
+<li>[<code>asof_by_right</code>]: join on these columns before doing asof join</li>
+</ul>
+<p><strong>Asof</strong>
+joins
+This is similar to a left-join except that we match on nearest key rather than equal keys.
+The keys must be sorted to perform an asof join</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def join(
+        self,
+        ldf: &quot;LazyFrame&quot;,
+        left_on: Optional[Union[str, &quot;pli.Expr&quot;, List[Union[str, &quot;pli.Expr&quot;]]]] = None,
+        right_on: Optional[Union[str, &quot;pli.Expr&quot;, List[Union[str, &quot;pli.Expr&quot;]]]] = None,
+        on: Optional[Union[str, &quot;pli.Expr&quot;, List[Union[str, &quot;pli.Expr&quot;]]]] = None,
+        how: str = &quot;inner&quot;,
+        suffix: str = &quot;_right&quot;,
+        allow_parallel: bool = True,
+        force_parallel: bool = False,
+        asof_by: Optional[Union[str, List[str]]] = None,
+        asof_by_left: Optional[Union[str, List[str]]] = None,
+        asof_by_right: Optional[Union[str, List[str]]] = None,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Add a join operation to the Logical Plan.
+
+        Parameters
+        ----------
+        ldf
+            Lazy DataFrame to join with.
+        left_on
+            Join column of the left DataFrame.
+        right_on
+            Join column of the right DataFrame.
+        on
+            Join column of both DataFrames. If set, `left_on` and `right_on` should be None.
+        how
+            one of:
+                &quot;inner&quot;
+                &quot;left&quot;
+                &quot;outer&quot;
+                &quot;asof&quot;,
+                &quot;cross&quot;
+        suffix
+            Suffix to append to columns with a duplicate name.
+        allow_parallel
+            Allow the physical plan to optionally evaluate the computation of both DataFrames up to the join in parallel.
+        force_parallel
+            Force the physical plan to evaluate the computation of both DataFrames up to the join in parallel.
+        asof_by
+            join on these columns before doing asof join
+        asof_by_left
+            join on these columns before doing asof join
+        asof_by_right
+            join on these columns before doing asof join
+
+        # Asof joins
+        This is similar to a left-join except that we match on nearest key rather than equal keys.
+        The keys must be sorted to perform an asof join
+
+        &quot;&quot;&quot;
+        if how == &quot;cross&quot;:
+            return wrap_ldf(
+                self._ldf.join(
+                    ldf._ldf,
+                    [],
+                    [],
+                    allow_parallel,
+                    force_parallel,
+                    how,
+                    suffix,
+                    [],
+                    [],
+                )
+            )
+
+        left_on_: Optional[List[Union[str, pli.Expr]]]
+        if isinstance(left_on, (str, pli.Expr)):
+            left_on_ = [left_on]
+        else:
+            left_on_ = left_on
+
+        right_on_: Optional[List[Union[str, pli.Expr]]]
+        if isinstance(right_on, (str, pli.Expr)):
+            right_on_ = [right_on]
+        else:
+            right_on_ = right_on
+
+        if isinstance(on, str):
+            left_on_ = [on]
+            right_on_ = [on]
+        elif isinstance(on, list):
+            left_on_ = on
+            right_on_ = on
+
+        if left_on_ is None or right_on_ is None:
+            raise ValueError(&quot;You should pass the column to join on as an argument.&quot;)
+
+        new_left_on = []
+        for column in left_on_:
+            if isinstance(column, str):
+                column = pli.col(column)
+            new_left_on.append(column._pyexpr)
+        new_right_on = []
+        for column in right_on_:
+            if isinstance(column, str):
+                column = pli.col(column)
+            new_right_on.append(column._pyexpr)
+
+        # set asof_by
+
+        left_asof_by_: Union[List[str], None]
+        if isinstance(asof_by_left, str):
+            left_asof_by_ = [asof_by_left]
+        else:
+            left_asof_by_ = asof_by_left
+
+        right_asof_by_: Union[List[str], None]
+        if isinstance(asof_by_right, (str, pli.Expr)):
+            right_asof_by_ = [asof_by_right]
+        else:
+            right_asof_by_ = asof_by_right
+
+        if isinstance(asof_by, str):
+            left_asof_by_ = [asof_by]
+            right_asof_by_ = [asof_by]
+        elif isinstance(asof_by, list):
+            left_asof_by_ = asof_by
+            right_asof_by_ = asof_by
+
+        if left_asof_by_ is None:
+            left_asof_by_ = []
+        if right_asof_by_ is None:
+            right_asof_by_ = []
+
+        return wrap_ldf(
+            self._ldf.join(
+                ldf._ldf,
+                new_left_on,
+                new_right_on,
+                allow_parallel,
+                force_parallel,
+                how,
+                suffix,
+                left_asof_by_,
+                right_asof_by_,
+            )
+        )
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframewith_columns"><a class="header" href="#polarsinternalslazy_framelazyframewith_columns"><code>polars.internals.lazy_frame.LazyFrame.with_columns</code></a></h3>
+<pre><code class="language-python">with_columns(exprs: Union[List[pli.Expr], pli.Expr],) -&gt; LazyFrame:
+</code></pre>
+<p>Add or overwrite multiple columns in a DataFrame.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>exprs</code>]: List of Expressions that evaluate to columns.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def with_columns(self, exprs: Union[List[&quot;pli.Expr&quot;], &quot;pli.Expr&quot;]) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Add or overwrite multiple columns in a DataFrame.
+
+        Parameters
+        ----------
+        exprs
+            List of Expressions that evaluate to columns.
+        &quot;&quot;&quot;
+        if isinstance(exprs, pli.Expr):
+            return self.with_column(exprs)
+
+        pyexprs = []
+
+        for e in exprs:
+            if isinstance(e, pli.Expr):
+                pyexprs.append(e._pyexpr)
+            elif isinstance(e, pli.Series):
+                pyexprs.append(pli.lit(e)._pyexpr)
+
+        return wrap_ldf(self._ldf.with_columns(pyexprs))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframewith_column"><a class="header" href="#polarsinternalslazy_framelazyframewith_column"><code>polars.internals.lazy_frame.LazyFrame.with_column</code></a></h3>
+<pre><code class="language-python">with_column(expr: pli.Expr) -&gt; LazyFrame:
+</code></pre>
+<p>Add or overwrite column in a DataFrame.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>expr</code>]: Expression that evaluates to column.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def with_column(self, expr: &quot;pli.Expr&quot;) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Add or overwrite column in a DataFrame.
+
+        Parameters
+        ----------
+        expr
+            Expression that evaluates to column.
+        &quot;&quot;&quot;
+        return self.with_columns([expr])
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframedrop"><a class="header" href="#polarsinternalslazy_framelazyframedrop"><code>polars.internals.lazy_frame.LazyFrame.drop</code></a></h3>
+<pre><code class="language-python">drop(columns: Union[str, List[str]]) -&gt; LazyFrame:
+</code></pre>
+<p>Remove one or multiple columns from a DataFrame.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>columns</code>]: - Name of the column that should be removed.
+<ul>
+<li>List of column names.</li>
+</ul>
+</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def drop(self, columns: Union[str, List[str]]) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Remove one or multiple columns from a DataFrame.
+
+        Parameters
+        ----------
+        columns
+            - Name of the column that should be removed.
+            - List of column names.
+
+        &quot;&quot;&quot;
+        if isinstance(columns, str):
+            columns = [columns]
+        return wrap_ldf(self._ldf.drop_columns(columns))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframewith_column_renamed"><a class="header" href="#polarsinternalslazy_framelazyframewith_column_renamed"><code>polars.internals.lazy_frame.LazyFrame.with_column_renamed</code></a></h3>
+<pre><code class="language-python">with_column_renamed(existing_name: str, 
+    new_name: str,) -&gt; LazyFrame:
+</code></pre>
+<p>.. deprecated:: 0.12.13
+Use :func:rename instead</p>
+<p>Rename a column in the DataFrame</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def with_column_renamed(self, existing_name: str, new_name: str) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        .. deprecated:: 0.12.13
+            Use :func:rename instead
+
+        Rename a column in the DataFrame
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.with_column_renamed(existing_name, new_name))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframerename"><a class="header" href="#polarsinternalslazy_framelazyframerename"><code>polars.internals.lazy_frame.LazyFrame.rename</code></a></h3>
+<pre><code class="language-python">rename(mapping: Dict[str, str]) -&gt; LazyFrame:
+</code></pre>
+<p>Rename column names.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>mapping</code>]: Key value pairs that map from old name to new name.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def rename(self, mapping: Dict[str, str]) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Rename column names.
+
+        Parameters
+        ----------
+        mapping
+            Key value pairs that map from old name to new name.
+        &quot;&quot;&quot;
+        existing = list(mapping.keys())
+        new = list(mapping.values())
+        return wrap_ldf(self._ldf.rename(existing, new))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframereverse"><a class="header" href="#polarsinternalslazy_framelazyframereverse"><code>polars.internals.lazy_frame.LazyFrame.reverse</code></a></h3>
+<pre><code class="language-python">reverse() -&gt; LazyFrame:
+</code></pre>
+<p>Reverse the DataFrame.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def reverse(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Reverse the DataFrame.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.reverse())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframeshift"><a class="header" href="#polarsinternalslazy_framelazyframeshift"><code>polars.internals.lazy_frame.LazyFrame.shift</code></a></h3>
+<pre><code class="language-python">shift(periods: int) -&gt; LazyFrame:
+</code></pre>
+<p>Shift the values by a given period and fill the parts that will be empty due to this operation
+with <code>Nones</code>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>periods</code>]: Number of places to shift (may be negative).</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def shift(self, periods: int) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Shift the values by a given period and fill the parts that will be empty due to this operation
+        with `Nones`.
+
+        Parameters
+        ----------
+        periods
+            Number of places to shift (may be negative).
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.shift(periods))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframeshift_and_fill"><a class="header" href="#polarsinternalslazy_framelazyframeshift_and_fill"><code>polars.internals.lazy_frame.LazyFrame.shift_and_fill</code></a></h3>
+<pre><code class="language-python">shift_and_fill(periods: int, 
+    fill_value: Union[pli.Expr, int, str, float],) -&gt; LazyFrame:
+</code></pre>
+<p>Shift the values by a given period and fill the parts that will be empty due to this operation
+with the result of the <code>fill_value</code> expression.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>periods</code>]: Number of places to shift (may be negative).</li>
+<li>[<code>fill_value</code>]: fill None values with the result of this expression.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def shift_and_fill(
+        self, periods: int, fill_value: Union[&quot;pli.Expr&quot;, int, str, float]
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Shift the values by a given period and fill the parts that will be empty due to this operation
+        with the result of the `fill_value` expression.
+
+        Parameters
+        ----------
+        periods
+            Number of places to shift (may be negative).
+        fill_value
+            fill None values with the result of this expression.
+        &quot;&quot;&quot;
+        if not isinstance(fill_value, pli.Expr):
+            fill_value = pli.lit(fill_value)
+        return wrap_ldf(self._ldf.shift_and_fill(periods, fill_value._pyexpr))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframeslice"><a class="header" href="#polarsinternalslazy_framelazyframeslice"><code>polars.internals.lazy_frame.LazyFrame.slice</code></a></h3>
+<pre><code class="language-python">slice(offset: int, length: int) -&gt; LazyFrame:
+</code></pre>
+<p>Slice the DataFrame.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>offset</code>]: Start index.</li>
+<li>[<code>length</code>]: Length of the slice.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def slice(self, offset: int, length: int) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Slice the DataFrame.
+
+        Parameters
+        ----------
+        offset
+            Start index.
+        length
+            Length of the slice.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.slice(offset, length))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframelimit"><a class="header" href="#polarsinternalslazy_framelazyframelimit"><code>polars.internals.lazy_frame.LazyFrame.limit</code></a></h3>
+<pre><code class="language-python">limit(n: int) -&gt; LazyFrame:
+</code></pre>
+<p>Limit the DataFrame to the first <code>n</code> rows. Note if you don't want the rows to be scanned,
+use the <code>fetch</code> operation.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>n</code>]: Number of rows.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def limit(self, n: int) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Limit the DataFrame to the first `n` rows. Note if you don't want the rows to be scanned,
+        use the `fetch` operation.
+
+        Parameters
+        ----------
+        n
+            Number of rows.
+        &quot;&quot;&quot;
+        return self.slice(0, n)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframehead"><a class="header" href="#polarsinternalslazy_framelazyframehead"><code>polars.internals.lazy_frame.LazyFrame.head</code></a></h3>
+<pre><code class="language-python">head(n: int) -&gt; LazyFrame:
+</code></pre>
+<p>Gets the first <code>n</code> rows of the DataFrame. You probably don't want to use this!</p>
+<p>Consider using the <code>fetch</code> operation. The <code>fetch</code> operation will truly load the first <code>n</code>
+rows lazily.</p>
+<p>This operation instead loads all the rows and only applies the <code>head</code> at the end.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>n</code>]: Number of rows.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def head(self, n: int) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Gets the first `n` rows of the DataFrame. You probably don't want to use this!
+
+        Consider using the `fetch` operation. The `fetch` operation will truly load the first `n`
+        rows lazily.
+
+        This operation instead loads all the rows and only applies the `head` at the end.
+
+        Parameters
+        ----------
+        n
+            Number of rows.
+        &quot;&quot;&quot;
+        return self.limit(n)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframetail"><a class="header" href="#polarsinternalslazy_framelazyframetail"><code>polars.internals.lazy_frame.LazyFrame.tail</code></a></h3>
+<pre><code class="language-python">tail(n: int) -&gt; LazyFrame:
+</code></pre>
+<p>Get the last <code>n</code> rows of the DataFrame.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>n</code>]: Number of rows.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def tail(self, n: int) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Get the last `n` rows of the DataFrame.
+
+        Parameters
+        ----------
+        n
+            Number of rows.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.tail(n))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframelast"><a class="header" href="#polarsinternalslazy_framelazyframelast"><code>polars.internals.lazy_frame.LazyFrame.last</code></a></h3>
+<pre><code class="language-python">last() -&gt; LazyFrame:
+</code></pre>
+<p>Get the last row of the DataFrame.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def last(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Get the last row of the DataFrame.
+        &quot;&quot;&quot;
+        return self.tail(1)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframefirst"><a class="header" href="#polarsinternalslazy_framelazyframefirst"><code>polars.internals.lazy_frame.LazyFrame.first</code></a></h3>
+<pre><code class="language-python">first() -&gt; LazyFrame:
+</code></pre>
+<p>Get the first row of the DataFrame.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def first(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Get the first row of the DataFrame.
+        &quot;&quot;&quot;
+        return self.slice(0, 1)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframewith_row_count"><a class="header" href="#polarsinternalslazy_framelazyframewith_row_count"><code>polars.internals.lazy_frame.LazyFrame.with_row_count</code></a></h3>
+<pre><code class="language-python">with_row_count(name: str) -&gt; LazyFrame:
+</code></pre>
+<p>Add a column at index 0 that counts the rows.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>name</code>]: Name of the column to add.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def with_row_count(self, name: str = &quot;row_nr&quot;) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Add a column at index 0 that counts the rows.
+
+        Parameters
+        ----------
+        name
+            Name of the column to add.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.with_row_count(name))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframefill_null"><a class="header" href="#polarsinternalslazy_framelazyframefill_null"><code>polars.internals.lazy_frame.LazyFrame.fill_null</code></a></h3>
+<pre><code class="language-python">fill_null(fill_value: Union[int, str, pli.Expr],) -&gt; LazyFrame:
+</code></pre>
+<p>Fill missing values</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>fill_value</code>]: Value to fill the missing values with</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def fill_null(self, fill_value: Union[int, str, &quot;pli.Expr&quot;]) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Fill missing values
+
+        Parameters
+        ----------
+        fill_value
+            Value to fill the missing values with
+        &quot;&quot;&quot;
+        if not isinstance(fill_value, pli.Expr):
+            fill_value = pli.lit(fill_value)
+        return wrap_ldf(self._ldf.fill_null(fill_value._pyexpr))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframefill_nan"><a class="header" href="#polarsinternalslazy_framelazyframefill_nan"><code>polars.internals.lazy_frame.LazyFrame.fill_nan</code></a></h3>
+<pre><code class="language-python">fill_nan(fill_value: Union[int, str, float, pli.Expr],) -&gt; LazyFrame:
+</code></pre>
+<p>Fill floating point NaN values.</p>
+<p>..warning::</p>
+<pre><code>NOTE that floating point NaN (No a Number) are not missing values!
+to replace missing values, use `fill_null`.
+</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>fill_value</code>]: Value to fill the NaN values with</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def fill_nan(self, fill_value: Union[int, str, float, &quot;pli.Expr&quot;]) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Fill floating point NaN values.
+
+        ..warning::
+
+            NOTE that floating point NaN (No a Number) are not missing values!
+            to replace missing values, use `fill_null`.
+
+
+        Parameters
+        ----------
+        fill_value
+            Value to fill the NaN values with
+        &quot;&quot;&quot;
+        if not isinstance(fill_value, pli.Expr):
+            fill_value = pli.lit(fill_value)
+        return wrap_ldf(self._ldf.fill_nan(fill_value._pyexpr))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframestd"><a class="header" href="#polarsinternalslazy_framelazyframestd"><code>polars.internals.lazy_frame.LazyFrame.std</code></a></h3>
+<pre><code class="language-python">std() -&gt; LazyFrame:
+</code></pre>
+<p>Aggregate the columns in the DataFrame to their standard deviation value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def std(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their standard deviation value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.std())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframevar"><a class="header" href="#polarsinternalslazy_framelazyframevar"><code>polars.internals.lazy_frame.LazyFrame.var</code></a></h3>
+<pre><code class="language-python">var() -&gt; LazyFrame:
+</code></pre>
+<p>Aggregate the columns in the DataFrame to their variance value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def var(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their variance value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.var())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframemax"><a class="header" href="#polarsinternalslazy_framelazyframemax"><code>polars.internals.lazy_frame.LazyFrame.max</code></a></h3>
+<pre><code class="language-python">max() -&gt; LazyFrame:
+</code></pre>
+<p>Aggregate the columns in the DataFrame to their maximum value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def max(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their maximum value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.max())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframemin"><a class="header" href="#polarsinternalslazy_framelazyframemin"><code>polars.internals.lazy_frame.LazyFrame.min</code></a></h3>
+<pre><code class="language-python">min() -&gt; LazyFrame:
+</code></pre>
+<p>Aggregate the columns in the DataFrame to their minimum value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def min(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their minimum value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.min())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframesum"><a class="header" href="#polarsinternalslazy_framelazyframesum"><code>polars.internals.lazy_frame.LazyFrame.sum</code></a></h3>
+<pre><code class="language-python">sum() -&gt; LazyFrame:
+</code></pre>
+<p>Aggregate the columns in the DataFrame to their sum value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def sum(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their sum value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.sum())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframemean"><a class="header" href="#polarsinternalslazy_framelazyframemean"><code>polars.internals.lazy_frame.LazyFrame.mean</code></a></h3>
+<pre><code class="language-python">mean() -&gt; LazyFrame:
+</code></pre>
+<p>Aggregate the columns in the DataFrame to their mean value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def mean(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their mean value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.mean())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframemedian"><a class="header" href="#polarsinternalslazy_framelazyframemedian"><code>polars.internals.lazy_frame.LazyFrame.median</code></a></h3>
+<pre><code class="language-python">median() -&gt; LazyFrame:
+</code></pre>
+<p>Aggregate the columns in the DataFrame to their median value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def median(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their median value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.median())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframequantile"><a class="header" href="#polarsinternalslazy_framelazyframequantile"><code>polars.internals.lazy_frame.LazyFrame.quantile</code></a></h3>
+<pre><code class="language-python">quantile(quantile: float, 
+    interpolation: str,) -&gt; LazyFrame:
+</code></pre>
+<p>Aggregate the columns in the DataFrame to their quantile value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def quantile(self, quantile: float, interpolation: str = &quot;nearest&quot;) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Aggregate the columns in the DataFrame to their quantile value.
+        &quot;&quot;&quot;
+        return wrap_ldf(self._ldf.quantile(quantile, interpolation))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframeexplode"><a class="header" href="#polarsinternalslazy_framelazyframeexplode"><code>polars.internals.lazy_frame.LazyFrame.explode</code></a></h3>
+<pre><code class="language-python">explode(columns: Union[str, List[str], pli.Expr, List[pli.Expr]],) -&gt; LazyFrame:
+</code></pre>
+<p>Explode lists to long format.</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df = pl.DataFrame(
+...     {
+...         &quot;letters&quot;: [&quot;c&quot;, &quot;c&quot;, &quot;a&quot;, &quot;c&quot;, &quot;a&quot;, &quot;b&quot;],
+...         &quot;nrs&quot;: [[1, 2], [1, 3], [4, 3], [5, 5, 5], [6], [2, 1, 2]],
+...     }
+... )
+df
+shape: (6, 2)
+┌─────────┬────────────┐
+│ letters ┆ nrs        │
+│ ---     ┆ ---        │
+│ str     ┆ list [i64] │
+╞═════════╪════════════╡
+│ c       ┆ [1, 2]     │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ c       ┆ [1, 3]     │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ a       ┆ [4, 3]     │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ c       ┆ [5, 5, 5]  │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ a       ┆ [6]        │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ b       ┆ [2, 1, 2]  │
+└─────────┴────────────┘
+df.explode(&quot;nrs&quot;)
+shape: (13, 2)
+┌─────────┬─────┐
+│ letters ┆ nrs │
+│ ---     ┆ --- │
+│ str     ┆ i64 │
+╞═════════╪═════╡
+│ c       ┆ 1   │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ c       ┆ 2   │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ c       ┆ 1   │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ c       ┆ 3   │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ ...     ┆ ... │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ a       ┆ 6   │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ b       ┆ 2   │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ b       ┆ 1   │
+├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ b       ┆ 2   │
+└─────────┴─────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def explode(
+        self, columns: Union[str, List[str], &quot;pli.Expr&quot;, List[&quot;pli.Expr&quot;]]
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Explode lists to long format.
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; df = pl.DataFrame(
+        ...     {
+        ...         &quot;letters&quot;: [&quot;c&quot;, &quot;c&quot;, &quot;a&quot;, &quot;c&quot;, &quot;a&quot;, &quot;b&quot;],
+        ...         &quot;nrs&quot;: [[1, 2], [1, 3], [4, 3], [5, 5, 5], [6], [2, 1, 2]],
+        ...     }
+        ... )
+        &gt;&gt;&gt; df
+        shape: (6, 2)
+        ┌─────────┬────────────┐
+        │ letters ┆ nrs        │
+        │ ---     ┆ ---        │
+        │ str     ┆ list [i64] │
+        ╞═════════╪════════════╡
+        │ c       ┆ [1, 2]     │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+        │ c       ┆ [1, 3]     │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+        │ a       ┆ [4, 3]     │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+        │ c       ┆ [5, 5, 5]  │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+        │ a       ┆ [6]        │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+        │ b       ┆ [2, 1, 2]  │
+        └─────────┴────────────┘
+        &gt;&gt;&gt; df.explode(&quot;nrs&quot;)
+        shape: (13, 2)
+        ┌─────────┬─────┐
+        │ letters ┆ nrs │
+        │ ---     ┆ --- │
+        │ str     ┆ i64 │
+        ╞═════════╪═════╡
+        │ c       ┆ 1   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ c       ┆ 2   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ c       ┆ 1   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ c       ┆ 3   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ ...     ┆ ... │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ a       ┆ 6   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ b       ┆ 2   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ b       ┆ 1   │
+        ├╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+        │ b       ┆ 2   │
+        └─────────┴─────┘
+
+        &quot;&quot;&quot;
+        columns = pli.selection_to_pyexpr_list(columns)
+        return wrap_ldf(self._ldf.explode(columns))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframedrop_duplicates"><a class="header" href="#polarsinternalslazy_framelazyframedrop_duplicates"><code>polars.internals.lazy_frame.LazyFrame.drop_duplicates</code></a></h3>
+<pre><code class="language-python">drop_duplicates(maintain_order: bool, 
+    subset: OptionalUnion[List[str], str],) -&gt; LazyFrame:
+</code></pre>
+<p>.. deprecated:: 0.12.18
+Use :func:<code>DataFrame.distinct</code></p>
+<p>Drop duplicate rows from this DataFrame.
+Note that this fails if there is a column of type <code>List</code> in the DataFrame.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def drop_duplicates(
+        self,
+        maintain_order: bool = False,
+        subset: Optional[Union[List[str], str]] = None,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+
+        .. deprecated:: 0.12.18
+            Use :func:`DataFrame.distinct`
+
+        Drop duplicate rows from this DataFrame.
+        Note that this fails if there is a column of type `List` in the DataFrame.
+        &quot;&quot;&quot;
+        return self.distinct(maintain_order, subset, &quot;first&quot;)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframedistinct"><a class="header" href="#polarsinternalslazy_framelazyframedistinct"><code>polars.internals.lazy_frame.LazyFrame.distinct</code></a></h3>
+<pre><code class="language-python">distinct(maintain_order: bool, 
+    subset: OptionalUnion[str, List[str]], 
+    keep: str,) -&gt; LazyFrame:
+</code></pre>
+<p>Drop duplicate rows from this DataFrame.
+Note that this fails if there is a column of type <code>List</code> in the DataFrame or subset.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>maintain_order</code>]: Keep the same order as the original DataFrame. This requires more work to compute.</li>
+<li>[<code>subset</code>]: Subset to use to compare rows</li>
+<li>[<code>keep</code>]: any of {&quot;first&quot;, &quot;last&quot;}</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>DataFrame with unique rows</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def distinct(
+        self,
+        maintain_order: bool = True,
+        subset: Optional[Union[str, List[str]]] = None,
+        keep: str = &quot;first&quot;,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Drop duplicate rows from this DataFrame.
+        Note that this fails if there is a column of type `List` in the DataFrame or subset.
+
+        Parameters
+        ----------
+        maintain_order
+            Keep the same order as the original DataFrame. This requires more work to compute.
+        subset
+            Subset to use to compare rows
+        keep
+            any of {&quot;first&quot;, &quot;last&quot;}
+
+        Returns
+        -------
+        DataFrame with unique rows
+        &quot;&quot;&quot;
+        if subset is not None and not isinstance(subset, list):
+            subset = [subset]
+        return wrap_ldf(self._ldf.distinct(maintain_order, subset, keep))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframedrop_nulls"><a class="header" href="#polarsinternalslazy_framelazyframedrop_nulls"><code>polars.internals.lazy_frame.LazyFrame.drop_nulls</code></a></h3>
+<pre><code class="language-python">drop_nulls(subset: OptionalUnion[List[str], str],) -&gt; LazyFrame:
+</code></pre>
+<p>Drop rows with null values from this DataFrame.</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df = pl.DataFrame(
+...     {
+...         &quot;foo&quot;: [1, 2, 3],
+...         &quot;bar&quot;: [6, None, 8],
+...         &quot;ham&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;],
+...     }
+... )
+df.lazy().drop_nulls().collect()
+shape: (2, 3)
+┌─────┬─────┬─────┐
+│ foo ┆ bar ┆ ham │
+│ --- ┆ --- ┆ --- │
+│ i64 ┆ i64 ┆ str │
+╞═════╪═════╪═════╡
+│ 1   ┆ 6   ┆ a   │
+├╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌┤
+│ 3   ┆ 8   ┆ c   │
+└─────┴─────┴─────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>This method only drops nulls row-wise if any single value of the row is null.</p>
+<p>Below are some example snippets that show how you could drop null values based on other
+conditions</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df = pl.DataFrame(
+...     {
+...         &quot;a&quot;: [None, None, None, None],
+...         &quot;b&quot;: [1, 2, None, 1],
+...         &quot;c&quot;: [1, None, None, 1],
+...     }
+... )
+df
+shape: (4, 3)
+┌──────┬──────┬──────┐
+│ a    ┆ b    ┆ c    │
+│ ---  ┆ ---  ┆ ---  │
+│ f64  ┆ i64  ┆ i64  │
+╞══════╪══════╪══════╡
+│ null ┆ 1    ┆ 1    │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ null ┆ 2    ┆ null │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ null ┆ null ┆ null │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ null ┆ 1    ┆ 1    │
+└──────┴──────┴──────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Drop a row only if all values are null:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df.filter(
+...     ~pl.fold(
+...         acc=True,
+...         f=lambda acc, s: acc &amp; s.is_null(),
+...         exprs=pl.all(),
+...     )
+... )
+shape: (3, 3)
+┌──────┬─────┬──────┐
+│ a    ┆ b   ┆ c    │
+│ ---  ┆ --- ┆ ---  │
+│ f64  ┆ i64 ┆ i64  │
+╞══════╪═════╪══════╡
+│ null ┆ 1   ┆ 1    │
+├╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ null ┆ 2   ┆ null │
+├╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ null ┆ 1   ┆ 1    │
+└──────┴─────┴──────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def drop_nulls(self, subset: Optional[Union[List[str], str]] = None) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Drop rows with null values from this DataFrame.
+
+        Examples
+        --------
+        &gt;&gt;&gt; df = pl.DataFrame(
+        ...     {
+        ...         &quot;foo&quot;: [1, 2, 3],
+        ...         &quot;bar&quot;: [6, None, 8],
+        ...         &quot;ham&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;],
+        ...     }
+        ... )
+        &gt;&gt;&gt; df.lazy().drop_nulls().collect()
+        shape: (2, 3)
+        ┌─────┬─────┬─────┐
+        │ foo ┆ bar ┆ ham │
+        │ --- ┆ --- ┆ --- │
+        │ i64 ┆ i64 ┆ str │
+        ╞═════╪═════╪═════╡
+        │ 1   ┆ 6   ┆ a   │
+        ├╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌┤
+        │ 3   ┆ 8   ┆ c   │
+        └─────┴─────┴─────┘
+
+        This method only drops nulls row-wise if any single value of the row is null.
+
+        Below are some example snippets that show how you could drop null values based on other
+        conditions
+
+        &gt;&gt;&gt; df = pl.DataFrame(
+        ...     {
+        ...         &quot;a&quot;: [None, None, None, None],
+        ...         &quot;b&quot;: [1, 2, None, 1],
+        ...         &quot;c&quot;: [1, None, None, 1],
+        ...     }
+        ... )
+        &gt;&gt;&gt; df
+        shape: (4, 3)
+        ┌──────┬──────┬──────┐
+        │ a    ┆ b    ┆ c    │
+        │ ---  ┆ ---  ┆ ---  │
+        │ f64  ┆ i64  ┆ i64  │
+        ╞══════╪══════╪══════╡
+        │ null ┆ 1    ┆ 1    │
+        ├╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+        │ null ┆ 2    ┆ null │
+        ├╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+        │ null ┆ null ┆ null │
+        ├╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+        │ null ┆ 1    ┆ 1    │
+        └──────┴──────┴──────┘
+
+        Drop a row only if all values are null:
+
+        &gt;&gt;&gt; df.filter(
+        ...     ~pl.fold(
+        ...         acc=True,
+        ...         f=lambda acc, s: acc &amp; s.is_null(),
+        ...         exprs=pl.all(),
+        ...     )
+        ... )
+        shape: (3, 3)
+        ┌──────┬─────┬──────┐
+        │ a    ┆ b   ┆ c    │
+        │ ---  ┆ --- ┆ ---  │
+        │ f64  ┆ i64 ┆ i64  │
+        ╞══════╪═════╪══════╡
+        │ null ┆ 1   ┆ 1    │
+        ├╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌┤
+        │ null ┆ 2   ┆ null │
+        ├╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌┤
+        │ null ┆ 1   ┆ 1    │
+        └──────┴─────┴──────┘
+
+        &quot;&quot;&quot;
+        if subset is not None and not isinstance(subset, list):
+            subset = [subset]
+        return wrap_ldf(self._ldf.drop_nulls(subset))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframemelt"><a class="header" href="#polarsinternalslazy_framelazyframemelt"><code>polars.internals.lazy_frame.LazyFrame.melt</code></a></h3>
+<pre><code class="language-python">melt(id_vars: Union[str, List[str]], 
+    value_vars: Union[str, List[str]],) -&gt; LazyFrame:
+</code></pre>
+<p>Unpivot DataFrame to long format.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>id_vars</code>]: Columns to use as identifier variables.</li>
+<li>[<code>value_vars</code>]: Values to use as identifier variables.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def melt(
+        self, id_vars: Union[str, List[str]], value_vars: Union[str, List[str]]
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Unpivot DataFrame to long format.
+
+        Parameters
+        ----------
+        id_vars
+            Columns to use as identifier variables.
+        value_vars
+            Values to use as identifier variables.
+        &quot;&quot;&quot;
+        if isinstance(value_vars, str):
+            value_vars = [value_vars]
+        if isinstance(id_vars, str):
+            id_vars = [id_vars]
+        return wrap_ldf(self._ldf.melt(id_vars, value_vars))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframemap"><a class="header" href="#polarsinternalslazy_framelazyframemap"><code>polars.internals.lazy_frame.LazyFrame.map</code></a></h3>
+<pre><code class="language-python">map(f: Callable[[pli.DataFrame], pli.DataFrame], 
+    predicate_pushdown: bool, 
+    projection_pushdown: bool, 
+    no_optimizations: bool,) -&gt; LazyFrame:
+</code></pre>
+<p>Apply a custom function. It is important that the function returns a Polars DataFrame.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>f</code>]: Lambda/ function to apply.</li>
+<li>[<code>predicate_pushdown</code>]: Allow predicate pushdown optimization to pass this node.</li>
+<li>[<code>projection_pushdown</code>]: Allow projection pushdown optimization to pass this node.</li>
+<li>[<code>no_optimizations</code>]: Turn off all optimizations past this point.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def map(
+        self,
+        f: Callable[[pli.DataFrame], pli.DataFrame],
+        predicate_pushdown: bool = True,
+        projection_pushdown: bool = True,
+        no_optimizations: bool = False,
+    ) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Apply a custom function. It is important that the function returns a Polars DataFrame.
+
+        Parameters
+        ----------
+        f
+            Lambda/ function to apply.
+        predicate_pushdown
+            Allow predicate pushdown optimization to pass this node.
+        projection_pushdown
+            Allow projection pushdown optimization to pass this node.
+        no_optimizations
+            Turn off all optimizations past this point.
+        &quot;&quot;&quot;
+        if no_optimizations:
+            predicate_pushdown = False
+            projection_pushdown = False
+        return wrap_ldf(self._ldf.map(f, predicate_pushdown, projection_pushdown))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_framelazyframeinterpolate"><a class="header" href="#polarsinternalslazy_framelazyframeinterpolate"><code>polars.internals.lazy_frame.LazyFrame.interpolate</code></a></h3>
+<pre><code class="language-python">interpolate() -&gt; LazyFrame:
+</code></pre>
+<p>Interpolate intermediate values. The interpolation method is linear.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def interpolate(self) -&gt; &quot;LazyFrame&quot;:
+        &quot;&quot;&quot;
+        Interpolate intermediate values. The interpolation method is linear.
+        &quot;&quot;&quot;
+        return self.select(pli.col(&quot;*&quot;).interpolate())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../../polars/internals/lazy_frame.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../../polars/internals/lazy_frame/LazyGroupBy.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../../polars/internals/lazy_frame.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../../polars/internals/lazy_frame/LazyGroupBy.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../../../theme/js/index.js"></script>
+        
+
+        
+
+    </body>
+</html>

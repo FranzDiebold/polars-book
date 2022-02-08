@@ -1,0 +1,2296 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>lazy_functions - Polars - Python Reference Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../../theme/css/style.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../polars.html">polars</a></li><li class="chapter-item "><a href="../../polars/cfg.html">cfg</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../polars/cfg/Config.html">Config</a></li></ol></li><li class="chapter-item "><a href="../../polars/convert.html">convert</a></li><li class="chapter-item "><a href="../../polars/datatypes.html">datatypes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../polars/datatypes/DataType.html">DataType</a></li><li class="chapter-item "><a href="../../polars/datatypes/Int8.html">Int8</a></li><li class="chapter-item "><a href="../../polars/datatypes/Int16.html">Int16</a></li><li class="chapter-item "><a href="../../polars/datatypes/Int32.html">Int32</a></li><li class="chapter-item "><a href="../../polars/datatypes/Int64.html">Int64</a></li><li class="chapter-item "><a href="../../polars/datatypes/UInt8.html">UInt8</a></li><li class="chapter-item "><a href="../../polars/datatypes/UInt16.html">UInt16</a></li><li class="chapter-item "><a href="../../polars/datatypes/UInt32.html">UInt32</a></li><li class="chapter-item "><a href="../../polars/datatypes/UInt64.html">UInt64</a></li><li class="chapter-item "><a href="../../polars/datatypes/Float32.html">Float32</a></li><li class="chapter-item "><a href="../../polars/datatypes/Float64.html">Float64</a></li><li class="chapter-item "><a href="../../polars/datatypes/Boolean.html">Boolean</a></li><li class="chapter-item "><a href="../../polars/datatypes/Utf8.html">Utf8</a></li><li class="chapter-item "><a href="../../polars/datatypes/List.html">List</a></li><li class="chapter-item "><a href="../../polars/datatypes/Date.html">Date</a></li><li class="chapter-item "><a href="../../polars/datatypes/Datetime.html">Datetime</a></li><li class="chapter-item "><a href="../../polars/datatypes/Duration.html">Duration</a></li><li class="chapter-item "><a href="../../polars/datatypes/Time.html">Time</a></li><li class="chapter-item "><a href="../../polars/datatypes/Object.html">Object</a></li><li class="chapter-item "><a href="../../polars/datatypes/Categorical.html">Categorical</a></li></ol></li><li class="chapter-item "><a href="../../polars/datatypes_constructor.html">datatypes_constructor</a></li><li class="chapter-item expanded "><a href="../../polars/internals.html">internals</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../polars/internals/construction.html">construction</a></li><li class="chapter-item "><a href="../../polars/internals/expr.html">expr</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../polars/internals/expr/Expr.html">Expr</a></li><li class="chapter-item "><a href="../../polars/internals/expr/ExprListNameSpace.html">ExprListNameSpace</a></li><li class="chapter-item "><a href="../../polars/internals/expr/ExprStringNameSpace.html">ExprStringNameSpace</a></li><li class="chapter-item "><a href="../../polars/internals/expr/ExprDateTimeNameSpace.html">ExprDateTimeNameSpace</a></li></ol></li><li class="chapter-item "><a href="../../polars/internals/frame.html">frame</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../polars/internals/frame/DataFrame.html">DataFrame</a></li><li class="chapter-item "><a href="../../polars/internals/frame/RollingGroupBy.html">RollingGroupBy</a></li><li class="chapter-item "><a href="../../polars/internals/frame/DynamicGroupBy.html">DynamicGroupBy</a></li><li class="chapter-item "><a href="../../polars/internals/frame/GroupBy.html">GroupBy</a></li><li class="chapter-item "><a href="../../polars/internals/frame/PivotOps.html">PivotOps</a></li><li class="chapter-item "><a href="../../polars/internals/frame/GBSelection.html">GBSelection</a></li></ol></li><li class="chapter-item "><a href="../../polars/internals/functions.html">functions</a></li><li class="chapter-item "><a href="../../polars/internals/lazy_frame.html">lazy_frame</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../polars/internals/lazy_frame/LazyFrame.html">LazyFrame</a></li><li class="chapter-item "><a href="../../polars/internals/lazy_frame/LazyGroupBy.html">LazyGroupBy</a></li></ol></li><li class="chapter-item expanded "><a href="../../polars/internals/lazy_functions.html" class="active">lazy_functions</a></li><li class="chapter-item "><a href="../../polars/internals/series.html">series</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../polars/internals/series/Series.html">Series</a></li><li class="chapter-item "><a href="../../polars/internals/series/StringNameSpace.html">StringNameSpace</a></li><li class="chapter-item "><a href="../../polars/internals/series/ListNameSpace.html">ListNameSpace</a></li><li class="chapter-item "><a href="../../polars/internals/series/DateTimeNameSpace.html">DateTimeNameSpace</a></li><li class="chapter-item "><a href="../../polars/internals/series/SeriesIter.html">SeriesIter</a></li></ol></li><li class="chapter-item "><a href="../../polars/internals/whenthen.html">whenthen</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../polars/internals/whenthen/WhenThenThen.html">WhenThenThen</a></li><li class="chapter-item "><a href="../../polars/internals/whenthen/WhenThen.html">WhenThen</a></li><li class="chapter-item "><a href="../../polars/internals/whenthen/When.html">When</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../polars/io.html">io</a></li><li class="chapter-item "><a href="../../polars/string_cache.html">string_cache</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../polars/string_cache/StringCache.html">StringCache</a></li></ol></li><li class="chapter-item "><a href="../../polars/testing.html">testing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Polars - Python Reference Guide</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="module-polarsinternalslazy_functions"><a class="header" href="#module-polarsinternalslazy_functions">Module <code>polars.internals.lazy_functions</code></a></h1>
+<p><strong>Functions</strong></p>
+<ul>
+<li><a href="#polarsinternalslazy_functionscol"><code>col()</code></a>: A column in a DataFrame.</li>
+<li><a href="#polarsinternalslazy_functionscount"><code>count()</code></a>: Count the number of values in this column/context.</li>
+<li><a href="#polarsinternalslazy_functionsto_list"><code>to_list()</code></a>: Aggregate to list.</li>
+<li><a href="#polarsinternalslazy_functionsstd"><code>std()</code></a>: Get the standard deviation.</li>
+<li><a href="#polarsinternalslazy_functionsvar"><code>var()</code></a>: Get the variance.</li>
+<li><a href="#polarsinternalslazy_functionsmax"><code>max()</code></a>: Get the maximum value. Can be used horizontally or vertically.</li>
+<li><a href="#polarsinternalslazy_functionsmin"><code>min()</code></a>: Get the minimum value.</li>
+<li><a href="#polarsinternalslazy_functionssum"><code>sum()</code></a>: Get the sum value.</li>
+<li><a href="#polarsinternalslazy_functionsmean"><code>mean()</code></a>: Get the mean value.</li>
+<li><a href="#polarsinternalslazy_functionsavg"><code>avg()</code></a>: Alias for mean.</li>
+<li><a href="#polarsinternalslazy_functionsmedian"><code>median()</code></a>: Get the median value.</li>
+<li><a href="#polarsinternalslazy_functionsn_unique"><code>n_unique()</code></a>: Count unique values.</li>
+<li><a href="#polarsinternalslazy_functionsfirst"><code>first()</code></a>: Get the first value.</li>
+<li><a href="#polarsinternalslazy_functionslast"><code>last()</code></a>: Get the last value.</li>
+<li><a href="#polarsinternalslazy_functionshead"><code>head()</code></a>: Get the first n rows of an Expression.</li>
+<li><a href="#polarsinternalslazy_functionstail"><code>tail()</code></a>: Get the last n rows of an Expression.</li>
+<li><a href="#polarsinternalslazy_functionslit"><code>lit()</code></a>: A literal value.</li>
+<li><a href="#polarsinternalslazy_functionsspearman_rank_corr"><code>spearman_rank_corr()</code></a>: Compute the spearman rank correlation between two columns.</li>
+<li><a href="#polarsinternalslazy_functionspearson_corr"><code>pearson_corr()</code></a>: Compute the pearson's correlation between two columns.</li>
+<li><a href="#polarsinternalslazy_functionscov"><code>cov()</code></a>: Compute the covariance between two columns/ expressions.</li>
+<li><a href="#polarsinternalslazy_functionsmap"><code>map()</code></a>: Map a custom function over multiple columns/expressions and produce a single Series result.</li>
+<li><a href="#polarsinternalslazy_functionsapply"><code>apply()</code></a>: Apply a custom function in a GroupBy context.</li>
+<li><a href="#polarsinternalslazy_functionsmap_binary"><code>map_binary()</code></a>: .. deprecated:: 0.10.4</li>
+<li><a href="#polarsinternalslazy_functionsfold"><code>fold()</code></a>: Accumulate over multiple columns horizontally/ row wise with a left fold.</li>
+<li><a href="#polarsinternalslazy_functionsany"><code>any()</code></a>: Evaluate columnwise or elementwise with a bitwise OR operation.</li>
+<li><a href="#polarsinternalslazy_functionsexclude"><code>exclude()</code></a>: Exclude certain columns from a wildcard expression.</li>
+<li><a href="#polarsinternalslazy_functionsall"><code>all()</code></a>: This function is two things</li>
+<li><a href="#polarsinternalslazy_functionsgroups"><code>groups()</code></a>: Syntactic sugar for <code>pl.col(&quot;foo&quot;).agg_groups()</code>.</li>
+<li><a href="#polarsinternalslazy_functionsquantile"><code>quantile()</code></a>: Syntactic sugar for <code>pl.col(&quot;foo&quot;).quantile(..)</code>.</li>
+<li><a href="#polarsinternalslazy_functionsarange"><code>arange()</code></a>: Create a range expression. This can be used in a <code>select</code>, <code>with_column</code> etc.</li>
+<li><a href="#polarsinternalslazy_functionsargsort_by"><code>argsort_by()</code></a>: Find the indexes that would sort the columns.</li>
+<li><a href="#polarsinternalslazy_functionsconcat_str"><code>concat_str()</code></a>: Horizontally Concat Utf8 Series in linear time. Non utf8 columns are cast to utf8.</li>
+<li><a href="#polarsinternalslazy_functionsformat"><code>format()</code></a>: String format utility for expressions</li>
+<li><a href="#polarsinternalslazy_functionsconcat_list"><code>concat_list()</code></a>: Concat the arrays in a Series dtype List in linear time.</li>
+<li><a href="#polarsinternalslazy_functionscollect_all"><code>collect_all()</code></a>: Collect multiple LazyFrames at the same time. This runs all the computation graphs in parallel on</li>
+<li><a href="#polarsinternalslazy_functionsselect"><code>select()</code></a>: Run polars expressions without a context.</li>
+</ul>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<p><div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionscol"><a class="header" href="#polarsinternalslazy_functionscol"><code>polars.internals.lazy_functions.col</code></a></h3>
+<pre><code class="language-python">col(
+    name: Union[str, List[str], List[TypeDataType], pli.Series, TypeDataType],
+) -&gt; pli.Expr:
+</code></pre>
+<p>A column in a DataFrame.
+Can be used to select:</p>
+<ul>
+<li>a single column by name</li>
+<li>all columns by using a wildcard <code>&quot;*&quot;</code></li>
+<li>column by regular expression if the regex starts with <code>^</code> and ends with <code>$</code></li>
+</ul>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>name</code>]: A string that holds the name of the column</li>
+</ul>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df = pl.DataFrame(
+...     {
+...         &quot;ham&quot;: [1, 2, 3],
+...         &quot;hamburger&quot;: [11, 22, 33],
+...         &quot;foo&quot;: [3, 2, 1],
+...     }
+... )
+df.select(pl.col(&quot;foo&quot;))
+shape: (3, 1)
+┌─────┐
+│ foo │
+│ --- │
+│ i64 │
+╞═════╡
+│ 3   │
+├╌╌╌╌╌┤
+│ 2   │
+├╌╌╌╌╌┤
+│ 1   │
+└─────┘
+df.select(pl.col(&quot;<em>&quot;))
+shape: (3, 3)
+┌─────┬───────────┬─────┐
+│ ham ┆ hamburger ┆ foo │
+│ --- ┆ ---       ┆ --- │
+│ i64 ┆ i64       ┆ i64 │
+╞═════╪═══════════╪═════╡
+│ 1   ┆ 11        ┆ 3   │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ 2   ┆ 22        ┆ 2   │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ 3   ┆ 33        ┆ 1   │
+└─────┴───────────┴─────┘
+df.select(pl.col(&quot;^ham.</em>$&quot;))
+shape: (3, 2)
+┌─────┬───────────┐
+│ ham ┆ hamburger │
+│ --- ┆ ---       │
+│ i64 ┆ i64       │
+╞═════╪═══════════╡
+│ 1   ┆ 11        │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ 2   ┆ 22        │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ 3   ┆ 33        │
+└─────┴───────────┘
+df.select(pl.col(&quot;*&quot;).exclude(&quot;ham&quot;))
+shape: (3, 2)
+┌───────────┬─────┐
+│ hamburger ┆ foo │
+│ ---       ┆ --- │
+│ i64       ┆ i64 │
+╞═══════════╪═════╡
+│ 11        ┆ 3   │
+├╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ 22        ┆ 2   │
+├╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ 33        ┆ 1   │
+└───────────┴─────┘
+df.select(pl.col([&quot;hamburger&quot;, &quot;foo&quot;]))
+shape: (3, 2)
+┌───────────┬─────┐
+│ hamburger ┆ foo │
+│ ---       ┆ --- │
+│ i64       ┆ i64 │
+╞═══════════╪═════╡
+│ 11        ┆ 3   │
+├╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ 22        ┆ 2   │
+├╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+│ 33        ┆ 1   │
+└───────────┴─────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def col(
+    name: Union[str, List[str], List[Type[DataType]], &quot;pli.Series&quot;, Type[DataType]]
+) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    A column in a DataFrame.
+    Can be used to select:
+
+    - a single column by name
+    - all columns by using a wildcard `&quot;*&quot;`
+    - column by regular expression if the regex starts with `^` and ends with `$`
+
+    Parameters
+    ----------
+    name
+        A string that holds the name of the column
+
+    Examples
+    --------
+
+    &gt;&gt;&gt; df = pl.DataFrame(
+    ...     {
+    ...         &quot;ham&quot;: [1, 2, 3],
+    ...         &quot;hamburger&quot;: [11, 22, 33],
+    ...         &quot;foo&quot;: [3, 2, 1],
+    ...     }
+    ... )
+    &gt;&gt;&gt; df.select(pl.col(&quot;foo&quot;))
+    shape: (3, 1)
+    ┌─────┐
+    │ foo │
+    │ --- │
+    │ i64 │
+    ╞═════╡
+    │ 3   │
+    ├╌╌╌╌╌┤
+    │ 2   │
+    ├╌╌╌╌╌┤
+    │ 1   │
+    └─────┘
+    &gt;&gt;&gt; df.select(pl.col(&quot;*&quot;))
+    shape: (3, 3)
+    ┌─────┬───────────┬─────┐
+    │ ham ┆ hamburger ┆ foo │
+    │ --- ┆ ---       ┆ --- │
+    │ i64 ┆ i64       ┆ i64 │
+    ╞═════╪═══════════╪═════╡
+    │ 1   ┆ 11        ┆ 3   │
+    ├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 2   ┆ 22        ┆ 2   │
+    ├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 3   ┆ 33        ┆ 1   │
+    └─────┴───────────┴─────┘
+    &gt;&gt;&gt; df.select(pl.col(&quot;^ham.*$&quot;))
+    shape: (3, 2)
+    ┌─────┬───────────┐
+    │ ham ┆ hamburger │
+    │ --- ┆ ---       │
+    │ i64 ┆ i64       │
+    ╞═════╪═══════════╡
+    │ 1   ┆ 11        │
+    ├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+    │ 2   ┆ 22        │
+    ├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+    │ 3   ┆ 33        │
+    └─────┴───────────┘
+    &gt;&gt;&gt; df.select(pl.col(&quot;*&quot;).exclude(&quot;ham&quot;))
+    shape: (3, 2)
+    ┌───────────┬─────┐
+    │ hamburger ┆ foo │
+    │ ---       ┆ --- │
+    │ i64       ┆ i64 │
+    ╞═══════════╪═════╡
+    │ 11        ┆ 3   │
+    ├╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 22        ┆ 2   │
+    ├╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 33        ┆ 1   │
+    └───────────┴─────┘
+    &gt;&gt;&gt; df.select(pl.col([&quot;hamburger&quot;, &quot;foo&quot;]))
+    shape: (3, 2)
+    ┌───────────┬─────┐
+    │ hamburger ┆ foo │
+    │ ---       ┆ --- │
+    │ i64       ┆ i64 │
+    ╞═══════════╪═════╡
+    │ 11        ┆ 3   │
+    ├╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 22        ┆ 2   │
+    ├╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┤
+    │ 33        ┆ 1   │
+    └───────────┴─────┘
+
+    &quot;&quot;&quot;
+    if isinstance(name, pli.Series):
+        name = name.to_list()  # type: ignore
+
+    # note: we need the typing.cast call here twice to make mypy happy under Python 3.7
+    # On Python 3.10, it is not needed. We use cast as it works across versions, ignoring
+    # the typing error would lead to unneeded ignores under Python 3.10.
+    if isclass(name) and issubclass(cast(type, name), DataType):
+        name = [cast(type, name)]
+
+    if isinstance(name, list):
+        if len(name) == 0 or isinstance(name[0], str):
+            return pli.wrap_expr(pycols(name))
+        elif isclass(name[0]) and issubclass(name[0], DataType):
+            return pli.wrap_expr(_dtype_cols(name))
+        else:
+            raise ValueError(&quot;did expect argument of List[str] or List[DataType]&quot;)
+    return pli.wrap_expr(pycol(name))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionscount"><a class="header" href="#polarsinternalslazy_functionscount"><code>polars.internals.lazy_functions.count</code></a></h3>
+<pre><code class="language-python">count(
+    column: OptionalUnion[str, pli.Series],
+) -&gt; Union[pli.Expr, int]:
+</code></pre>
+<p>Count the number of values in this column/context.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>column</code>]: If dtype is:
+pl.Series -&gt; count the values in the series
+str -&gt; count the values in this column
+None -&gt; count the number of values in this context</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def count(column: Optional[Union[str, &quot;pli.Series&quot;]] = None) -&gt; Union[&quot;pli.Expr&quot;, int]:
+    &quot;&quot;&quot;
+    Count the number of values in this column/context.
+
+    Parameters
+    ----------
+    column
+        If dtype is:
+            pl.Series -&gt; count the values in the series
+            str -&gt; count the values in this column
+            None -&gt; count the number of values in this context
+    &quot;&quot;&quot;
+    if column is None:
+        return pli.wrap_expr(_count())
+
+    if isinstance(column, pli.Series):
+        return column.len()
+    return col(column).count()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsto_list"><a class="header" href="#polarsinternalslazy_functionsto_list"><code>polars.internals.lazy_functions.to_list</code></a></h3>
+<pre><code class="language-python">to_list(name: str) -&gt; pli.Expr:
+</code></pre>
+<p>Aggregate to list.</p>
+<p>Re-exported as <code>pl.list()</code></p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def to_list(name: str) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Aggregate to list.
+
+    Re-exported as `pl.list()`
+    &quot;&quot;&quot;
+    return col(name).list()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsstd"><a class="header" href="#polarsinternalslazy_functionsstd"><code>polars.internals.lazy_functions.std</code></a></h3>
+<pre><code class="language-python">std(
+    column: Union[str, pli.Series],
+) -&gt; Union[pli.Expr, Optionalfloat]:
+</code></pre>
+<p>Get the standard deviation.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def std(column: Union[str, &quot;pli.Series&quot;]) -&gt; Union[&quot;pli.Expr&quot;, Optional[float]]:
+    &quot;&quot;&quot;
+    Get the standard deviation.
+    &quot;&quot;&quot;
+    if isinstance(column, pli.Series):
+        return column.std()
+    return col(column).std()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsvar"><a class="header" href="#polarsinternalslazy_functionsvar"><code>polars.internals.lazy_functions.var</code></a></h3>
+<pre><code class="language-python">var(
+    column: Union[str, pli.Series],
+) -&gt; Union[pli.Expr, Optionalfloat]:
+</code></pre>
+<p>Get the variance.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def var(column: Union[str, &quot;pli.Series&quot;]) -&gt; Union[&quot;pli.Expr&quot;, Optional[float]]:
+    &quot;&quot;&quot;
+    Get the variance.
+    &quot;&quot;&quot;
+    if isinstance(column, pli.Series):
+        return column.var()
+    return col(column).var()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsmax"><a class="header" href="#polarsinternalslazy_functionsmax"><code>polars.internals.lazy_functions.max</code></a></h3>
+<pre><code class="language-python">max(
+    column: Union[str, List[Union[pli.Expr, str]], pli.Series],
+) -&gt; Union[pli.Expr, Any]:
+</code></pre>
+<p>Get the maximum value. Can be used horizontally or vertically.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>column</code>]: Column(s) to be used in aggregation. Will lead to different behavior based on the input.
+input:
+<ul>
+<li>Union[str, Series] -&gt; aggregate the maximum value of that column.</li>
+<li>List[Expr] -&gt; aggregate the maximum value horizontally.</li>
+</ul>
+</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def max(
+    column: Union[str, List[Union[&quot;pli.Expr&quot;, str]], &quot;pli.Series&quot;]
+) -&gt; Union[&quot;pli.Expr&quot;, Any]:
+    &quot;&quot;&quot;
+    Get the maximum value. Can be used horizontally or vertically.
+
+    Parameters
+    ----------
+    column
+        Column(s) to be used in aggregation. Will lead to different behavior based on the input.
+        input:
+        - Union[str, Series] -&gt; aggregate the maximum value of that column.
+        - List[Expr] -&gt; aggregate the maximum value horizontally.
+    &quot;&quot;&quot;
+    if isinstance(column, pli.Series):
+        return column.max()
+    elif isinstance(column, list):
+        exprs = pli.selection_to_pyexpr_list(column)
+        return pli.wrap_expr(_max_exprs(exprs))
+    else:
+        return col(column).max()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsmin"><a class="header" href="#polarsinternalslazy_functionsmin"><code>polars.internals.lazy_functions.min</code></a></h3>
+<pre><code class="language-python">min(
+    column: Union[str, List[Union[pli.Expr, str]], pli.Series],
+) -&gt; Union[pli.Expr, Any]:
+</code></pre>
+<p>Get the minimum value.</p>
+<ul>
+<li>[<code>column</code>]: Column(s) to be used in aggregation. Will lead to different behavior based on the input.
+input:
+<ul>
+<li>Union[str, Series] -&gt; aggregate the sum value of that column.</li>
+<li>List[Expr] -&gt; aggregate the sum value horizontally.</li>
+</ul>
+</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def min(
+    column: Union[str, List[Union[&quot;pli.Expr&quot;, str]], &quot;pli.Series&quot;]
+) -&gt; Union[&quot;pli.Expr&quot;, Any]:
+    &quot;&quot;&quot;
+    Get the minimum value.
+
+    column
+        Column(s) to be used in aggregation. Will lead to different behavior based on the input.
+        input:
+        - Union[str, Series] -&gt; aggregate the sum value of that column.
+        - List[Expr] -&gt; aggregate the sum value horizontally.
+    &quot;&quot;&quot;
+    if isinstance(column, pli.Series):
+        return column.min()
+    elif isinstance(column, list):
+        exprs = pli.selection_to_pyexpr_list(column)
+        return pli.wrap_expr(_min_exprs(exprs))
+    else:
+        return col(column).min()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionssum"><a class="header" href="#polarsinternalslazy_functionssum"><code>polars.internals.lazy_functions.sum</code></a></h3>
+<pre><code class="language-python">sum(
+    column: Union[str, List[Union[pli.Expr, str]], pli.Series],
+) -&gt; Union[pli.Expr, Any]:
+</code></pre>
+<p>Get the sum value.</p>
+<ul>
+<li>[<code>column</code>]: Column(s) to be used in aggregation. Will lead to different behavior based on the input.
+input:
+<ul>
+<li>Union[str, Series] -&gt; aggregate the sum value of that column.</li>
+<li>List[Expr] -&gt; aggregate the sum value horizontally.</li>
+</ul>
+</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def sum(
+    column: Union[str, List[Union[&quot;pli.Expr&quot;, str]], &quot;pli.Series&quot;]
+) -&gt; Union[&quot;pli.Expr&quot;, Any]:
+    &quot;&quot;&quot;
+    Get the sum value.
+
+    column
+        Column(s) to be used in aggregation. Will lead to different behavior based on the input.
+        input:
+        - Union[str, Series] -&gt; aggregate the sum value of that column.
+        - List[Expr] -&gt; aggregate the sum value horizontally.
+    &quot;&quot;&quot;
+    if isinstance(column, pli.Series):
+        return column.sum()
+    elif isinstance(column, list):
+        first = column[0]
+        if isinstance(first, str):
+            first = col(first)
+        return fold(first, lambda a, b: a + b, column[1:]).alias(&quot;sum&quot;)
+    else:
+        return col(column).sum()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsmean"><a class="header" href="#polarsinternalslazy_functionsmean"><code>polars.internals.lazy_functions.mean</code></a></h3>
+<pre><code class="language-python">mean(
+    column: Union[str, pli.Series],
+) -&gt; Union[pli.Expr, float]:
+</code></pre>
+<p>Get the mean value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def mean(column: Union[str, &quot;pli.Series&quot;]) -&gt; Union[&quot;pli.Expr&quot;, float]:
+    &quot;&quot;&quot;
+    Get the mean value.
+    &quot;&quot;&quot;
+    if isinstance(column, pli.Series):
+        return column.mean()
+    return col(column).mean()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsavg"><a class="header" href="#polarsinternalslazy_functionsavg"><code>polars.internals.lazy_functions.avg</code></a></h3>
+<pre><code class="language-python">avg(
+    column: Union[str, pli.Series],
+) -&gt; Union[pli.Expr, float]:
+</code></pre>
+<p>Alias for mean.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def avg(column: Union[str, &quot;pli.Series&quot;]) -&gt; Union[&quot;pli.Expr&quot;, float]:
+    &quot;&quot;&quot;
+    Alias for mean.
+    &quot;&quot;&quot;
+    return mean(column)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsmedian"><a class="header" href="#polarsinternalslazy_functionsmedian"><code>polars.internals.lazy_functions.median</code></a></h3>
+<pre><code class="language-python">median(
+    column: Union[str, pli.Series],
+) -&gt; Union[pli.Expr, float, int]:
+</code></pre>
+<p>Get the median value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def median(column: Union[str, &quot;pli.Series&quot;]) -&gt; Union[&quot;pli.Expr&quot;, float, int]:
+    &quot;&quot;&quot;
+    Get the median value.
+    &quot;&quot;&quot;
+    if isinstance(column, pli.Series):
+        return column.median()
+    return col(column).median()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsn_unique"><a class="header" href="#polarsinternalslazy_functionsn_unique"><code>polars.internals.lazy_functions.n_unique</code></a></h3>
+<pre><code class="language-python">n_unique(
+    column: Union[str, pli.Series],
+) -&gt; Union[pli.Expr, int]:
+</code></pre>
+<p>Count unique values.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def n_unique(column: Union[str, &quot;pli.Series&quot;]) -&gt; Union[&quot;pli.Expr&quot;, int]:
+    &quot;&quot;&quot;Count unique values.&quot;&quot;&quot;
+    if isinstance(column, pli.Series):
+        return column.n_unique()
+    return col(column).n_unique()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsfirst"><a class="header" href="#polarsinternalslazy_functionsfirst"><code>polars.internals.lazy_functions.first</code></a></h3>
+<pre><code class="language-python">first(
+    column: Union[str, pli.Series],
+) -&gt; Union[pli.Expr, Any]:
+</code></pre>
+<p>Get the first value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def first(column: Union[str, &quot;pli.Series&quot;]) -&gt; Union[&quot;pli.Expr&quot;, Any]:
+    &quot;&quot;&quot;
+    Get the first value.
+    &quot;&quot;&quot;
+    if isinstance(column, pli.Series):
+        if column.len() &gt; 0:
+            return column[0]
+        else:
+            raise IndexError(&quot;The series is empty, so no first value can be returned.&quot;)
+    return col(column).first()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionslast"><a class="header" href="#polarsinternalslazy_functionslast"><code>polars.internals.lazy_functions.last</code></a></h3>
+<pre><code class="language-python">last(column: Union[str, pli.Series]) -&gt; pli.Expr:
+</code></pre>
+<p>Get the last value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def last(column: Union[str, &quot;pli.Series&quot;]) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Get the last value.
+    &quot;&quot;&quot;
+    if isinstance(column, pli.Series):
+        if column.len() &gt; 0:
+            return column[-1]
+        else:
+            raise IndexError(&quot;The series is empty, so no last value can be returned,&quot;)
+    return col(column).last()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionshead"><a class="header" href="#polarsinternalslazy_functionshead"><code>polars.internals.lazy_functions.head</code></a></h3>
+<pre><code class="language-python">head(
+    column: Union[str, pli.Series], 
+    n: Optionalint,
+) -&gt; Union[pli.Expr, pli.Series]:
+</code></pre>
+<p>Get the first n rows of an Expression.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>column</code>]: Column name or Series.</li>
+<li>[<code>n</code>]: Number of rows to take.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def head(
+    column: Union[str, &quot;pli.Series&quot;], n: Optional[int] = None
+) -&gt; Union[&quot;pli.Expr&quot;, &quot;pli.Series&quot;]:
+    &quot;&quot;&quot;
+    Get the first n rows of an Expression.
+
+    Parameters
+    ----------
+    column
+        Column name or Series.
+    n
+        Number of rows to take.
+    &quot;&quot;&quot;
+    if isinstance(column, pli.Series):
+        return column.head(n)
+    return col(column).head(n)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionstail"><a class="header" href="#polarsinternalslazy_functionstail"><code>polars.internals.lazy_functions.tail</code></a></h3>
+<pre><code class="language-python">tail(
+    column: Union[str, pli.Series], 
+    n: Optionalint,
+) -&gt; Union[pli.Expr, pli.Series]:
+</code></pre>
+<p>Get the last n rows of an Expression.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>column</code>]: Column name or Series.</li>
+<li>[<code>n</code>]: Number of rows to take.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def tail(
+    column: Union[str, &quot;pli.Series&quot;], n: Optional[int] = None
+) -&gt; Union[&quot;pli.Expr&quot;, &quot;pli.Series&quot;]:
+    &quot;&quot;&quot;
+    Get the last n rows of an Expression.
+
+    Parameters
+    ----------
+    column
+        Column name or Series.
+    n
+        Number of rows to take.
+    &quot;&quot;&quot;
+    if isinstance(column, pli.Series):
+        return column.tail(n)
+    return col(column).tail(n)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionslit"><a class="header" href="#polarsinternalslazy_functionslit"><code>polars.internals.lazy_functions.lit</code></a></h3>
+<pre><code class="language-python">lit(
+    value: OptionalUnion[float, int, str, date, datetime, pli.Series, np.ndarray, Any], 
+    dtype: OptionalTypeDataType,
+) -&gt; pli.Expr:
+</code></pre>
+<p>A literal value.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>value</code>]: Value that should be used as a <code>literal</code>.</li>
+<li>[<code>dtype</code>]: Optionally define a dtype.</li>
+</ul>
+<p><strong>Examples</strong></p>
+<p>Literal integer:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>pl.lit(1)  # doctest: +IGNORE_RESULT</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Literal str:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>pl.lit(&quot;foo&quot;)  # doctest: +IGNORE_RESULT</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Literal datetime:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from datetime import datetime
+pl.lit(datetime(2021, 1, 20))  # doctest: +IGNORE_RESULT</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Literal Null:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>pl.lit(None)  # doctest: +IGNORE_RESULT</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Literal eager Series:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>pl.lit(pl.Series(&quot;a&quot;, [1, 2, 3]))  # doctest: +IGNORE_RESULT</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def lit(
+    value: Optional[
+        Union[float, int, str, date, datetime, &quot;pli.Series&quot;, np.ndarray, Any]
+    ],
+    dtype: Optional[Type[DataType]] = None,
+) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    A literal value.
+
+    Parameters
+    ----------
+    value
+        Value that should be used as a `literal`.
+    dtype
+        Optionally define a dtype.
+
+    Examples
+    --------
+
+    Literal integer:
+
+    &gt;&gt;&gt; pl.lit(1)  # doctest: +IGNORE_RESULT
+
+    Literal str:
+
+    &gt;&gt;&gt; pl.lit(&quot;foo&quot;)  # doctest: +IGNORE_RESULT
+
+    Literal datetime:
+
+    &gt;&gt;&gt; from datetime import datetime
+    &gt;&gt;&gt; pl.lit(datetime(2021, 1, 20))  # doctest: +IGNORE_RESULT
+
+    Literal Null:
+
+    &gt;&gt;&gt; pl.lit(None)  # doctest: +IGNORE_RESULT
+
+    Literal eager Series:
+
+    &gt;&gt;&gt; pl.lit(pl.Series(&quot;a&quot;, [1, 2, 3]))  # doctest: +IGNORE_RESULT
+
+    &quot;&quot;&quot;
+    if isinstance(value, datetime):
+        if in_nanoseconds_window(value):
+            tu = &quot;ns&quot;
+        else:
+            tu = &quot;ms&quot;
+        return (
+            lit(_datetime_to_pl_timestamp(value, tu))
+            .cast(Datetime)
+            .dt.and_time_unit(tu)
+        )
+    if isinstance(value, timedelta):
+        if timedelta_in_nanoseconds_window(value):
+            tu = &quot;ns&quot;
+        else:
+            tu = &quot;ms&quot;
+        return (
+            lit(_timedelta_to_pl_timedelta(value, tu))
+            .cast(Duration)
+            .dt.and_time_unit(tu, dtype=Duration)
+        )
+
+    if isinstance(value, date):
+        return lit(datetime(value.year, value.month, value.day)).cast(Date)
+
+    if isinstance(value, pli.Series):
+        name = value.name
+        value = value._s
+        e = pli.wrap_expr(pylit(value))
+        if name == &quot;&quot;:
+            return e
+        return e.alias(name)
+
+    if isinstance(value, np.ndarray):
+        return lit(pli.Series(&quot;&quot;, value))
+
+    if dtype:
+        return pli.wrap_expr(pylit(value)).cast(dtype)
+    # numpy literals like np.float32(0)
+    # have an item
+    if hasattr(value, &quot;item&quot;):
+        value = value.item()  # type: ignore
+    return pli.wrap_expr(pylit(value))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsspearman_rank_corr"><a class="header" href="#polarsinternalslazy_functionsspearman_rank_corr"><code>polars.internals.lazy_functions.spearman_rank_corr</code></a></h3>
+<pre><code class="language-python">spearman_rank_corr(
+    a: Union[str, pli.Expr], 
+    b: Union[str, pli.Expr],
+) -&gt; pli.Expr:
+</code></pre>
+<p>Compute the spearman rank correlation between two columns.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>a</code>]: Column name or Expression.</li>
+<li>[<code>b</code>]: Column name or Expression.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def spearman_rank_corr(
+    a: Union[str, &quot;pli.Expr&quot;],
+    b: Union[str, &quot;pli.Expr&quot;],
+) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Compute the spearman rank correlation between two columns.
+
+    Parameters
+    ----------
+    a
+        Column name or Expression.
+    b
+        Column name or Expression.
+    &quot;&quot;&quot;
+    if isinstance(a, str):
+        a = col(a)
+    if isinstance(b, str):
+        b = col(b)
+    return pli.wrap_expr(pyspearman_rank_corr(a._pyexpr, b._pyexpr))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionspearson_corr"><a class="header" href="#polarsinternalslazy_functionspearson_corr"><code>polars.internals.lazy_functions.pearson_corr</code></a></h3>
+<pre><code class="language-python">pearson_corr(
+    a: Union[str, pli.Expr], 
+    b: Union[str, pli.Expr],
+) -&gt; pli.Expr:
+</code></pre>
+<p>Compute the pearson's correlation between two columns.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>a</code>]: Column name or Expression.</li>
+<li>[<code>b</code>]: Column name or Expression.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def pearson_corr(
+    a: Union[str, &quot;pli.Expr&quot;],
+    b: Union[str, &quot;pli.Expr&quot;],
+) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Compute the pearson's correlation between two columns.
+
+    Parameters
+    ----------
+    a
+        Column name or Expression.
+    b
+        Column name or Expression.
+    &quot;&quot;&quot;
+    if isinstance(a, str):
+        a = col(a)
+    if isinstance(b, str):
+        b = col(b)
+    return pli.wrap_expr(pypearson_corr(a._pyexpr, b._pyexpr))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionscov"><a class="header" href="#polarsinternalslazy_functionscov"><code>polars.internals.lazy_functions.cov</code></a></h3>
+<pre><code class="language-python">cov(
+    a: Union[str, pli.Expr], 
+    b: Union[str, pli.Expr],
+) -&gt; pli.Expr:
+</code></pre>
+<p>Compute the covariance between two columns/ expressions.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>a</code>]: Column name or Expression.</li>
+<li>[<code>b</code>]: Column name or Expression.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def cov(
+    a: Union[str, &quot;pli.Expr&quot;],
+    b: Union[str, &quot;pli.Expr&quot;],
+) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Compute the covariance between two columns/ expressions.
+
+    Parameters
+    ----------
+    a
+        Column name or Expression.
+    b
+        Column name or Expression.
+    &quot;&quot;&quot;
+    if isinstance(a, str):
+        a = col(a)
+    if isinstance(b, str):
+        b = col(b)
+    return pli.wrap_expr(pycov(a._pyexpr, b._pyexpr))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsmap"><a class="header" href="#polarsinternalslazy_functionsmap"><code>polars.internals.lazy_functions.map</code></a></h3>
+<pre><code class="language-python">map(
+    exprs: Union[List[str], List[pli.Expr]], 
+    f: Callable[[List[pli.Series]], pli.Series], 
+    return_dtype: OptionalTypeDataType,
+) -&gt; pli.Expr:
+</code></pre>
+<p>Map a custom function over multiple columns/expressions and produce a single Series result.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>exprs</code>]: Input Series to f</li>
+<li>[<code>f</code>]: Function to apply over the input</li>
+<li>[<code>return_dtype</code>]: dtype of the output Series</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Expr</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def map(
+    exprs: Union[List[str], List[&quot;pli.Expr&quot;]],
+    f: Callable[[List[&quot;pli.Series&quot;]], &quot;pli.Series&quot;],
+    return_dtype: Optional[Type[DataType]] = None,
+) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Map a custom function over multiple columns/expressions and produce a single Series result.
+
+    Parameters
+    ----------
+    exprs
+        Input Series to f
+    f
+        Function to apply over the input
+    return_dtype
+        dtype of the output Series
+
+    Returns
+    -------
+    Expr
+    &quot;&quot;&quot;
+    exprs = pli.selection_to_pyexpr_list(exprs)
+    return pli.wrap_expr(_map_mul(exprs, f, return_dtype, apply_groups=False))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsapply"><a class="header" href="#polarsinternalslazy_functionsapply"><code>polars.internals.lazy_functions.apply</code></a></h3>
+<pre><code class="language-python">apply(
+    exprs: List[Union[str, pli.Expr]], 
+    f: Callable[[List[pli.Series]], Union[pli.Series, Any]], 
+    return_dtype: OptionalTypeDataType,
+) -&gt; pli.Expr:
+</code></pre>
+<p>Apply a custom function in a GroupBy context.</p>
+<p>Depending on the context it has the following behavior:</p>
+<h2 id="context"><a class="header" href="#context">Context</a></h2>
+<ul>
+<li>Select/Project
+Don't do this, use <code>map</code></li>
+<li>GroupBy
+expected type <code>f</code>: Callable[[Series], Series]
+Applies a python function over each group.</li>
+</ul>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>exprs</code>]: Input Series to f</li>
+<li>[<code>f</code>]: Function to apply over the input</li>
+<li>[<code>return_dtype</code>]: dtype of the output Series</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Expr</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def apply(
+    exprs: List[Union[str, &quot;pli.Expr&quot;]],
+    f: Callable[[List[&quot;pli.Series&quot;]], Union[&quot;pli.Series&quot;, Any]],
+    return_dtype: Optional[Type[DataType]] = None,
+) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Apply a custom function in a GroupBy context.
+
+    Depending on the context it has the following behavior:
+
+    ## Context
+
+    * Select/Project
+        Don't do this, use `map`
+    * GroupBy
+        expected type `f`: Callable[[Series], Series]
+        Applies a python function over each group.
+
+    Parameters
+    ----------
+    exprs
+        Input Series to f
+    f
+        Function to apply over the input
+    return_dtype
+        dtype of the output Series
+
+    Returns
+    -------
+    Expr
+    &quot;&quot;&quot;
+    exprs = pli.selection_to_pyexpr_list(exprs)
+    return pli.wrap_expr(_map_mul(exprs, f, return_dtype, apply_groups=True))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsmap_binary"><a class="header" href="#polarsinternalslazy_functionsmap_binary"><code>polars.internals.lazy_functions.map_binary</code></a></h3>
+<pre><code class="language-python">map_binary(
+    a: Union[str, pli.Expr], 
+    b: Union[str, pli.Expr], 
+    f: Callable[[pli.Series, pli.Series], pli.Series], 
+    return_dtype: OptionalTypeDataType,
+) -&gt; pli.Expr:
+</code></pre>
+<p>.. deprecated:: 0.10.4
+use <code>map</code> or <code>apply</code>
+Map a custom function over two columns and produce a single Series result.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>a</code>]: Input Series a.</li>
+<li>[<code>b</code>]: Input Series b.</li>
+<li>[<code>f</code>]: Function to apply.</li>
+<li>[<code>return_dtype</code>]: Output type of the udf.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def map_binary(
+    a: Union[str, &quot;pli.Expr&quot;],
+    b: Union[str, &quot;pli.Expr&quot;],
+    f: Callable[[&quot;pli.Series&quot;, &quot;pli.Series&quot;], &quot;pli.Series&quot;],
+    return_dtype: Optional[Type[DataType]] = None,
+) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+     .. deprecated:: 0.10.4
+       use `map` or `apply`
+    Map a custom function over two columns and produce a single Series result.
+
+    Parameters
+    ----------
+    a
+        Input Series a.
+    b
+        Input Series b.
+    f
+        Function to apply.
+    return_dtype
+        Output type of the udf.
+    &quot;&quot;&quot;
+    if isinstance(a, str):
+        a = col(a)
+    if isinstance(b, str):
+        b = col(b)
+    return pli.wrap_expr(pybinary_function(a._pyexpr, b._pyexpr, f, return_dtype))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsfold"><a class="header" href="#polarsinternalslazy_functionsfold"><code>polars.internals.lazy_functions.fold</code></a></h3>
+<pre><code class="language-python">fold(
+    acc: pli.Expr, 
+    f: Callable[[pli.Series, pli.Series], pli.Series], 
+    exprs: Union[SequenceUnion[pli.Expr, str], pli.Expr],
+) -&gt; pli.Expr:
+</code></pre>
+<p>Accumulate over multiple columns horizontally/ row wise with a left fold.</p>
+<p><strong>Parameters</strong></p>
+<p>acc
+Accumulator Expression. This is the value that will be initialized when the fold starts.
+For a sum this could for instance be lit(0).</p>
+<ul>
+<li>[<code>f</code>]: Function to apply over the accumulator and the value.
+Fn(acc, value) -&gt; new_value</li>
+<li>[<code>exprs</code>]: Expressions to aggregate over. May also be a wildcard expression.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def fold(
+    acc: &quot;pli.Expr&quot;,
+    f: Callable[[&quot;pli.Series&quot;, &quot;pli.Series&quot;], &quot;pli.Series&quot;],
+    exprs: Union[Sequence[Union[&quot;pli.Expr&quot;, str]], &quot;pli.Expr&quot;],
+) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Accumulate over multiple columns horizontally/ row wise with a left fold.
+
+    Parameters
+    ----------
+    acc
+     Accumulator Expression. This is the value that will be initialized when the fold starts.
+     For a sum this could for instance be lit(0).
+
+    f
+        Function to apply over the accumulator and the value.
+        Fn(acc, value) -&gt; new_value
+    exprs
+        Expressions to aggregate over. May also be a wildcard expression.
+    &quot;&quot;&quot;
+    # in case of pl.col(&quot;*&quot;)
+    acc = pli.expr_to_lit_or_expr(acc, str_to_lit=True)
+    if isinstance(exprs, pli.Expr):
+        exprs = [exprs]
+
+    exprs = pli.selection_to_pyexpr_list(exprs)
+    return pli.wrap_expr(pyfold(acc._pyexpr, f, exprs))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsany"><a class="header" href="#polarsinternalslazy_functionsany"><code>polars.internals.lazy_functions.any</code></a></h3>
+<pre><code class="language-python">any(name: Union[str, List[pli.Expr]]) -&gt; pli.Expr:
+</code></pre>
+<p>Evaluate columnwise or elementwise with a bitwise OR operation.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def any(name: Union[str, List[&quot;pli.Expr&quot;]]) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Evaluate columnwise or elementwise with a bitwise OR operation.
+    &quot;&quot;&quot;
+    if isinstance(name, list):
+        return fold(lit(0), lambda a, b: a | b, name).alias(&quot;any&quot;)
+    return col(name).sum() &gt; 0
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsexclude"><a class="header" href="#polarsinternalslazy_functionsexclude"><code>polars.internals.lazy_functions.exclude</code></a></h3>
+<pre><code class="language-python">exclude(columns: Union[str, List[str]]) -&gt; pli.Expr:
+</code></pre>
+<p>Exclude certain columns from a wildcard expression.</p>
+<p>Syntactic sugar for:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>pl.col(&quot;*&quot;).exclude(columns)  # doctest: +SKIP</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>columns</code>]: Column(s) to exclude from selection</li>
+</ul>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df = pl.DataFrame(
+...     {
+...         &quot;a&quot;: [1, 2, 3],
+...         &quot;b&quot;: [&quot;a&quot;, &quot;b&quot;, None],
+...         &quot;c&quot;: [None, 2, 1],
+...     }
+... )
+df
+shape: (3, 3)
+┌─────┬──────┬──────┐
+│ a   ┆ b    ┆ c    │
+│ --- ┆ ---  ┆ ---  │
+│ i64 ┆ str  ┆ i64  │
+╞═════╪══════╪══════╡
+│ 1   ┆ a    ┆ null │
+├╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ 2   ┆ b    ┆ 2    │
+├╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ 3   ┆ null ┆ 1    │
+└─────┴──────┴──────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df.select(pl.exclude(&quot;b&quot;))
+shape: (3, 2)
+┌─────┬──────┐
+│ a   ┆ c    │
+│ --- ┆ ---  │
+│ i64 ┆ i64  │
+╞═════╪══════╡
+│ 1   ┆ null │
+├╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ 2   ┆ 2    │
+├╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ 3   ┆ 1    │
+└─────┴──────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def exclude(columns: Union[str, List[str]]) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Exclude certain columns from a wildcard expression.
+
+    Syntactic sugar for:
+
+    &gt;&gt;&gt; pl.col(&quot;*&quot;).exclude(columns)  # doctest: +SKIP
+
+    Parameters
+    ----------
+    columns
+        Column(s) to exclude from selection
+
+
+    Examples
+    --------
+
+    &gt;&gt;&gt; df = pl.DataFrame(
+    ...     {
+    ...         &quot;a&quot;: [1, 2, 3],
+    ...         &quot;b&quot;: [&quot;a&quot;, &quot;b&quot;, None],
+    ...         &quot;c&quot;: [None, 2, 1],
+    ...     }
+    ... )
+    &gt;&gt;&gt; df
+    shape: (3, 3)
+    ┌─────┬──────┬──────┐
+    │ a   ┆ b    ┆ c    │
+    │ --- ┆ ---  ┆ ---  │
+    │ i64 ┆ str  ┆ i64  │
+    ╞═════╪══════╪══════╡
+    │ 1   ┆ a    ┆ null │
+    ├╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+    │ 2   ┆ b    ┆ 2    │
+    ├╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+    │ 3   ┆ null ┆ 1    │
+    └─────┴──────┴──────┘
+
+    &gt;&gt;&gt; df.select(pl.exclude(&quot;b&quot;))
+    shape: (3, 2)
+    ┌─────┬──────┐
+    │ a   ┆ c    │
+    │ --- ┆ ---  │
+    │ i64 ┆ i64  │
+    ╞═════╪══════╡
+    │ 1   ┆ null │
+    ├╌╌╌╌╌┼╌╌╌╌╌╌┤
+    │ 2   ┆ 2    │
+    ├╌╌╌╌╌┼╌╌╌╌╌╌┤
+    │ 3   ┆ 1    │
+    └─────┴──────┘
+
+    &quot;&quot;&quot;
+    return col(&quot;*&quot;).exclude(columns)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsall"><a class="header" href="#polarsinternalslazy_functionsall"><code>polars.internals.lazy_functions.all</code></a></h3>
+<pre><code class="language-python">all(name: OptionalUnion[str, List[pli.Expr]]) -&gt; pli.Expr:
+</code></pre>
+<p>This function is two things</p>
+<ul>
+<li>function can do a columnwise or elementwise AND operation</li>
+<li>a wildcard column selection</li>
+</ul>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>name</code>]: If given this function will apply a bitwise &amp; on the columns.</li>
+</ul>
+<p><strong>Examples</strong></p>
+<p>Sum all columns</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df = pl.DataFrame(
+...     {&quot;a&quot;: [1, 2, 3], &quot;b&quot;: [&quot;hello&quot;, &quot;foo&quot;, &quot;bar&quot;], &quot;c&quot;: [1, 1, 1]}
+... )
+df.select(pl.all().sum())
+shape: (1, 3)
+┌─────┬──────┬─────┐
+│ a   ┆ b    ┆ c   │
+│ --- ┆ ---  ┆ --- │
+│ i64 ┆ str  ┆ i64 │
+╞═════╪══════╪═════╡
+│ 6   ┆ null ┆ 3   │
+└─────┴──────┴─────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def all(name: Optional[Union[str, List[&quot;pli.Expr&quot;]]] = None) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    This function is two things
+
+    * function can do a columnwise or elementwise AND operation
+    * a wildcard column selection
+
+    Parameters
+    ----------
+
+    name
+        If given this function will apply a bitwise &amp; on the columns.
+
+    Examples
+    --------
+
+    Sum all columns
+
+    &gt;&gt;&gt; df = pl.DataFrame(
+    ...     {&quot;a&quot;: [1, 2, 3], &quot;b&quot;: [&quot;hello&quot;, &quot;foo&quot;, &quot;bar&quot;], &quot;c&quot;: [1, 1, 1]}
+    ... )
+    &gt;&gt;&gt; df.select(pl.all().sum())
+    shape: (1, 3)
+    ┌─────┬──────┬─────┐
+    │ a   ┆ b    ┆ c   │
+    │ --- ┆ ---  ┆ --- │
+    │ i64 ┆ str  ┆ i64 │
+    ╞═════╪══════╪═════╡
+    │ 6   ┆ null ┆ 3   │
+    └─────┴──────┴─────┘
+
+    &quot;&quot;&quot;
+    if name is None:
+        return col(&quot;*&quot;)
+    if isinstance(name, list):
+        return fold(lit(0), lambda a, b: a &amp; b, name).alias(&quot;all&quot;)
+    return col(name).cast(bool).sum() == col(name).count()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsgroups"><a class="header" href="#polarsinternalslazy_functionsgroups"><code>polars.internals.lazy_functions.groups</code></a></h3>
+<pre><code class="language-python">groups(column: str) -&gt; pli.Expr:
+</code></pre>
+<p>Syntactic sugar for <code>pl.col(&quot;foo&quot;).agg_groups()</code>.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def groups(column: str) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Syntactic sugar for `pl.col(&quot;foo&quot;).agg_groups()`.
+    &quot;&quot;&quot;
+    return col(column).agg_groups()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsquantile"><a class="header" href="#polarsinternalslazy_functionsquantile"><code>polars.internals.lazy_functions.quantile</code></a></h3>
+<pre><code class="language-python">quantile(
+    column: str, 
+    quantile: float, 
+    interpolation: str,
+) -&gt; pli.Expr:
+</code></pre>
+<p>Syntactic sugar for <code>pl.col(&quot;foo&quot;).quantile(..)</code>.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def quantile(
+    column: str, quantile: float, interpolation: str = &quot;nearest&quot;
+) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Syntactic sugar for `pl.col(&quot;foo&quot;).quantile(..)`.
+    &quot;&quot;&quot;
+    return col(column).quantile(quantile, interpolation)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsarange"><a class="header" href="#polarsinternalslazy_functionsarange"><code>polars.internals.lazy_functions.arange</code></a></h3>
+<pre><code class="language-python">arange(
+    low: Union[int, pli.Expr, pli.Series], 
+    high: Union[int, pli.Expr, pli.Series], 
+    step: int, 
+    eager: bool,
+) -&gt; Union[pli.Expr, pli.Series]:
+</code></pre>
+<p>Create a range expression. This can be used in a <code>select</code>, <code>with_column</code> etc.
+Be sure that the range size is equal to the DataFrame you are collecting.</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df.lazy().filter(pl.col(&quot;foo&quot;) &lt; pl.arange(0, 100)).collect()  # doctest: +SKIP</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>low</code>]: Lower bound of range.</li>
+<li>[<code>high</code>]: Upper bound of range.</li>
+<li>[<code>step</code>]: Step size of the range</li>
+<li>[<code>eager</code>]: If eager evaluation is <code>True</code>, a Series is returned instead of an Expr</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def arange(
+    low: Union[int, &quot;pli.Expr&quot;, &quot;pli.Series&quot;],
+    high: Union[int, &quot;pli.Expr&quot;, &quot;pli.Series&quot;],
+    step: int = 1,
+    eager: bool = False,
+) -&gt; Union[&quot;pli.Expr&quot;, &quot;pli.Series&quot;]:
+    &quot;&quot;&quot;
+    Create a range expression. This can be used in a `select`, `with_column` etc.
+    Be sure that the range size is equal to the DataFrame you are collecting.
+
+    Examples
+    --------
+    &gt;&gt;&gt; df.lazy().filter(pl.col(&quot;foo&quot;) &lt; pl.arange(0, 100)).collect()  # doctest: +SKIP
+
+    Parameters
+    ----------
+    low
+        Lower bound of range.
+    high
+        Upper bound of range.
+    step
+        Step size of the range
+    eager
+        If eager evaluation is `True`, a Series is returned instead of an Expr
+    &quot;&quot;&quot;
+    low = pli.expr_to_lit_or_expr(low, str_to_lit=False)
+    high = pli.expr_to_lit_or_expr(high, str_to_lit=False)
+
+    if eager:
+        df = pli.DataFrame({&quot;a&quot;: [1]})
+        return df.select(arange(low, high, step).alias(&quot;arange&quot;))[&quot;arange&quot;]
+
+    return pli.wrap_expr(pyarange(low._pyexpr, high._pyexpr, step))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsargsort_by"><a class="header" href="#polarsinternalslazy_functionsargsort_by"><code>polars.internals.lazy_functions.argsort_by</code></a></h3>
+<pre><code class="language-python">argsort_by(
+    exprs: List[Union[pli.Expr, str]], 
+    reverse: Union[List[bool], bool],
+) -&gt; pli.Expr:
+</code></pre>
+<p>Find the indexes that would sort the columns.</p>
+<p>Argsort by multiple columns. The first column will be used for the ordering.
+If there are duplicates in the first column, the second column will be used to determine the ordering
+and so on.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>exprs</code>]: Columns use to determine the ordering.</li>
+<li>[<code>reverse</code>]: Default is ascending.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def argsort_by(
+    exprs: List[Union[&quot;pli.Expr&quot;, str]], reverse: Union[List[bool], bool] = False
+) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Find the indexes that would sort the columns.
+
+    Argsort by multiple columns. The first column will be used for the ordering.
+    If there are duplicates in the first column, the second column will be used to determine the ordering
+    and so on.
+
+    Parameters
+    ----------
+    exprs
+        Columns use to determine the ordering.
+    reverse
+        Default is ascending.
+    &quot;&quot;&quot;
+    if not isinstance(reverse, list):
+        reverse = [reverse] * len(exprs)
+    exprs = pli.selection_to_pyexpr_list(exprs)
+    return pli.wrap_expr(pyargsort_by(exprs, reverse))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsconcat_str"><a class="header" href="#polarsinternalslazy_functionsconcat_str"><code>polars.internals.lazy_functions.concat_str</code></a></h3>
+<pre><code class="language-python">concat_str(
+    exprs: SequenceUnion[pli.Expr, str], 
+    sep: str,
+) -&gt; pli.Expr:
+</code></pre>
+<p>Horizontally Concat Utf8 Series in linear time. Non utf8 columns are cast to utf8.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>exprs</code>]: Columns to concat into a Utf8 Series</li>
+<li>[<code>sep</code>]: String value that will be used to separate the values.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def concat_str(exprs: Sequence[Union[&quot;pli.Expr&quot;, str]], sep: str = &quot;&quot;) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Horizontally Concat Utf8 Series in linear time. Non utf8 columns are cast to utf8.
+
+    Parameters
+    ----------
+    exprs
+        Columns to concat into a Utf8 Series
+    sep
+        String value that will be used to separate the values.
+    &quot;&quot;&quot;
+    exprs = pli.selection_to_pyexpr_list(exprs)
+    return pli.wrap_expr(_concat_str(exprs, sep))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsformat"><a class="header" href="#polarsinternalslazy_functionsformat"><code>polars.internals.lazy_functions.format</code></a></h3>
+<pre><code class="language-python">format(fstring: str, *args) -&gt; pli.Expr:
+</code></pre>
+<p>String format utility for expressions</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>fstring</code>]: A string that with placeholders.
+For example: &quot;hello_{}&quot; or &quot;{}_world</li>
+<li>[<code>args</code>]: Expression(s) that fill the placeholders</li>
+</ul>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df = pl.DataFrame(
+...     {
+...         &quot;a&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;],
+...         &quot;b&quot;: [1, 2, 3],
+...     }
+... )
+df.select(
+...     [
+...         pl.format(&quot;foo_{}<em>bar</em>{}&quot;, pl.col(&quot;a&quot;), &quot;b&quot;).alias(&quot;fmt&quot;),
+...     ]
+... )
+shape: (3, 1)
+┌─────────────┐
+│ fmt         │
+│ ---         │
+│ str         │
+╞═════════════╡
+│ foo_a_bar_1 │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ foo_b_bar_2 │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ foo_c_bar_3 │
+└─────────────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def format(fstring: str, *args: Union[&quot;pli.Expr&quot;, str]) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    String format utility for expressions
+
+    Parameters
+    ----------
+    fstring
+        A string that with placeholders.
+        For example: &quot;hello_{}&quot; or &quot;{}_world
+    args
+        Expression(s) that fill the placeholders
+
+    Examples
+    --------
+
+    &gt;&gt;&gt; df = pl.DataFrame(
+    ...     {
+    ...         &quot;a&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;],
+    ...         &quot;b&quot;: [1, 2, 3],
+    ...     }
+    ... )
+    &gt;&gt;&gt; df.select(
+    ...     [
+    ...         pl.format(&quot;foo_{}_bar_{}&quot;, pl.col(&quot;a&quot;), &quot;b&quot;).alias(&quot;fmt&quot;),
+    ...     ]
+    ... )
+    shape: (3, 1)
+    ┌─────────────┐
+    │ fmt         │
+    │ ---         │
+    │ str         │
+    ╞═════════════╡
+    │ foo_a_bar_1 │
+    ├╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+    │ foo_b_bar_2 │
+    ├╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+    │ foo_c_bar_3 │
+    └─────────────┘
+
+    &quot;&quot;&quot;
+    if fstring.count(&quot;{}&quot;) != len(args):
+        raise ValueError(&quot;number of placeholders should equal the number of arguments&quot;)
+
+    exprs = []
+
+    arguments = iter(args)
+    for i, s in enumerate(fstring.split(&quot;{}&quot;)):
+        if i &gt; 0:
+            e = pli.expr_to_lit_or_expr(next(arguments), str_to_lit=False)
+            exprs.append(e)
+
+        if len(s) &gt; 0:
+            exprs.append(lit(s))
+
+    return concat_str(exprs, sep=&quot;&quot;)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsconcat_list"><a class="header" href="#polarsinternalslazy_functionsconcat_list"><code>polars.internals.lazy_functions.concat_list</code></a></h3>
+<pre><code class="language-python">concat_list(
+    exprs: SequenceUnion[str, pli.Expr, pli.Series],
+) -&gt; pli.Expr:
+</code></pre>
+<p>Concat the arrays in a Series dtype List in linear time.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>exprs</code>]: Columns to concat into a List Series</li>
+</ul>
+<p><strong>Examples</strong></p>
+<p>Create lagged columns and collect them into a list. This mimics a rolling window.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df = pl.DataFrame(
+...     {
+...         &quot;A&quot;: [1.0, 2.0, 9.0, 2.0, 13.0],
+...     }
+... )
+(
+...     df.with_columns(
+...         [pl.col(&quot;A&quot;).shift(i).alias(f&quot;A_lag_{i}&quot;) for i in range(3)]
+...     ).select(
+...         [
+...             pl.concat_list([f&quot;A_lag_{i}&quot; for i in range(3)][::-1]).alias(
+...                 &quot;A_rolling&quot;
+...             )
+...         ]
+...     )
+... )
+shape: (5, 1)
+┌─────────────────┐
+│ A_rolling       │
+│ ---             │
+│ list [f64]      │
+╞═════════════════╡
+│ [null, null, 1] │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ [null, 1, 2]    │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ [1, 2, 9]       │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ [2, 9, 2]       │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ [9, 2, 13]      │
+└─────────────────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def concat_list(exprs: Sequence[Union[str, &quot;pli.Expr&quot;, &quot;pli.Series&quot;]]) -&gt; &quot;pli.Expr&quot;:
+    &quot;&quot;&quot;
+    Concat the arrays in a Series dtype List in linear time.
+
+    Parameters
+    ----------
+    exprs
+        Columns to concat into a List Series
+
+    Examples
+    --------
+
+    Create lagged columns and collect them into a list. This mimics a rolling window.
+
+    &gt;&gt;&gt; df = pl.DataFrame(
+    ...     {
+    ...         &quot;A&quot;: [1.0, 2.0, 9.0, 2.0, 13.0],
+    ...     }
+    ... )
+    &gt;&gt;&gt; (
+    ...     df.with_columns(
+    ...         [pl.col(&quot;A&quot;).shift(i).alias(f&quot;A_lag_{i}&quot;) for i in range(3)]
+    ...     ).select(
+    ...         [
+    ...             pl.concat_list([f&quot;A_lag_{i}&quot; for i in range(3)][::-1]).alias(
+    ...                 &quot;A_rolling&quot;
+    ...             )
+    ...         ]
+    ...     )
+    ... )
+    shape: (5, 1)
+    ┌─────────────────┐
+    │ A_rolling       │
+    │ ---             │
+    │ list [f64]      │
+    ╞═════════════════╡
+    │ [null, null, 1] │
+    ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+    │ [null, 1, 2]    │
+    ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+    │ [1, 2, 9]       │
+    ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+    │ [2, 9, 2]       │
+    ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+    │ [9, 2, 13]      │
+    └─────────────────┘
+
+    &quot;&quot;&quot;
+    exprs = pli.selection_to_pyexpr_list(exprs)
+    return pli.wrap_expr(_concat_lst(exprs))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionscollect_all"><a class="header" href="#polarsinternalslazy_functionscollect_all"><code>polars.internals.lazy_functions.collect_all</code></a></h3>
+<pre><code class="language-python">collect_all(
+    lazy_frames: List[pli.LazyFrame], 
+    type_coercion: bool, 
+    predicate_pushdown: bool, 
+    projection_pushdown: bool, 
+    simplify_expression: bool, 
+    string_cache: bool, 
+    no_optimization: bool, 
+    slice_pushdown: bool,
+) -&gt; List[pli.DataFrame]:
+</code></pre>
+<p>Collect multiple LazyFrames at the same time. This runs all the computation graphs in parallel on
+Polars threadpool.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p>[<code>type_coercion</code>]: Do type coercion optimization.</p>
+</li>
+<li>
+<p>[<code>predicate_pushdown</code>]: Do predicate pushdown optimization.</p>
+</li>
+<li>
+<p>[<code>projection_pushdown</code>]: Do projection pushdown optimization.</p>
+</li>
+<li>
+<p>[<code>simplify_expression</code>]: Run simplify expressions optimization.</p>
+</li>
+<li>
+<p>[<code>string_cache</code>]: Use a global string cache in this query.
+This is needed if you want to join on categorical columns.</p>
+<p>Caution!
+If you already have set a global string cache, set this to <code>False</code> as this will reset the
+global cache when the query is finished.</p>
+</li>
+<li>
+<p>[<code>no_optimization</code>]: Turn off optimizations.</p>
+</li>
+<li>
+<p>[<code>slice_pushdown</code>]: Slice pushdown optimization.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>List[DataFrame]</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def collect_all(
+    lazy_frames: &quot;List[pli.LazyFrame]&quot;,
+    type_coercion: bool = True,
+    predicate_pushdown: bool = True,
+    projection_pushdown: bool = True,
+    simplify_expression: bool = True,
+    string_cache: bool = False,
+    no_optimization: bool = False,
+    slice_pushdown: bool = False,
+) -&gt; &quot;List[pli.DataFrame]&quot;:
+    &quot;&quot;&quot;
+    Collect multiple LazyFrames at the same time. This runs all the computation graphs in parallel on
+    Polars threadpool.
+
+    Parameters
+    ----------
+    type_coercion
+        Do type coercion optimization.
+    predicate_pushdown
+        Do predicate pushdown optimization.
+    projection_pushdown
+        Do projection pushdown optimization.
+    simplify_expression
+        Run simplify expressions optimization.
+    string_cache
+        Use a global string cache in this query.
+        This is needed if you want to join on categorical columns.
+
+        Caution!
+            If you already have set a global string cache, set this to `False` as this will reset the
+            global cache when the query is finished.
+    no_optimization
+        Turn off optimizations.
+    slice_pushdown
+        Slice pushdown optimization.
+
+    Returns
+    -------
+    List[DataFrame]
+    &quot;&quot;&quot;
+    if no_optimization:
+        predicate_pushdown = False
+        projection_pushdown = False
+        slice_pushdown = False
+
+    prepared = []
+
+    for lf in lazy_frames:
+        ldf = lf._ldf.optimization_toggle(
+            type_coercion,
+            predicate_pushdown,
+            projection_pushdown,
+            simplify_expression,
+            string_cache,
+            slice_pushdown,
+        )
+        prepared.append(ldf)
+
+    out = _collect_all(prepared)
+
+    # wrap the pydataframes into dataframe
+    result = [pli.wrap_df(pydf) for pydf in out]
+
+    return result
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalslazy_functionsselect"><a class="header" href="#polarsinternalslazy_functionsselect"><code>polars.internals.lazy_functions.select</code></a></h3>
+<pre><code class="language-python">select(
+    exprs: Union[str, pli.Expr, Sequencestr, Sequencepli.Expr, pli.Series],
+) -&gt; pli.DataFrame:
+</code></pre>
+<p>Run polars expressions without a context.</p>
+<p>This is syntactic sugar for running <code>df.select</code> on an empty DataFrame.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>exprs</code>]: Expressions to run
+<strong>Returns</strong></li>
+</ul>
+<p>DataFrame</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>foo = pl.Series(&quot;foo&quot;, [1, 2, 3])
+bar = pl.Series(&quot;bar&quot;, [3, 2, 1])
+pl.select(
+...     [
+...         pl.min([foo, bar]),
+...     ]
+... )
+shape: (3, 1)
+┌─────┐
+│ min │
+│ --- │
+│ i64 │
+╞═════╡
+│ 1   │
+├╌╌╌╌╌┤
+│ 2   │
+├╌╌╌╌╌┤
+│ 1   │
+└─────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">def select(
+    exprs: Union[str, &quot;pli.Expr&quot;, Sequence[str], Sequence[&quot;pli.Expr&quot;], &quot;pli.Series&quot;]
+) -&gt; &quot;pli.DataFrame&quot;:
+    &quot;&quot;&quot;
+    Run polars expressions without a context.
+
+    This is syntactic sugar for running `df.select` on an empty DataFrame.
+
+    Parameters
+    ----------
+    exprs
+        Expressions to run
+    Returns
+    -------
+    DataFrame
+
+    Examples
+    --------
+
+    &gt;&gt;&gt; foo = pl.Series(&quot;foo&quot;, [1, 2, 3])
+    &gt;&gt;&gt; bar = pl.Series(&quot;bar&quot;, [3, 2, 1])
+    &gt;&gt;&gt; pl.select(
+    ...     [
+    ...         pl.min([foo, bar]),
+    ...     ]
+    ... )
+    shape: (3, 1)
+    ┌─────┐
+    │ min │
+    │ --- │
+    │ i64 │
+    ╞═════╡
+    │ 1   │
+    ├╌╌╌╌╌┤
+    │ 2   │
+    ├╌╌╌╌╌┤
+    │ 1   │
+    └─────┘
+
+    &quot;&quot;&quot;
+    return pli.DataFrame([]).select(exprs)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../polars/internals/lazy_frame/LazyGroupBy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../polars/internals/series.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../polars/internals/lazy_frame/LazyGroupBy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../polars/internals/series.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../../theme/js/index.js"></script>
+        
+
+        
+
+    </body>
+</html>

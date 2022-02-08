@@ -1,0 +1,1325 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>StringNameSpace - Polars - Python Reference Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../../favicon.png">
+        
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../../../theme/css/style.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../../polars.html">polars</a></li><li class="chapter-item "><a href="../../../polars/cfg.html">cfg</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/cfg/Config.html">Config</a></li></ol></li><li class="chapter-item "><a href="../../../polars/convert.html">convert</a></li><li class="chapter-item "><a href="../../../polars/datatypes.html">datatypes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/datatypes/DataType.html">DataType</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int8.html">Int8</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int16.html">Int16</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int32.html">Int32</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int64.html">Int64</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt8.html">UInt8</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt16.html">UInt16</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt32.html">UInt32</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt64.html">UInt64</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Float32.html">Float32</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Float64.html">Float64</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Boolean.html">Boolean</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Utf8.html">Utf8</a></li><li class="chapter-item "><a href="../../../polars/datatypes/List.html">List</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Date.html">Date</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Datetime.html">Datetime</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Duration.html">Duration</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Time.html">Time</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Object.html">Object</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Categorical.html">Categorical</a></li></ol></li><li class="chapter-item "><a href="../../../polars/datatypes_constructor.html">datatypes_constructor</a></li><li class="chapter-item expanded "><a href="../../../polars/internals.html">internals</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/construction.html">construction</a></li><li class="chapter-item "><a href="../../../polars/internals/expr.html">expr</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/expr/Expr.html">Expr</a></li><li class="chapter-item "><a href="../../../polars/internals/expr/ExprListNameSpace.html">ExprListNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/expr/ExprStringNameSpace.html">ExprStringNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/expr/ExprDateTimeNameSpace.html">ExprDateTimeNameSpace</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/frame.html">frame</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/frame/DataFrame.html">DataFrame</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/RollingGroupBy.html">RollingGroupBy</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/DynamicGroupBy.html">DynamicGroupBy</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/GroupBy.html">GroupBy</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/PivotOps.html">PivotOps</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/GBSelection.html">GBSelection</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/functions.html">functions</a></li><li class="chapter-item "><a href="../../../polars/internals/lazy_frame.html">lazy_frame</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/lazy_frame/LazyFrame.html">LazyFrame</a></li><li class="chapter-item "><a href="../../../polars/internals/lazy_frame/LazyGroupBy.html">LazyGroupBy</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/lazy_functions.html">lazy_functions</a></li><li class="chapter-item expanded "><a href="../../../polars/internals/series.html">series</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/series/Series.html">Series</a></li><li class="chapter-item expanded "><a href="../../../polars/internals/series/StringNameSpace.html" class="active">StringNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/series/ListNameSpace.html">ListNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/series/DateTimeNameSpace.html">DateTimeNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/series/SeriesIter.html">SeriesIter</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/whenthen.html">whenthen</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/whenthen/WhenThenThen.html">WhenThenThen</a></li><li class="chapter-item "><a href="../../../polars/internals/whenthen/WhenThen.html">WhenThen</a></li><li class="chapter-item "><a href="../../../polars/internals/whenthen/When.html">When</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../polars/io.html">io</a></li><li class="chapter-item "><a href="../../../polars/string_cache.html">string_cache</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/string_cache/StringCache.html">StringCache</a></li></ol></li><li class="chapter-item "><a href="../../../polars/testing.html">testing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Polars - Python Reference Guide</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="polarsinternalsseriesstringnamespace"><a class="header" href="#polarsinternalsseriesstringnamespace"><code>polars.internals.series.StringNameSpace</code></a></h1>
+<p>Series.str namespace.</p>
+<p><strong>Methods</strong></p>
+<ul>
+<li><a href="#polarsinternalsseriesstringnamespacestrptime"><code>strptime()</code></a>: Parse a Series of dtype Utf8 to a Date/Datetime Series.</li>
+<li><a href="#polarsinternalsseriesstringnamespacelengths"><code>lengths()</code></a>: Get length of the string values in the Series.</li>
+<li><a href="#polarsinternalsseriesstringnamespaceconcat"><code>concat()</code></a>: Vertically concat the values in the Series to a single string value.</li>
+<li><a href="#polarsinternalsseriesstringnamespacecontains"><code>contains()</code></a>: Check if strings in Series contain regex pattern.</li>
+<li><a href="#polarsinternalsseriesstringnamespacedecode"><code>decode()</code></a>: Decodes a value using the provided encoding</li>
+<li><a href="#polarsinternalsseriesstringnamespaceencode"><code>encode()</code></a>: Encodes a value using the provided encoding</li>
+<li><a href="#polarsinternalsseriesstringnamespacejson_path_match"><code>json_path_match()</code></a>: Extract the first match of json string with provided JSONPath expression.</li>
+<li><a href="#polarsinternalsseriesstringnamespaceextract"><code>extract()</code></a>: Extract the target capture group from provided patterns.</li>
+<li><a href="#polarsinternalsseriesstringnamespacesplit"><code>split()</code></a>: Split the string by a substring.</li>
+<li><a href="#polarsinternalsseriesstringnamespacereplace"><code>replace()</code></a>: Replace first regex match with a string value.</li>
+<li><a href="#polarsinternalsseriesstringnamespacereplace_all"><code>replace_all()</code></a>: Replace all regex matches with a string value.</li>
+<li><a href="#polarsinternalsseriesstringnamespacestrip"><code>strip()</code></a>: Remove leading and trailing whitespace.</li>
+<li><a href="#polarsinternalsseriesstringnamespacelstrip"><code>lstrip()</code></a>: Remove leading whitespace.</li>
+<li><a href="#polarsinternalsseriesstringnamespacerstrip"><code>rstrip()</code></a>: Remove trailing whitespace.</li>
+<li><a href="#polarsinternalsseriesstringnamespaceto_lowercase"><code>to_lowercase()</code></a>: Modify the strings to their lowercase equivalent.</li>
+<li><a href="#polarsinternalsseriesstringnamespaceto_uppercase"><code>to_uppercase()</code></a>: Modify the strings to their uppercase equivalent.</li>
+<li><a href="#polarsinternalsseriesstringnamespaceslice"><code>slice()</code></a>: Create subslices of the string values of a Utf8 Series.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">class StringNameSpace:
+    &quot;&quot;&quot;
+    Series.str namespace.
+    &quot;&quot;&quot;
+
+    def __init__(self, series: &quot;Series&quot;):
+        self._s = series._s
+
+    def strptime(
+        self,
+        datatype: Union[Type[Date], Type[Datetime]],
+        fmt: Optional[str] = None,
+        strict: bool = True,
+        exact: bool = True,
+    ) -&gt; Series:
+        &quot;&quot;&quot;
+        Parse a Series of dtype Utf8 to a Date/Datetime Series.
+
+        Parameters
+        ----------
+        datatype
+            Date or Datetime.
+        fmt
+            format to use, see the following link for examples:
+            https://docs.rs/chrono/latest/chrono/format/strftime/index.html
+
+            example: &quot;%y-%m-%d&quot;.
+        strict
+            raise an error if any conversion fails
+        exact
+            - If True, require an exact format match.
+            - If False, allow the format to match anywhere in the target string.
+
+        Returns
+        -------
+        A Date/ Datetime Series
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        return (
+            s.to_frame()
+            .select(pli.col(s.name).str.strptime(datatype, fmt, strict, exact))
+            .to_series()
+        )
+
+    def lengths(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Get length of the string values in the Series.
+
+        Returns
+        -------
+        Series[u32]
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_lengths())
+
+    def concat(self, delimiter: str = &quot;-&quot;) -&gt; &quot;Series&quot;:
+        &quot;&quot;&quot;
+        Vertically concat the values in the Series to a single string value.
+
+        Returns
+        -------
+        Series of dtype Utf8
+
+        Examples
+        --------
+        &gt;&gt;&gt; pl.Series([1, None, 2]).str.concat(&quot;-&quot;)[0]
+        '1-null-2'
+
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        return s.to_frame().select(pli.col(s.name).str.concat(delimiter)).to_series()
+
+    def contains(self, pattern: str) -&gt; Series:
+        &quot;&quot;&quot;
+        Check if strings in Series contain regex pattern.
+
+        Parameters
+        ----------
+        pattern
+            A valid regex pattern.
+
+        Returns
+        -------
+        Boolean mask
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_contains(pattern))
+
+    def decode(self, encoding: str, strict: bool = False) -&gt; Series:
+        &quot;&quot;&quot;
+        Decodes a value using the provided encoding
+
+        Parameters
+        ----------
+        encoding
+            'hex' or 'base64'
+        strict
+            how to handle invalid inputs
+            - True: method will throw error if unable to decode a value
+            - False: unhandled values will be replaced with `None`
+
+        Examples
+        --------
+        &gt;&gt;&gt; s = pl.Series([&quot;666f6f&quot;, &quot;626172&quot;, None])
+        &gt;&gt;&gt; s.str.decode(&quot;hex&quot;)
+        shape: (3,)
+        Series: '' [str]
+        [
+            &quot;foo&quot;
+            &quot;bar&quot;
+            null
+        ]
+        &quot;&quot;&quot;
+        if encoding == &quot;hex&quot;:
+            return wrap_s(self._s.str_hex_decode(strict))
+        elif encoding == &quot;base64&quot;:
+            return wrap_s(self._s.str_base64_decode(strict))
+        else:
+            raise ValueError(&quot;supported encodings are 'hex' and 'base64'&quot;)
+
+    def encode(self, encoding: str) -&gt; Series:
+        &quot;&quot;&quot;
+        Encodes a value using the provided encoding
+
+        Parameters
+        ----------
+        encoding
+            'hex' or 'base64'
+
+        Returns
+        -------
+        Utf8 array with values encoded using provided encoding
+
+        Examples
+        --------
+        &gt;&gt;&gt; s = pl.Series([&quot;foo&quot;, &quot;bar&quot;, None])
+        &gt;&gt;&gt; s.str.encode(&quot;hex&quot;)
+        shape: (3,)
+        Series: '' [str]
+        [
+            &quot;666f6f&quot;
+            &quot;626172&quot;
+            null
+        ]
+        &quot;&quot;&quot;
+        if encoding == &quot;hex&quot;:
+            return wrap_s(self._s.str_hex_encode())
+        elif encoding == &quot;base64&quot;:
+            return wrap_s(self._s.str_base64_encode())
+        else:
+            raise ValueError(&quot;supported encodings are 'hex' and 'base64'&quot;)
+
+    def json_path_match(self, json_path: str) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the first match of json string with provided JSONPath expression.
+        Throw errors if encounter invalid json strings.
+        All return value will be casted to Utf8 regardless of the original value.
+        Documentation on JSONPath standard: https://goessner.net/articles/JsonPath/
+
+        Parameters
+        ----------
+        json_path
+            A valid JSON path query string
+
+        Returns
+        -------
+        Utf8 array. Contain null if original value is null or the json_path return nothing.
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; df = pl.DataFrame(
+        ...     {&quot;json_val&quot;: ['{&quot;a&quot;:&quot;1&quot;}', None, '{&quot;a&quot;:2}', '{&quot;a&quot;:2.1}', '{&quot;a&quot;:true}']}
+        ... )
+        &gt;&gt;&gt; df.select(pl.col(&quot;json_val&quot;).str.json_path_match(&quot;$.a&quot;))[:, 0]
+        shape: (5,)
+        Series: 'json_val' [str]
+        [
+            &quot;1&quot;
+            null
+            &quot;2&quot;
+            &quot;2.1&quot;
+            &quot;true&quot;
+        ]
+
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_json_path_match(json_path))
+
+    def extract(self, pattern: str, group_index: int = 1) -&gt; Series:
+        r&quot;&quot;&quot;
+        Extract the target capture group from provided patterns.
+
+        Parameters
+        ----------
+        pattern
+            A valid regex pattern
+        group_index
+            Index of the targeted capture group.
+            Group 0 mean the whole pattern, first group begin at index 1
+            Default to the first capture group
+
+        Returns
+        -------
+        Utf8 array. Contain null if original value is null or regex capture nothing.
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; df = pl.DataFrame(
+        ...     {
+        ...         &quot;a&quot;: [
+        ...             &quot;http://vote.com/ballon_dor?candidate=messi&amp;ref=polars&quot;,
+        ...             &quot;http://vote.com/ballon_dor?candidat=jorginho&amp;ref=polars&quot;,
+        ...             &quot;http://vote.com/ballon_dor?candidate=ronaldo&amp;ref=polars&quot;,
+        ...         ]
+        ...     }
+        ... )
+        &gt;&gt;&gt; df.select([pl.col(&quot;a&quot;).str.extract(r&quot;candidate=(\w+)&quot;, 1)])
+        shape: (3, 1)
+        ┌─────────┐
+        │ a       │
+        │ ---     │
+        │ str     │
+        ╞═════════╡
+        │ messi   │
+        ├╌╌╌╌╌╌╌╌╌┤
+        │ null    │
+        ├╌╌╌╌╌╌╌╌╌┤
+        │ ronaldo │
+        └─────────┘
+
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_extract(pattern, group_index))
+
+    def split(self, by: str, inclusive: bool = False) -&gt; Series:
+        &quot;&quot;&quot;
+        Split the string by a substring.
+        The return type will by of type List&lt;Utf8&gt;
+
+        Parameters
+        ----------
+        by
+            substring
+        inclusive
+            Include the split character/string in the results
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        return s.to_frame().select(pli.col(s.name).str.split(by, inclusive)).to_series()
+
+    def replace(self, pattern: str, value: str) -&gt; Series:
+        &quot;&quot;&quot;
+        Replace first regex match with a string value.
+
+        Parameters
+        ----------
+        pattern
+            A valid regex pattern.
+        value
+            Substring to replace.
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_replace(pattern, value))
+
+    def replace_all(self, pattern: str, value: str) -&gt; Series:
+        &quot;&quot;&quot;
+        Replace all regex matches with a string value.
+
+        Parameters
+        ----------
+        pattern
+            A valid regex pattern.
+        value
+            Substring to replace.
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_replace_all(pattern, value))
+
+    def strip(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Remove leading and trailing whitespace.
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        return s.to_frame().select(pli.col(s.name).str.strip()).to_series()
+
+    def lstrip(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Remove leading whitespace.
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        return s.to_frame().select(pli.col(s.name).str.lstrip()).to_series()
+
+    def rstrip(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Remove trailing whitespace.
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        return s.to_frame().select(pli.col(s.name).str.rstrip()).to_series()
+
+    def to_lowercase(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Modify the strings to their lowercase equivalent.
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_to_lowercase())
+
+    def to_uppercase(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Modify the strings to their uppercase equivalent.
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_to_uppercase())
+
+    def slice(self, start: int, length: Optional[int] = None) -&gt; Series:
+        &quot;&quot;&quot;
+        Create subslices of the string values of a Utf8 Series.
+
+        Parameters
+        ----------
+        start
+            Start of the slice (negative indexing may be used).
+        length
+            Optional length of the slice.
+
+        Returns
+        -------
+        Series of Utf8 type
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_slice(start, length))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<h2 id="constructor"><a class="header" href="#constructor">Constructor</a></h2>
+<pre><code class="language-python">StringNameSpace(series: Series)
+</code></pre>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def __init__(self, series: &quot;Series&quot;):
+        self._s = series._s
+</code></pre>
+<p>
+</details>
+</raw></p>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<p><div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespacestrptime"><a class="header" href="#polarsinternalsseriesstringnamespacestrptime"><code>polars.internals.series.StringNameSpace.strptime</code></a></h3>
+<pre><code class="language-python">strptime(datatype: Union[TypeDate, TypeDatetime], 
+    fmt: Optionalstr, 
+    strict: bool, 
+    exact: bool,) -&gt; Series:
+</code></pre>
+<p>Parse a Series of dtype Utf8 to a Date/Datetime Series.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p>[<code>datatype</code>]: Date or Datetime.</p>
+</li>
+<li>
+<p>[<code>fmt</code>]: format to use, see the following link for examples:
+https:/docs.rs/chrono/latest/chrono/format/strftime/index.html</p>
+<p>example: &quot;%y-%m-%d&quot;.</p>
+</li>
+<li>
+<p>[<code>strict</code>]: raise an error if any conversion fails</p>
+</li>
+<li>
+<p>[<code>exact</code>]: - If True, require an exact format match.</p>
+<ul>
+<li>If False, allow the format to match anywhere in the target string.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A Date/ Datetime Series</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def strptime(
+        self,
+        datatype: Union[Type[Date], Type[Datetime]],
+        fmt: Optional[str] = None,
+        strict: bool = True,
+        exact: bool = True,
+    ) -&gt; Series:
+        &quot;&quot;&quot;
+        Parse a Series of dtype Utf8 to a Date/Datetime Series.
+
+        Parameters
+        ----------
+        datatype
+            Date or Datetime.
+        fmt
+            format to use, see the following link for examples:
+            https://docs.rs/chrono/latest/chrono/format/strftime/index.html
+
+            example: &quot;%y-%m-%d&quot;.
+        strict
+            raise an error if any conversion fails
+        exact
+            - If True, require an exact format match.
+            - If False, allow the format to match anywhere in the target string.
+
+        Returns
+        -------
+        A Date/ Datetime Series
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        return (
+            s.to_frame()
+            .select(pli.col(s.name).str.strptime(datatype, fmt, strict, exact))
+            .to_series()
+        )
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespacelengths"><a class="header" href="#polarsinternalsseriesstringnamespacelengths"><code>polars.internals.series.StringNameSpace.lengths</code></a></h3>
+<pre><code class="language-python">lengths() -&gt; Series:
+</code></pre>
+<p>Get length of the string values in the Series.</p>
+<p><strong>Returns</strong></p>
+<p>Series[u32]</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def lengths(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Get length of the string values in the Series.
+
+        Returns
+        -------
+        Series[u32]
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_lengths())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespaceconcat"><a class="header" href="#polarsinternalsseriesstringnamespaceconcat"><code>polars.internals.series.StringNameSpace.concat</code></a></h3>
+<pre><code class="language-python">concat(delimiter: str) -&gt; Series:
+</code></pre>
+<p>Vertically concat the values in the Series to a single string value.</p>
+<p><strong>Returns</strong></p>
+<p>Series of dtype Utf8</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>pl.Series([1, None, 2]).str.concat(&quot;-&quot;)[0]
+'1-null-2'</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def concat(self, delimiter: str = &quot;-&quot;) -&gt; &quot;Series&quot;:
+        &quot;&quot;&quot;
+        Vertically concat the values in the Series to a single string value.
+
+        Returns
+        -------
+        Series of dtype Utf8
+
+        Examples
+        --------
+        &gt;&gt;&gt; pl.Series([1, None, 2]).str.concat(&quot;-&quot;)[0]
+        '1-null-2'
+
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        return s.to_frame().select(pli.col(s.name).str.concat(delimiter)).to_series()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespacecontains"><a class="header" href="#polarsinternalsseriesstringnamespacecontains"><code>polars.internals.series.StringNameSpace.contains</code></a></h3>
+<pre><code class="language-python">contains(pattern: str) -&gt; Series:
+</code></pre>
+<p>Check if strings in Series contain regex pattern.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>pattern</code>]: A valid regex pattern.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Boolean mask</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def contains(self, pattern: str) -&gt; Series:
+        &quot;&quot;&quot;
+        Check if strings in Series contain regex pattern.
+
+        Parameters
+        ----------
+        pattern
+            A valid regex pattern.
+
+        Returns
+        -------
+        Boolean mask
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_contains(pattern))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespacedecode"><a class="header" href="#polarsinternalsseriesstringnamespacedecode"><code>polars.internals.series.StringNameSpace.decode</code></a></h3>
+<pre><code class="language-python">decode(encoding: str, strict: bool) -&gt; Series:
+</code></pre>
+<p>Decodes a value using the provided encoding</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>encoding</code>]: 'hex' or 'base64'</li>
+<li>[<code>strict</code>]: how to handle invalid inputs
+<ul>
+<li>True: method will throw error if unable to decode a value</li>
+<li>False: unhandled values will be replaced with <code>None</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>s = pl.Series([&quot;666f6f&quot;, &quot;626172&quot;, None])
+s.str.decode(&quot;hex&quot;)
+shape: (3,)
+Series: '' [str]
+[
+&quot;foo&quot;
+&quot;bar&quot;
+null
+]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def decode(self, encoding: str, strict: bool = False) -&gt; Series:
+        &quot;&quot;&quot;
+        Decodes a value using the provided encoding
+
+        Parameters
+        ----------
+        encoding
+            'hex' or 'base64'
+        strict
+            how to handle invalid inputs
+            - True: method will throw error if unable to decode a value
+            - False: unhandled values will be replaced with `None`
+
+        Examples
+        --------
+        &gt;&gt;&gt; s = pl.Series([&quot;666f6f&quot;, &quot;626172&quot;, None])
+        &gt;&gt;&gt; s.str.decode(&quot;hex&quot;)
+        shape: (3,)
+        Series: '' [str]
+        [
+            &quot;foo&quot;
+            &quot;bar&quot;
+            null
+        ]
+        &quot;&quot;&quot;
+        if encoding == &quot;hex&quot;:
+            return wrap_s(self._s.str_hex_decode(strict))
+        elif encoding == &quot;base64&quot;:
+            return wrap_s(self._s.str_base64_decode(strict))
+        else:
+            raise ValueError(&quot;supported encodings are 'hex' and 'base64'&quot;)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespaceencode"><a class="header" href="#polarsinternalsseriesstringnamespaceencode"><code>polars.internals.series.StringNameSpace.encode</code></a></h3>
+<pre><code class="language-python">encode(encoding: str) -&gt; Series:
+</code></pre>
+<p>Encodes a value using the provided encoding</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>encoding</code>]: 'hex' or 'base64'</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Utf8 array with values encoded using provided encoding</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>s = pl.Series([&quot;foo&quot;, &quot;bar&quot;, None])
+s.str.encode(&quot;hex&quot;)
+shape: (3,)
+Series: '' [str]
+[
+&quot;666f6f&quot;
+&quot;626172&quot;
+null
+]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def encode(self, encoding: str) -&gt; Series:
+        &quot;&quot;&quot;
+        Encodes a value using the provided encoding
+
+        Parameters
+        ----------
+        encoding
+            'hex' or 'base64'
+
+        Returns
+        -------
+        Utf8 array with values encoded using provided encoding
+
+        Examples
+        --------
+        &gt;&gt;&gt; s = pl.Series([&quot;foo&quot;, &quot;bar&quot;, None])
+        &gt;&gt;&gt; s.str.encode(&quot;hex&quot;)
+        shape: (3,)
+        Series: '' [str]
+        [
+            &quot;666f6f&quot;
+            &quot;626172&quot;
+            null
+        ]
+        &quot;&quot;&quot;
+        if encoding == &quot;hex&quot;:
+            return wrap_s(self._s.str_hex_encode())
+        elif encoding == &quot;base64&quot;:
+            return wrap_s(self._s.str_base64_encode())
+        else:
+            raise ValueError(&quot;supported encodings are 'hex' and 'base64'&quot;)
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespacejson_path_match"><a class="header" href="#polarsinternalsseriesstringnamespacejson_path_match"><code>polars.internals.series.StringNameSpace.json_path_match</code></a></h3>
+<pre><code class="language-python">json_path_match(json_path: str) -&gt; Series:
+</code></pre>
+<p>Extract the first match of json string with provided JSONPath expression.
+Throw errors if encounter invalid json strings.
+All return value will be casted to Utf8 regardless of the original value.
+Documentation on JSONPath standard: https:/goessner.net/articles/JsonPath/</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>json_path</code>]: A valid JSON path query string</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Utf8 array. Contain null if original value is null or the json_path return nothing.</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df = pl.DataFrame(
+...     {&quot;json_val&quot;: ['{&quot;a&quot;:&quot;1&quot;}', None, '{&quot;a&quot;:2}', '{&quot;a&quot;:2.1}', '{&quot;a&quot;:true}']}
+... )
+df.select(pl.col(&quot;json_val&quot;).str.json_path_match(&quot;$.a&quot;))[:, 0]
+shape: (5,)
+Series: 'json_val' [str]
+[
+&quot;1&quot;</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>&quot;true&quot;
+]</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def json_path_match(self, json_path: str) -&gt; Series:
+        &quot;&quot;&quot;
+        Extract the first match of json string with provided JSONPath expression.
+        Throw errors if encounter invalid json strings.
+        All return value will be casted to Utf8 regardless of the original value.
+        Documentation on JSONPath standard: https://goessner.net/articles/JsonPath/
+
+        Parameters
+        ----------
+        json_path
+            A valid JSON path query string
+
+        Returns
+        -------
+        Utf8 array. Contain null if original value is null or the json_path return nothing.
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; df = pl.DataFrame(
+        ...     {&quot;json_val&quot;: ['{&quot;a&quot;:&quot;1&quot;}', None, '{&quot;a&quot;:2}', '{&quot;a&quot;:2.1}', '{&quot;a&quot;:true}']}
+        ... )
+        &gt;&gt;&gt; df.select(pl.col(&quot;json_val&quot;).str.json_path_match(&quot;$.a&quot;))[:, 0]
+        shape: (5,)
+        Series: 'json_val' [str]
+        [
+            &quot;1&quot;
+            null
+            &quot;2&quot;
+            &quot;2.1&quot;
+            &quot;true&quot;
+        ]
+
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_json_path_match(json_path))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespaceextract"><a class="header" href="#polarsinternalsseriesstringnamespaceextract"><code>polars.internals.series.StringNameSpace.extract</code></a></h3>
+<pre><code class="language-python">extract(pattern: str, group_index: int) -&gt; Series:
+</code></pre>
+<p>Extract the target capture group from provided patterns.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>pattern</code>]: A valid regex pattern</li>
+<li>[<code>group_index</code>]: Index of the targeted capture group.
+Group 0 mean the whole pattern, first group begin at index 1
+Default to the first capture group</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Utf8 array. Contain null if original value is null or regex capture nothing.</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df = pl.DataFrame(
+...     {
+...         &quot;a&quot;: [
+...             &quot;http:/vote.com/ballon_dor?candidate=messi&amp;ref=polars&quot;,
+...             &quot;http:/vote.com/ballon_dor?candidat=jorginho&amp;ref=polars&quot;,
+...             &quot;http:/vote.com/ballon_dor?candidate=ronaldo&amp;ref=polars&quot;,
+...         ]
+...     }
+... )
+df.select([pl.col(&quot;a&quot;).str.extract(r&quot;candidate=(\w+)&quot;, 1)])
+shape: (3, 1)
+┌─────────┐
+│ a       │
+│ ---     │
+│ str     │
+╞═════════╡
+│ messi   │
+├╌╌╌╌╌╌╌╌╌┤
+│ null    │
+├╌╌╌╌╌╌╌╌╌┤
+│ ronaldo │
+└─────────┘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def extract(self, pattern: str, group_index: int = 1) -&gt; Series:
+        r&quot;&quot;&quot;
+        Extract the target capture group from provided patterns.
+
+        Parameters
+        ----------
+        pattern
+            A valid regex pattern
+        group_index
+            Index of the targeted capture group.
+            Group 0 mean the whole pattern, first group begin at index 1
+            Default to the first capture group
+
+        Returns
+        -------
+        Utf8 array. Contain null if original value is null or regex capture nothing.
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; df = pl.DataFrame(
+        ...     {
+        ...         &quot;a&quot;: [
+        ...             &quot;http://vote.com/ballon_dor?candidate=messi&amp;ref=polars&quot;,
+        ...             &quot;http://vote.com/ballon_dor?candidat=jorginho&amp;ref=polars&quot;,
+        ...             &quot;http://vote.com/ballon_dor?candidate=ronaldo&amp;ref=polars&quot;,
+        ...         ]
+        ...     }
+        ... )
+        &gt;&gt;&gt; df.select([pl.col(&quot;a&quot;).str.extract(r&quot;candidate=(\w+)&quot;, 1)])
+        shape: (3, 1)
+        ┌─────────┐
+        │ a       │
+        │ ---     │
+        │ str     │
+        ╞═════════╡
+        │ messi   │
+        ├╌╌╌╌╌╌╌╌╌┤
+        │ null    │
+        ├╌╌╌╌╌╌╌╌╌┤
+        │ ronaldo │
+        └─────────┘
+
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_extract(pattern, group_index))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespacesplit"><a class="header" href="#polarsinternalsseriesstringnamespacesplit"><code>polars.internals.series.StringNameSpace.split</code></a></h3>
+<pre><code class="language-python">split(by: str, inclusive: bool) -&gt; Series:
+</code></pre>
+<p>Split the string by a substring.
+The return type will by of type List<Utf8></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li></li>
+<li>[<code>inclusive</code>]: Include the split character/string in the results</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def split(self, by: str, inclusive: bool = False) -&gt; Series:
+        &quot;&quot;&quot;
+        Split the string by a substring.
+        The return type will by of type List&lt;Utf8&gt;
+
+        Parameters
+        ----------
+        by
+            substring
+        inclusive
+            Include the split character/string in the results
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        return s.to_frame().select(pli.col(s.name).str.split(by, inclusive)).to_series()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespacereplace"><a class="header" href="#polarsinternalsseriesstringnamespacereplace"><code>polars.internals.series.StringNameSpace.replace</code></a></h3>
+<pre><code class="language-python">replace(pattern: str, value: str) -&gt; Series:
+</code></pre>
+<p>Replace first regex match with a string value.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>pattern</code>]: A valid regex pattern.</li>
+<li>[<code>value</code>]: Substring to replace.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def replace(self, pattern: str, value: str) -&gt; Series:
+        &quot;&quot;&quot;
+        Replace first regex match with a string value.
+
+        Parameters
+        ----------
+        pattern
+            A valid regex pattern.
+        value
+            Substring to replace.
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_replace(pattern, value))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespacereplace_all"><a class="header" href="#polarsinternalsseriesstringnamespacereplace_all"><code>polars.internals.series.StringNameSpace.replace_all</code></a></h3>
+<pre><code class="language-python">replace_all(pattern: str, value: str) -&gt; Series:
+</code></pre>
+<p>Replace all regex matches with a string value.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>pattern</code>]: A valid regex pattern.</li>
+<li>[<code>value</code>]: Substring to replace.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def replace_all(self, pattern: str, value: str) -&gt; Series:
+        &quot;&quot;&quot;
+        Replace all regex matches with a string value.
+
+        Parameters
+        ----------
+        pattern
+            A valid regex pattern.
+        value
+            Substring to replace.
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_replace_all(pattern, value))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespacestrip"><a class="header" href="#polarsinternalsseriesstringnamespacestrip"><code>polars.internals.series.StringNameSpace.strip</code></a></h3>
+<pre><code class="language-python">strip() -&gt; Series:
+</code></pre>
+<p>Remove leading and trailing whitespace.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def strip(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Remove leading and trailing whitespace.
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        return s.to_frame().select(pli.col(s.name).str.strip()).to_series()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespacelstrip"><a class="header" href="#polarsinternalsseriesstringnamespacelstrip"><code>polars.internals.series.StringNameSpace.lstrip</code></a></h3>
+<pre><code class="language-python">lstrip() -&gt; Series:
+</code></pre>
+<p>Remove leading whitespace.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def lstrip(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Remove leading whitespace.
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        return s.to_frame().select(pli.col(s.name).str.lstrip()).to_series()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespacerstrip"><a class="header" href="#polarsinternalsseriesstringnamespacerstrip"><code>polars.internals.series.StringNameSpace.rstrip</code></a></h3>
+<pre><code class="language-python">rstrip() -&gt; Series:
+</code></pre>
+<p>Remove trailing whitespace.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def rstrip(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Remove trailing whitespace.
+        &quot;&quot;&quot;
+        s = wrap_s(self._s)
+        return s.to_frame().select(pli.col(s.name).str.rstrip()).to_series()
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespaceto_lowercase"><a class="header" href="#polarsinternalsseriesstringnamespaceto_lowercase"><code>polars.internals.series.StringNameSpace.to_lowercase</code></a></h3>
+<pre><code class="language-python">to_lowercase() -&gt; Series:
+</code></pre>
+<p>Modify the strings to their lowercase equivalent.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def to_lowercase(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Modify the strings to their lowercase equivalent.
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_to_lowercase())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespaceto_uppercase"><a class="header" href="#polarsinternalsseriesstringnamespaceto_uppercase"><code>polars.internals.series.StringNameSpace.to_uppercase</code></a></h3>
+<pre><code class="language-python">to_uppercase() -&gt; Series:
+</code></pre>
+<p>Modify the strings to their uppercase equivalent.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def to_uppercase(self) -&gt; Series:
+        &quot;&quot;&quot;
+        Modify the strings to their uppercase equivalent.
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_to_uppercase())
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsseriesstringnamespaceslice"><a class="header" href="#polarsinternalsseriesstringnamespaceslice"><code>polars.internals.series.StringNameSpace.slice</code></a></h3>
+<pre><code class="language-python">slice(start: int, length: Optionalint) -&gt; Series:
+</code></pre>
+<p>Create subslices of the string values of a Utf8 Series.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>[<code>start</code>]: Start of the slice (negative indexing may be used).</li>
+<li>[<code>length</code>]: Optional length of the slice.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Series of Utf8 type</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def slice(self, start: int, length: Optional[int] = None) -&gt; Series:
+        &quot;&quot;&quot;
+        Create subslices of the string values of a Utf8 Series.
+
+        Parameters
+        ----------
+        start
+            Start of the slice (negative indexing may be used).
+        length
+            Optional length of the slice.
+
+        Returns
+        -------
+        Series of Utf8 type
+        &quot;&quot;&quot;
+        return wrap_s(self._s.str_slice(start, length))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../../polars/internals/series/Series.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../../polars/internals/series/ListNameSpace.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../../polars/internals/series/Series.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../../polars/internals/series/ListNameSpace.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../../../theme/js/index.js"></script>
+        
+
+        
+
+    </body>
+</html>

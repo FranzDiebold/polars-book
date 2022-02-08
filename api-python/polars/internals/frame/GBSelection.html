@@ -1,0 +1,665 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>GBSelection - Polars - Python Reference Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../../favicon.png">
+        
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../../../theme/css/style.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../../polars.html">polars</a></li><li class="chapter-item "><a href="../../../polars/cfg.html">cfg</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/cfg/Config.html">Config</a></li></ol></li><li class="chapter-item "><a href="../../../polars/convert.html">convert</a></li><li class="chapter-item "><a href="../../../polars/datatypes.html">datatypes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/datatypes/DataType.html">DataType</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int8.html">Int8</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int16.html">Int16</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int32.html">Int32</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Int64.html">Int64</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt8.html">UInt8</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt16.html">UInt16</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt32.html">UInt32</a></li><li class="chapter-item "><a href="../../../polars/datatypes/UInt64.html">UInt64</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Float32.html">Float32</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Float64.html">Float64</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Boolean.html">Boolean</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Utf8.html">Utf8</a></li><li class="chapter-item "><a href="../../../polars/datatypes/List.html">List</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Date.html">Date</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Datetime.html">Datetime</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Duration.html">Duration</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Time.html">Time</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Object.html">Object</a></li><li class="chapter-item "><a href="../../../polars/datatypes/Categorical.html">Categorical</a></li></ol></li><li class="chapter-item "><a href="../../../polars/datatypes_constructor.html">datatypes_constructor</a></li><li class="chapter-item expanded "><a href="../../../polars/internals.html">internals</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/construction.html">construction</a></li><li class="chapter-item "><a href="../../../polars/internals/expr.html">expr</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/expr/Expr.html">Expr</a></li><li class="chapter-item "><a href="../../../polars/internals/expr/ExprListNameSpace.html">ExprListNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/expr/ExprStringNameSpace.html">ExprStringNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/expr/ExprDateTimeNameSpace.html">ExprDateTimeNameSpace</a></li></ol></li><li class="chapter-item expanded "><a href="../../../polars/internals/frame.html">frame</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/frame/DataFrame.html">DataFrame</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/RollingGroupBy.html">RollingGroupBy</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/DynamicGroupBy.html">DynamicGroupBy</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/GroupBy.html">GroupBy</a></li><li class="chapter-item "><a href="../../../polars/internals/frame/PivotOps.html">PivotOps</a></li><li class="chapter-item expanded "><a href="../../../polars/internals/frame/GBSelection.html" class="active">GBSelection</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/functions.html">functions</a></li><li class="chapter-item "><a href="../../../polars/internals/lazy_frame.html">lazy_frame</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/lazy_frame/LazyFrame.html">LazyFrame</a></li><li class="chapter-item "><a href="../../../polars/internals/lazy_frame/LazyGroupBy.html">LazyGroupBy</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/lazy_functions.html">lazy_functions</a></li><li class="chapter-item "><a href="../../../polars/internals/series.html">series</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/series/Series.html">Series</a></li><li class="chapter-item "><a href="../../../polars/internals/series/StringNameSpace.html">StringNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/series/ListNameSpace.html">ListNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/series/DateTimeNameSpace.html">DateTimeNameSpace</a></li><li class="chapter-item "><a href="../../../polars/internals/series/SeriesIter.html">SeriesIter</a></li></ol></li><li class="chapter-item "><a href="../../../polars/internals/whenthen.html">whenthen</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/internals/whenthen/WhenThenThen.html">WhenThenThen</a></li><li class="chapter-item "><a href="../../../polars/internals/whenthen/WhenThen.html">WhenThen</a></li><li class="chapter-item "><a href="../../../polars/internals/whenthen/When.html">When</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../polars/io.html">io</a></li><li class="chapter-item "><a href="../../../polars/string_cache.html">string_cache</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../polars/string_cache/StringCache.html">StringCache</a></li></ol></li><li class="chapter-item "><a href="../../../polars/testing.html">testing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Polars - Python Reference Guide</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="polarsinternalsframegbselection"><a class="header" href="#polarsinternalsframegbselection"><code>polars.internals.frame.GBSelection</code></a></h1>
+<p>Utility class returned in a groupby operation.</p>
+<p><strong>Methods</strong></p>
+<ul>
+<li><a href="#polarsinternalsframegbselectionfirst"><code>first()</code></a>: Aggregate the first values in the group.</li>
+<li><a href="#polarsinternalsframegbselectionlast"><code>last()</code></a>: Aggregate the last values in the group.</li>
+<li><a href="#polarsinternalsframegbselectionsum"><code>sum()</code></a>: Reduce the groups to the sum.</li>
+<li><a href="#polarsinternalsframegbselectionmin"><code>min()</code></a>: Reduce the groups to the minimal value.</li>
+<li><a href="#polarsinternalsframegbselectionmax"><code>max()</code></a>: Reduce the groups to the maximal value.</li>
+<li><a href="#polarsinternalsframegbselectioncount"><code>count()</code></a>: Count the number of values in each group.</li>
+<li><a href="#polarsinternalsframegbselectionmean"><code>mean()</code></a>: Reduce the groups to the mean values.</li>
+<li><a href="#polarsinternalsframegbselectionn_unique"><code>n_unique()</code></a>: Count the unique values per group.</li>
+<li><a href="#polarsinternalsframegbselectionquantile"><code>quantile()</code></a>: Compute the quantile per group.</li>
+<li><a href="#polarsinternalsframegbselectionmedian"><code>median()</code></a>: Return the median per group.</li>
+<li><a href="#polarsinternalsframegbselectionagg_list"><code>agg_list()</code></a>: Aggregate the groups into Series.</li>
+<li><a href="#polarsinternalsframegbselectionapply"><code>apply()</code></a>: Apply a function over the groups.</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">class GBSelection:
+    &quot;&quot;&quot;
+    Utility class returned in a groupby operation.
+    &quot;&quot;&quot;
+
+    def __init__(
+        self,
+        df: &quot;PyDataFrame&quot;,
+        by: Union[str, List[str]],
+        selection: Optional[List[str]],
+    ):
+        self._df = df
+        self.by = by
+        self.selection = selection
+
+    def first(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Aggregate the first values in the group.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;first&quot;))
+
+    def last(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Aggregate the last values in the group.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;last&quot;))
+
+    def sum(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Reduce the groups to the sum.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;sum&quot;))
+
+    def min(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Reduce the groups to the minimal value.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;min&quot;))
+
+    def max(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Reduce the groups to the maximal value.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;max&quot;))
+
+    def count(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Count the number of values in each group.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;count&quot;))
+
+    def mean(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Reduce the groups to the mean values.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;mean&quot;))
+
+    def n_unique(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Count the unique values per group.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;n_unique&quot;))
+
+    def quantile(self, quantile: float, interpolation: str = &quot;nearest&quot;) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Compute the quantile per group.
+
+        Parameters
+        ----------
+        quantile
+            quantile between 0.0 and 1.0
+
+        interpolation
+            interpolation type, options: ['nearest', 'higher', 'lower', 'midpoint', 'linear']
+
+        &quot;&quot;&quot;
+        return wrap_df(
+            self._df.groupby_quantile(self.by, self.selection, quantile, interpolation)
+        )
+
+    def median(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Return the median per group.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;median&quot;))
+
+    def agg_list(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Aggregate the groups into Series.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;agg_list&quot;))
+
+    def apply(
+        self,
+        func: Callable[[Any], Any],
+        return_dtype: Optional[Type[DataType]] = None,
+    ) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Apply a function over the groups.
+        &quot;&quot;&quot;
+        df = self.agg_list()
+        if self.selection is None:
+            raise TypeError(
+                &quot;apply not available for Groupby.select_all(). Use select() instead.&quot;
+            )
+        for name in self.selection:
+            s = df.drop_in_place(name + &quot;_agg_list&quot;).apply(func, return_dtype)
+            s.rename(name, in_place=True)
+            df[name] = s
+
+        return df
+</code></pre>
+<p>
+</details>
+</raw></p>
+<h2 id="constructor"><a class="header" href="#constructor">Constructor</a></h2>
+<pre><code class="language-python">GBSelection(df: PyDataFrame, 
+    by: Union[str, List[str]], 
+    selection: OptionalList[str],)
+</code></pre>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def __init__(
+        self,
+        df: &quot;PyDataFrame&quot;,
+        by: Union[str, List[str]],
+        selection: Optional[List[str]],
+    ):
+        self._df = df
+        self.by = by
+        self.selection = selection
+</code></pre>
+<p>
+</details>
+</raw></p>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<p><div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsframegbselectionfirst"><a class="header" href="#polarsinternalsframegbselectionfirst"><code>polars.internals.frame.GBSelection.first</code></a></h3>
+<pre><code class="language-python">first() -&gt; DataFrame:
+</code></pre>
+<p>Aggregate the first values in the group.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def first(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Aggregate the first values in the group.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;first&quot;))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsframegbselectionlast"><a class="header" href="#polarsinternalsframegbselectionlast"><code>polars.internals.frame.GBSelection.last</code></a></h3>
+<pre><code class="language-python">last() -&gt; DataFrame:
+</code></pre>
+<p>Aggregate the last values in the group.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def last(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Aggregate the last values in the group.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;last&quot;))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsframegbselectionsum"><a class="header" href="#polarsinternalsframegbselectionsum"><code>polars.internals.frame.GBSelection.sum</code></a></h3>
+<pre><code class="language-python">sum() -&gt; DataFrame:
+</code></pre>
+<p>Reduce the groups to the sum.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def sum(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Reduce the groups to the sum.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;sum&quot;))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsframegbselectionmin"><a class="header" href="#polarsinternalsframegbselectionmin"><code>polars.internals.frame.GBSelection.min</code></a></h3>
+<pre><code class="language-python">min() -&gt; DataFrame:
+</code></pre>
+<p>Reduce the groups to the minimal value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def min(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Reduce the groups to the minimal value.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;min&quot;))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsframegbselectionmax"><a class="header" href="#polarsinternalsframegbselectionmax"><code>polars.internals.frame.GBSelection.max</code></a></h3>
+<pre><code class="language-python">max() -&gt; DataFrame:
+</code></pre>
+<p>Reduce the groups to the maximal value.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def max(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Reduce the groups to the maximal value.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;max&quot;))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsframegbselectioncount"><a class="header" href="#polarsinternalsframegbselectioncount"><code>polars.internals.frame.GBSelection.count</code></a></h3>
+<pre><code class="language-python">count() -&gt; DataFrame:
+</code></pre>
+<p>Count the number of values in each group.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def count(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Count the number of values in each group.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;count&quot;))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsframegbselectionmean"><a class="header" href="#polarsinternalsframegbselectionmean"><code>polars.internals.frame.GBSelection.mean</code></a></h3>
+<pre><code class="language-python">mean() -&gt; DataFrame:
+</code></pre>
+<p>Reduce the groups to the mean values.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def mean(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Reduce the groups to the mean values.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;mean&quot;))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsframegbselectionn_unique"><a class="header" href="#polarsinternalsframegbselectionn_unique"><code>polars.internals.frame.GBSelection.n_unique</code></a></h3>
+<pre><code class="language-python">n_unique() -&gt; DataFrame:
+</code></pre>
+<p>Count the unique values per group.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def n_unique(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Count the unique values per group.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;n_unique&quot;))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsframegbselectionquantile"><a class="header" href="#polarsinternalsframegbselectionquantile"><code>polars.internals.frame.GBSelection.quantile</code></a></h3>
+<pre><code class="language-python">quantile(quantile: float, 
+    interpolation: str,) -&gt; DataFrame:
+</code></pre>
+<p>Compute the quantile per group.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p>[<code>quantile</code>]: quantile between 0.0 and 1.0</p>
+</li>
+<li>
+<p>[<code>interpolation</code>]: interpolation type, options: ['nearest', 'higher', 'lower', 'midpoint', 'linear']</p>
+</li>
+</ul>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def quantile(self, quantile: float, interpolation: str = &quot;nearest&quot;) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Compute the quantile per group.
+
+        Parameters
+        ----------
+        quantile
+            quantile between 0.0 and 1.0
+
+        interpolation
+            interpolation type, options: ['nearest', 'higher', 'lower', 'midpoint', 'linear']
+
+        &quot;&quot;&quot;
+        return wrap_df(
+            self._df.groupby_quantile(self.by, self.selection, quantile, interpolation)
+        )
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsframegbselectionmedian"><a class="header" href="#polarsinternalsframegbselectionmedian"><code>polars.internals.frame.GBSelection.median</code></a></h3>
+<pre><code class="language-python">median() -&gt; DataFrame:
+</code></pre>
+<p>Return the median per group.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def median(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Return the median per group.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;median&quot;))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsframegbselectionagg_list"><a class="header" href="#polarsinternalsframegbselectionagg_list"><code>polars.internals.frame.GBSelection.agg_list</code></a></h3>
+<pre><code class="language-python">agg_list() -&gt; DataFrame:
+</code></pre>
+<p>Aggregate the groups into Series.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def agg_list(self) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Aggregate the groups into Series.
+        &quot;&quot;&quot;
+        return wrap_df(self._df.groupby(self.by, self.selection, &quot;agg_list&quot;))
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+<div class='function-wrap'></raw></p>
+<h3 id="polarsinternalsframegbselectionapply"><a class="header" href="#polarsinternalsframegbselectionapply"><code>polars.internals.frame.GBSelection.apply</code></a></h3>
+<pre><code class="language-python">apply(func: Callable[[Any], Any], 
+    return_dtype: OptionalTypeDataType,) -&gt; DataFrame:
+</code></pre>
+<p>Apply a function over the groups.</p>
+<p>
+<details>
+  <summary style="text-align:right">source</summary>
+</raw></p>
+<pre><code class="language-python">    def apply(
+        self,
+        func: Callable[[Any], Any],
+        return_dtype: Optional[Type[DataType]] = None,
+    ) -&gt; DataFrame:
+        &quot;&quot;&quot;
+        Apply a function over the groups.
+        &quot;&quot;&quot;
+        df = self.agg_list()
+        if self.selection is None:
+            raise TypeError(
+                &quot;apply not available for Groupby.select_all(). Use select() instead.&quot;
+            )
+        for name in self.selection:
+            s = df.drop_in_place(name + &quot;_agg_list&quot;).apply(func, return_dtype)
+            s.rename(name, in_place=True)
+            df[name] = s
+
+        return df
+</code></pre>
+<p>
+</details>
+</raw></p>
+<p></div></raw>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../../polars/internals/frame/PivotOps.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../../polars/internals/functions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../../polars/internals/frame/PivotOps.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../../polars/internals/functions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../../../theme/js/index.js"></script>
+        
+
+        
+
+    </body>
+</html>
